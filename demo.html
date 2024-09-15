@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>SCEditor Demo</title>
+    <link rel="stylesheet" href="formoid-solid-dark.css" type="text/css" />
+    <link rel="stylesheet" href="minified/themes/default.min.css" id="theme-style" />
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="minified/sceditor.min.js"></script>
+    <script src="minified/icons/monocons.js"></script>
+    <script src="minified/formats/bbcode.js"></script>
+    <script type="text/javascript">
+    tinymce.init({
+        selector: '#info_code',
+        plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        imagetools_cors_hosts: ['picsum.photos'],
+        menubar: 'file edit view insert format tools table help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+        toolbar_sticky: true,
+        autosave_ask_before_unload: true,
+        autosave_interval: "30s",
+        autosave_prefix: "{path}{query}-{id}-",
+        autosave_restore_when_empty: false,
+        autosave_retention: "2m",
+        image_advtab: true,
+        /*content_css: '//www.tiny.cloud/css/codepen.min.css',*/
+        link_list: [
+            { title: 'My page 1', value: 'https://www.codexworld.com' },
+            { title: 'My page 2', value: 'https://www.xwebtools.com' }
+        ],
+        image_list: [
+            { title: 'My page 1', value: 'https://www.codexworld.com' },
+            { title: 'My page 2', value: 'https://www.xwebtools.com' }
+        ],
+        image_class_list: [
+            { title: 'None', value: '' },
+            { title: 'Some class', value: 'class-name' }
+        ],
+        importcss_append: true,
+        file_picker_callback: function(callback, value, meta) {
+            /* Provide file and text for the link dialog */
+            if (meta.filetype === 'file') {
+                callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+            }
+
+            /* Provide image and alt text for the image dialog */
+            if (meta.filetype === 'image') {
+                callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+            }
+
+            /* Provide alternative source and posted for the media dialog */
+            if (meta.filetype === 'media') {
+                callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+            }
+        },
+        templates: [
+            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+        ],
+        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+        image_caption: true,
+        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+        noneditable_noneditable_class: "mceNonEditable",
+        toolbar_mode: 'sliding',
+        contextmenu: "link image imagetools table",
+    });
+    </script>
+    <style>
+        html {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 13px;
+            }
+            form div {
+                padding: .5em;
+            }
+            code:before {
+                position: absolute;
+                top: -1.35em;
+                left: 0;
+            }
+            code {
+                margin-top: 1.5em;
+                position: relative;
+                background:black;
+                border: 1px solid #aaa;
+                white-space: pre;
+                padding: .25em;
+                min-height: 1.25em;
+            }
+            code:before, code {
+                display: block;
+                text-align: left;
+                color:white;
+
+            }
+        </style>
+</head>
+
+<body class="blurBg-false" style="background-color:#5f5f5f">
+    <form enctype="multipart/form-data" action="#" class="formoid-solid-dark" style="background-color:#3e3e3e;font-size:9px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:85%;min-width:150px" method="post">
+        <div class="title">
+            <h2></h2>
+        </div>
+        <div class="element-input">
+            <label class="title"></label>
+            <div class="item-cont">
+                <input class="large" type="text" id="password_c" placeholder="password" /><span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-input">
+            <label class="title"></label>
+            <div class="item-cont">
+                <input class="large" type="text" id="tittle_c" placeholder="tittle contect" />
+                <span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-textarea">
+            <label class="title"></label>
+            <div class="item-cont">
+                <textarea class="small" id="text_c" cols="20" rows="5" placeholder="text contect"></textarea>
+                <span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-textarea">
+            <label class="title"></label>
+            <div class="item-cont">
+                <textarea id="info_code" class="medium" name="textarea1" cols="20" rows="5" placeholder="info code"></textarea><span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-textarea">
+            <label class="title"></label>
+            <div class="item-cont">
+                <textarea style="height:250px;" id="the_code_a_t" class="medium" name="textarea1" cols="20" rows="5" placeholder="the code"></textarea><span class="icon-place"></span>
+            </div>
+        </div>
+        <input class="btn btn-primary append_c" type="button" value="0" style="background:red;font-size:20px;">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">view code</button>
+        <div class="element-input">
+            <label class="title"></label>
+            <div class="item-cont">
+                <input class="large" type="text" id="note_c" placeholder="content note" /><span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-file">
+            <label class="title"></label>
+            <div class="item-cont">
+                <label class="large">
+                    <div class="button">Choose image</div>
+                    <input type="file" class="file_input" id="img_f_c" />
+                    <div class="file_text">No file selected</div>
+                    <span class="icon-place"></span>
+                </label>
+            </div>
+        </div>
+        <span id="loading">
+        </span>
+        <div class="submit">
+            <input type="submit" value="INSERT" id="insert" />
+        </div>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script>
+    /*var textarea = document.getElementById('the_code_a_t');
+            sceditor.create(textarea, {
+                icons: 'monocons',
+                style: 'minified/themes/content/default.min.css'
+            });
+
+
+            var themeInput = document.getElementById('theme');
+            themeInput.onchange = function() {
+                var theme = 'minified/themes/' + themeInput.value + '.min.css';
+
+                document.getElementById('theme-style').href = theme;
+            };
+            */
+    </script>
+    <!-- Large modal -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div id="t_code_app">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="the_full_code">
+    </div>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+            var count_n = 0;
+    $(document).on('click', '.append_c', function(e) {
+        
+        var myContent_t = tinymce.get("info_code").getContent();
+
+        var p_count = 1;
+        count_n += p_count;
+
+        $(".b_re").attr('id', 'rem' + count_n);
+        $(".append_c").val(count_n);
+
+        var info_code = '<div class="margin-top-40 margin-bottom-40 ' + count_n + '"><p onclick="remove_o_c(' + count_n + ')">' + myContent_t + '</p>';
+
+        info_code += '<pre class="brush:php">';
+        info_code += $("#the_code_a_t").val();
+        info_code += '</pre>';
+        info_code += '</div>';
+
+
+        $("#t_code_app").append(info_code);
+    });
+    </script>
+</body>
+
+</html>
