@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+    <h1>Create a simple calculator using Javascript</h1>
+</div>
+<!-- Post Headline End -->
+<!-- Post Detail Start -->
+<div class="post-info">
+    <span>2022.05.10 by <a href="#" target="_blank">Murad Shaker</a></span>
+</div>
+<!-- Post Detail End -->
+<p></p>
+
+<div class="code">
+    <div id="t_code_app">
+        <div class="margin-top-40 margin-bottom-40 1">
+            <p onclick="remove_o_c(1)"></p>
+            <p><span style="font-size: 18pt;"><strong>index.html</strong></span></p>
+            <p></p>
+            <pre class="brush:php">
+
+
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+   <link rel="stylesheet" type="text/css" href="style.css">
+
+
+ <div class="container my-4">
+  <hr class="mb-5">
+  <div class="calculator card">
+   <input type="text" class="calculator-screen z-depth-1" id="p_num" value="" disabled="">
+   <div class="calculator-keys" style="background:#F0E785;">
+    
+    <button type="button" class="operator btn btn-info" value="+" onclick="app_n_o('+')">+</button>
+      <button type="button" class="operator btn btn-info" value="-" onclick="app_n_o('-')">-</button>
+      <button type="button" class="operator btn btn-info" value="*" onclick="app_n_o('*')">×</button>
+      <button type="button" class="operator btn btn-info" value="/" onclick="app_n_o('/')">÷</button>
+
+      <button type="button" value="7" onclick="app_n_o('7')" class="btn btn-light waves-effect">7</button>
+      <button type="button" value="8" onclick="app_n_o('8')" class="btn btn-light waves-effect">8</button>
+      <button type="button" value="9" onclick="app_n_o('9')" class="btn btn-light waves-effect">9</button>
+
+      <button type="button" value="4" onclick="app_n_o('4')" class="btn btn-light waves-effect">4</button>
+      <button type="button" value="5" onclick="app_n_o('5')" class="btn btn-light waves-effect">5</button>
+      <button type="button" value="6" onclick="app_n_o('6')" class="btn btn-light waves-effect">6</button>
+
+
+      <button type="button" value="1" onclick="app_n_o('1')" class="btn btn-light waves-effect">1</button>
+      <button type="button" value="2" onclick="app_n_o('2')" class="btn btn-light waves-effect">2</button>
+      <button type="button" value="3" onclick="app_n_o('3')" class="btn btn-light waves-effect">3</button>
+
+      <button type="button" value="0" onclick="app_n_o('0')" class="btn btn-light waves-effect">0</button>
+      <button type="button" class="decimal function btn btn-secondary" value="." onclick="app_n_o('.')">.</button>
+      <button type="button" onclick="Backspace()" class="all-clear function btn btn-danger btn-sm" value="all-clear"><i class="fas fa-backspace"></i></button>
+
+      <button type="button" class="equal-sign operator btn btn-default" onclick="equal_sign()" value="=">=</button>          
+   </div>
+  </div>
+  </div>
+
+<script type="text/javascript">
+  function app_n_o(result)
+  {
+       document.getElementById('p_num').value+=result;
+  }
+
+  function equal_sign()
+  {
+    var result_a=document.getElementById('p_num').value;
+    if (result_a != "") 
+    {
+      document.getElementById('p_num').value=eval(result_a);
+    }
+  }
+
+  function Backspace()
+  {
+     var result=document.getElementById('p_num').value;
+
+     document.getElementById('p_num').value=result.slice(0,-1);
+  }
+</script>
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 2">
+            <p onclick="remove_o_c(2)"></p>
+            <p><span style="font-size: 18pt;"><strong>style.css</strong></span></p>
+            <p></p>
+            <pre class="brush:php">html {
+      font-size: 62.5%;
+      box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    .calculator {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+    }
+
+    .calculator-screen {
+      width: 100%;
+      height: 80px;
+      border: none;
+      background-color: #252525;
+      color: #fff;
+      text-align: right;
+      padding-right: 20px;
+      padding-left: 10px;
+      font-size: 4rem;
+    }
+
+    button {
+      height: 60px;
+      font-size: 2rem!important;
+    }
+
+    .equal-sign {
+      height: 98%;
+      grid-area: 2 / 4 / 6 / 5;
+    }
+
+    .calculator-keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+      padding: 20px;
+    }</pre>
+        </div>
+    </div>
+</div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

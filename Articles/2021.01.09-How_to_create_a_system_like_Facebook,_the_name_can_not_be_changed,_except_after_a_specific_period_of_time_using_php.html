@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div class="post-title">
+                                        <h1>How to create a system like Facebook, the name can not be changed, except after a specific period of time using php</h1>
+                                    </div>
+                                    <div class="post-info">
+                                        <span>2021-01-09 by <a href="#" target="_blank">Murad Shaker</a></span>
+                                    </div>
+                                    <p></p>
+                                    <div class="code">
+                                        <div id="delete0" class="review_code">
+                                            <p id="0" class=" delete_review_code hide0">This is the main file sending the name to the insert_name.php file via ajax. It is an easy symbol. Just copy it and put it in your editor.
+                                            </p><br><br>
+                                            <div class="margin-top-40margin-bottom-40">
+                                                <pre class="brush:js">
+
+
+   <link rel="stylesheet" type="text/css" href="css.css">
+   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+ <div class="login-page">
+  <div class="form">
+    <div class="login-form">
+      <input type="text" placeholder="first_name" id="first_name">
+      <input type="text" placeholder="Last_name" id="Last_name">
+      <button id="insert">Insert</button>
+      <div id="text_smail">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        
+        $('#insert').on('click',function(){
+
+          var first_name=$("#first_name").val();
+          var Last_name=$("#Last_name").val();
+
+          if (first_name != "" && Last_name != "") 
+          {
+
+            $.ajax({
+
+              url:"insert_name.php",
+              type:"post",
+              data:{first_name:first_name,Last_name:Last_name},
+              success:function(data)
+              {
+                       if (data == "done_successfully") 
+                        {
+                         $("#text_smail").html('<h5 style="text-align: center;">Name inserted successfully</h5>');
+                        }
+                        if (data == "There_is_a_name") 
+                        {
+                       $("#text_smail").html('<h5 style="text-align: center;color:red;">The name cannot be entered because you have already entered a name previously. If you want to enter a new name, change it<a href="Changing_name.php">from here</a></h5>');
+                        }
+              }
+            })
+          }else{
+
+            $("#text_smail").html('<h6 style="text-align: center;color:red;">Please enter the name</h6>');
+          }
+
+        });
+  });
+</script>
+</pre>
+                                            </div>
+                                            <count></count>
+                                        </div>
+                                        <div id="delete1" class="review_code">
+                                            <p id="1" class=" delete_review_code hide1">This file receives the name from index.php, and this file will send the name directly to mysqli. The conditions are, if you previously added a name, the names cannot be added at this time. You can only modify it from the Changing_name.php file</p><br><br>
+                                            <div class="margin-top-40margin-bottom-40">
+                                                <pre class="brush:js"><!--?php
+include 'mysql.php';
+
+$name=$_POST['first_name']." ".$_POST['Last_name'];
+
+$query='SELECT * FROM `name`';
+
+$stm=$connect--->prepare($query);
+$stm-&gt;execute();
+$count_value=$stm-&gt;rowCount();
+
+if ($count_value == 0) {
+   
+   $query='INSERT INTO `name`(`name`) 
+   VALUES ("'.$name.'")';
+
+     $stm=$connect-&gt;prepare($query);
+
+     if ($stm-&gt;execute()) 
+     {
+      echo "done_successfully";
+     }
+
+}else{
+   
+     echo "There_is_a_name";
+
+}
+
+
+?&gt;</pre>
+                                            </div>
+                                            <count></count>
+                                        </div>
+                                        <div id="delete2" class="review_code">
+                                            <p id="2" class=" delete_review_code hide2">This works very similarly to index.php, as it also sends the name to update_name.php. The variable <span style="color: rgb(255, 0, 255);">The_number_of_times</span> counts the number of times the name is updated and also sends the numeric value from 1 to 2 to the count_change column in mysqli, this makes conditions if the number of name modifications is more than 2, in this case, the modification is currently rejected, except after a period of time. You can do this using the <span style="color: rgb(0, 255, 255);">update_count_change</span> function.
+                                                Select how long a month, week or day works for you with setTimeout at <span style="color: rgb(0, 255, 255);">update_count_change</span></p><br><br>
+                                            <div class="margin-top-40margin-bottom-40">
+                                                <pre class="brush:js">
+
+
+   <link rel="stylesheet" type="text/css" href="css.css">
+   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+  <div class="login-page">
+  <div class="form">
+    <div class="login-form">
+      <h5>Change the name</h5>
+      <input type="text" placeholder="first_name" id="first_name">
+      <input type="text" placeholder="Last_name" id="Last_name">
+      <button id="insert">Insert</button>
+     <p class="message">If you change the name twice, it cannot be changed until after one week</p>
+     <p id="text_yes">
+     </p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+       $("#insert").on('click',function(){
+
+             var first_name=$("#first_name").val();
+             var Last_name=$("#Last_name").val();
+
+            if (first_name != "" && Last_name!= "") 
+              {
+               var The_number_of_times = 1;
+
+             $.ajax({
+                 url:"update_name.php",
+                 type:"post",
+                 data:{first_name:first_name,Last_name:Last_name,The_number_of_times:The_number_of_times},
+                 success:function(data)
+                  {
+                     if (data == "Not_possible")
+                       {
+                      $(".message").html('<h6 style="text-align: center;color:red;">The name can only be added after a week</h6>');
+
+                          update_count_change();
+                      }
+
+                    if (data == "updated")
+                        {
+                          $(".message").html('<h6 style="text-align: center;color:blue;">Name added</h6>');
+                         }
+                       }
+                     });
+
+                    }else{
+
+                      $(".message").html('<h6 style="text-align: center;color:red;">Please enter the name</h6>');
+                    }
+             });
+        });
+
+      function update_count_change()
+      {
+         setTimeout(function(){ 
+
+              $.ajax({
+                 url:"update_count_change.php",
+                 success:function(data)
+                 {
+                  alert("update_count_change");
+                 }
+               });
+            },5000);
+      }
+</script>
+</pre>
+                                            </div>
+                                            <count></count>
+                                        </div>
+                                        <div id="delete5" class="review_code">
+                                            <p id="5" class=" delete_review_code hide5">This function triggers the time period during which the <span style="font-size: 14px; color: rgb(255, 0, 0);">Count_change</span><br> column can be updated and made blank, in this case if the <span style="font-size: 14px; color: rgb(255, 0, 0);">Count_change</span><br> column is updated to a null value, the name can be modified again according to the previous conditions</p><br><br>
+                                            <div class="margin-top-40margin-bottom-40">
+                                                <pre class="brush:js">function update_count_change()
+      {
+         setTimeout(function(){ 
+
+              $.ajax({
+                 url:"update_count_change.php",
+                 success:function(data)
+                 {
+                  alert("update_count_change");
+                 }
+               });
+            },5000);
+      }</pre>
+                                            </div>
+                                            <count></count>
+                                        </div>
+                                        <div id="delete6" class="review_code">
+                                            <p id="6" class=" delete_review_code hide6">This file receives the name, and the value of <span style="font-size: 14px; color: rgb(255, 0, 0);">The_number_of_times&nbsp;</span><br> variable from the <span style="font-size: 14px; color: rgb(0, 255, 255);">Changing_name</span><br>.php file and sends it to mysqli, there are conditions in this file that you are trying to understand</p><br><br>
+                                            <div class="margin-top-40margin-bottom-40">
+                                                <pre class="brush:js"><!--?php
+
+
+include 'mysql.php';
+
+$name=$_POST['first_name']." ".$_POST['Last_name'];
+
+$query='SELECT * FROM `name`';
+
+$stm=$connect--->prepare($query);
+$stm-&gt;execute();
+$count_value=$stm-&gt;rowCount();
+$fetch_count_name=$stm-&gt;FetchAll();
+
+foreach ($fetch_count_name as $row) 
+{
+   if ($row['count_change'] &gt;= 2) 
+   {
+     echo "Not_possible";
+   }else{
+
+    if ($row['count_change'] == 1) 
+    {
+           $The_number_of_times=$row['count_change']+$_POST['The_number_of_times'];   
+    }else{
+
+           $The_number_of_times=$_POST['The_number_of_times']; 
+    }
+
+    $query='UPDATE `name` SET `name`="'.$name.'",
+                     `count_change`="'.$The_number_of_times.'"';
+
+    $stm=$connect-&gt;prepare($query);
+    
+    if ($stm-&gt;execute()) 
+    {
+      echo "updated";
+    }
+
+   }
+}
+
+
+
+?&gt;</pre>
+                                            </div>
+                                            <count></count>
+                                        </div>
+                                        <div id="delete7" class="review_code">
+                                            <p id="7" class=" delete_review_code hide7">This file receives commands from the <span style="font-size: 14px; background-color: rgb(204, 204, 204); color: rgb(0, 0, 0);">update_count_change&nbsp;</span><br> function that updates the <span style="font-size: 14px; color: rgb(255, 0, 255);">count_change</span><span style="color: rgb(0, 0, 0); font-size: 14px;">&nbsp;</span><br> column and makes it blank</p><br><br>
+                                            <div class="margin-top-40margin-bottom-40">
+                                                <pre class="brush:js"><!--?php
+
+include 'mysql.php';
+
+$query='UPDATE `name` SET `count_change`=""';
+
+$stm=$connect->prepare($query);
+if ($stm-&gt;execute()) 
+    {
+     echo "delete";
+    }     
+
+?>
+--></pre>
+                                            </div>
+                                            <count></count>
+                                        </div><br>
+                                        <div id="delete7" class="review_code">
+                                            <p id="7" class=" delete_review_code hide7">This file is for connecting to our databases, and using PDO
+                                            </p><br>
+                                            <div class="margin-top-40margin-bottom-40">
+                                                <pre class="brush:js">
+<!--?php
+
+$connect=new PDO("mysql:host=localhost;dbname=table_names", "root", "");
+
+?>--></pre>
+                                            </div>
+                                            <count>
+                                            </count>
+                                        </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+
+</html>

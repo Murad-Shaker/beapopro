@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>how can i show user online or offline in php and ajax</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2021-06-15 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+        
+         <div class="code">
+
+              
+            <div id="delete0" class="review_code"><p id="0" class=" delete_review_code hide0">mysqli.php
+ database connection file
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php    
+  $connect=new mysqli('localhost','root','','users');
+ ?--></pre></div><count></count></div><div id="delete1" class="review_code"><p id="1" class=" delete_review_code hide1">register.php
+
+This registration code is simple code and no need to waste time explaining it is simply that AJAX gets the username and password value using
+sequence ()
+and send it to the file insert.php
+Also, the query is in a file
+insert.php, so the name and password are sent to our table</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+<h2>Register Form</h2>
+<form>
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required="">
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required="">
+    <button type="submit">Register</button>
+    <div id="alert">&lt;html&gt;&lt;body&gt;&lt;script type="text/javascript" src="/aes.js" &gt;&lt;/script&gt;&lt;script&gt;function toNumbers(d){var e=[];d.replace(/(..)/g,function(d){e.push(parseInt(d,16))});return e}function toHex(){for(var d=[],d=1==arguments.length&amp;&amp;arguments[0].constructor==Array?arguments[0]:arguments,e="",f=0;f&lt;d.length;f++)e+=(16&gt;d[f]?"0":"")+d[f].toString(16);return e.toLowerCase()}var a=toNumbers("f655ba9d09a112d4968c63579db590b4"),b=toNumbers("98344c2eee86c3994890592585b49f80"),c=toNumbers("b210aaa99f62ec33ed46ced58617da56");document.cookie="__test="+toHex(slowAES.decrypt(c,2,a,b))+"; expires=Thu, 31-Dec-37 23:55:55 GMT; path=/"; location.href="http://beapopro.rf.gd/insert.php?i=1";&lt;/script&gt;&lt;noscript&gt;This site requires Javascript to work, please enable Javascript in your browser or use a browser with Javascript support&lt;/noscript&gt;&lt;/body&gt;&lt;/html&gt;</div>
+  </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('form').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url:"insert.php",
+            type:"post",
+            data:$(this).serialize(),
+            success:function(data)
+            {
+               $("#alert").text(data); 
+               if (data == 'succeeded') 
+               {
+                location.href="index.php";
+               }
+            }
+         });
+       });
+     });
+</script>
+
+</pre></div><count></count></div><div id="delete2" class="review_code"><p id="2" class=" delete_review_code hide2"> insert.php
+
+ the file that receives the name and password from the register.php file and sends it to our table</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php 
+   session_start();
+   include 'mysqli.php';
+
+   $sql="INSERT INTO `d_user`(`username`,`password`) 
+                      VALUES ('".$_POST['uname']."','".$_POST['psw']."')";
+
+    if ($connect--->query($sql)) 
+    {   
+      $user_id=$connect-&gt;insert_id;
+      $_SESSION['user_id']=$user_id;
+      echo "succeeded"; 
+    }
+?&gt;</pre></div><count></count></div><div id="delete3" class="review_code"><p id="3" class=" delete_review_code hide3">index.php
+This file displays the active and inactive users on the Internet, the view of the users is refreshed every seconds, and the users are fetched from the fetch_user.php file by AJAX,
+
+For the condition at the top of the page it checks the user if he is logged in or not, if he accesses the index file and is not registered it is taken directly to the register.php file by header()</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">
+
+
+  <!--?php  
+   session_start();
+   if (!isset($_SESSION['user_id'])) 
+     {
+       header('location:register.php'); 
+     }
+  ?-->
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="insert_online_ofline.js"></script>
+
+
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="list_user">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      setInterval(function(){
+
+          $.ajax({
+            url:"fetch_user.php",
+            success:function(data)
+            {
+              $(".list_user").html(data);
+            }
+          })
+        },2000)
+  });
+</script>
+</pre></div><count></count></div><div id="delete4" class="review_code"><p id="4" class=" delete_review_code hide4">index.php
+This file displays the active and inactive users on the Internet, the view of the users is refreshed every seconds, and the users are fetched from the fetch_user.php file by AJAX,
+
+For the condition at the top of the page it checks the user if he is logged in or not, if he accesses the index file and is not registered it is taken directly to the register.php file by header()</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">
+
+
+  <!--?php  
+   session_start();
+   if (!isset($_SESSION['user_id'])) 
+     {
+       header('location:register.php'); 
+     }
+  ?-->
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="insert_online_ofline.js"></script>
+
+
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="list_user">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      setInterval(function(){
+
+          $.ajax({
+            url:"fetch_user.php",
+            success:function(data)
+            {
+              $(".list_user").html(data);
+            }
+          })
+        },2000)
+  });
+</script>
+</pre></div><count></count></div><div id="delete5" class="review_code"><p id="5" class=" delete_review_code hide5">fetch_user.php. a file
+
+The file that displays index.php to users, and sends it to index.php in html
+
+As for the terms at the bottom of the page,
+It says if the number of minutes in the status column equals the number of current minutes in the date() function, this is proof that the user is active on his own page because when he is active on his page, his status column is updated every second and the current minute is sent to the private status column with it</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+ include 'mysqli.php';
+ $sql="SELECT * FROM `d_user`";
+
+ $fetch_user=$connect--->query($sql);
+ while ($row = $fetch_user-&gt;fetch_assoc()) 
+   {
+   ?&gt;
+     <div class="list list-row block">
+         <div class="list-item" data-id="4">
+            <div><a href="#" data-abc="true"><span class="w-48 avatar gd-success"><img src="https://img.icons8.com/color/48/000000/guest-male.png" alt="."></span></a></div>
+            <div class="flex"> <a href="#" class="item-author text-color" data-abc="true"><!--?php echo $row['username']; ?--></a>
+                            
+          </div>
+         <div class="no-wrap">
+           <div class="item-date text-muted text-sm d-none d-md-block">
+            <!--?php 
+              if (date('i') == $row['status']) 
+              {
+                echo"online";
+              }else{
+                echo"offline";
+              }
+            ?-->
+           </div>
+         </div>
+      </div>
+    </div>
+   <!--?php
+     }
+     ?--></pre></div><count></count></div><div id="delete6" class="review_code"><p id="6" class=" delete_review_code hide6">As for the file?
+
+insert_online_ofline.js
+
+It is the basis of our topic today. This file updates the user's status every seconds so that it sends the current minute to the status column
+by file
+Update_ST.php
+being compared
+function
+date()
+with case value
+if it's worth
+The user is active and if
+Not equal, the user is inactive
+Because when the user is on the browser, the status column value will be updated every seconds, and therefore it is easy to check if the person is actually present or not, in proportion to the status column being updated every second</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">setInterval(function(){
+ $.ajax({
+   url:"UPdate_ST.php",
+   success:function(data)
+   {
+
+   }
+ });
+},2000)</pre></div><count></count></div><div id="delete7" class="review_code"><p id="7" class=" delete_review_code hide7">Update_ST.php
+This code updates the status column for the user every second</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php 
+  include 'mysqli.php';
+  session_start();
+
+  $sql_up_st="UPDATE `d_user` SET `status`='".date('i')."' 
+             WHERE user_id='".$_SESSION['user_id']."'";
+
+  $connect--->query($sql_up_st);
+?&gt;</pre></div><count></count></div><div id="delete8" class="review_code"><p id="8" class=" delete_review_code hide8">style.css</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.4285714286;
+    color: #212529;
+    text-align: left;
+    background-color: #f9f9fa;
+    padding-left: 30%;
+}
+
+#page-content {
+    margin-top: 100px
+}
+
+a {
+    color: #448bff;
+    text-decoration: none;
+    background-color: transparent
+}
+
+a:hover {
+    color: #005ef7;
+    text-decoration: underline
+}
+
+ 
+ .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%
+ }
+.block,
+.card {
+    background: #fff;
+    border-width: 0;
+    border-radius: .25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+    margin-bottom: 1.5rem
+}
+
+.avatar {
+    position: relative;
+    line-height: 1;
+    border-radius: 500px;
+    white-space: nowrap;
+    font-weight: 700;
+    border-radius: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    border-radius: 500px;
+    box-shadow: 0 5px 10px 0 rgba(50, 50, 50, .15)
+}
+
+.avatar img {
+    border-radius: inherit;
+    width: 100%
+}
+
+ 
+@media (min-width:992px) {
+ 
+.list {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.list-item {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word
+}
+
+.list-row .list-item {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .75rem .625rem
+}
+
+.list-row .list-item&gt;* {
+    padding-left: .625rem;
+    padding-right: .625rem
+}
+
+.list-row .list-item:hover {
+    background: #f4c414 linear-gradient(45deg, #f4c414, #f45414)
+}
+
+.no-wrap {
+    white-space: nowrap
+}
+
+.text-color {
+    color: #5e676f
+}
+
+.text-gd {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-fill-color: transparent
+}
+
+.text-sm {
+    font-size: .825rem
+}
+
+.h-1x {
+    height: 1.25rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical
+}
+
+.w-48 {
+    width: 48px !important;
+    height: 48px !important
+}
+ 
+</pre></div><count></count></div>        
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>Create a friend search system using php and ajax mysqli pdo</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2021.10.01 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+
+         <div class="code">
+
+              
+            <div id="delete0" class="review_code" bis_skin_checked="1"><p id="0" class=" delete_review_code hide0">mysqli.php file connects to database
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php 
+ $connect=new PDO("mysql:host=localhost;dbname=exm","root","");
+?--></pre></div><count></count></div><div id="delete1" class="review_code" bis_skin_checked="1"><p id="1" class=" delete_review_code hide1">Go to the database and create a database named exm and paste this code in it
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 30, 2021 at 11:03 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `exm`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `gender` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+</pre></div><count></count></div><div id="delete2" class="review_code" bis_skin_checked="1"><p id="2" class=" delete_review_code hide2">add_user.php
+This file sends the name and city value to
+database.php,
+where it is sent by mysqli pdo,
+ I have also added the bindParam function because it provides
+Strong security To prevent malicious entries by users trying to attack, I recommend you to put this function bindParam, in all your projects because it provides security for your database,
+, and I made a warning message that is stored in the $m_s variable, and it is displayed by javascript</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">
+
+
+    <!--?php include 'mysqli.php';?-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+  <div class="add" bis_skin_checked="1">
+      <div class="account-add" bis_skin_checked="1">
+        <h1>Add User</h1>
+        <form method="post" class="add-form">
+            <div class="form-group" bis_skin_checked="1">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control">
+            </div>
+            <div class="add-form" bis_skin_checked="1">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" class="form-control">
+            </div>
+            <div class="form-group" bis_skin_checked="1">
+                <label for="gender">Gender</label>
+                 <select name="gender" id="gender" class="form-control">
+                    <option selected=""></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <h4 id="alert"><div class="alert alert-warning" role="alert" bis_skin_checked="1"><!--?php echo $m_s ?--></div></h4>
+             <button name="click" class="btn">Add</button>
+        </form>
+      </div>
+  </div>
+
+<style type="text/css">
+* {
+margin: 0px;
+padding: 0px;
+}
+.add {
+background: linear-gradient(to bottom, #0099ff 0%, #fff 100%);
+height: 100vh;
+width: 100%;
+justify-content: center;
+align-items: center;
+display: flex;
+}
+.account-add {
+width: 500px;
+}
+.form-control:focus {
+box-shadow: none;
+}
+
+.account-add h1 {
+font-size: 25px;
+text-align: left;
+color: #fff;
+text-transform: uppercase;
+font-weight: bold;
+border-radius: 5px;
+}
+.add-form input {
+width: 100%;
+position: relative;
+border-bottom: 1px solid #a39e9e;
+padding: 0;
+border-top: 0px;
+border-left: 0px;
+border-right: 0px;
+box-shadow: none;
+height: 63px;
+border-radius: 0px;
+}
+.add-form {
+background: #fff;
+float: left;
+width: 100%;
+padding: 40px;
+border-radius: 5px;
+}
+button.btn {
+width: 100%;
+background: #009cff;
+font-size: 20px;
+padding: 11px;
+color: #fff;
+border: 0px;
+margin: 10px 0px 20px;
+}
+</style>
+
+<!--?php
+ $m_s="";
+ if (isset($_POST['click'])) 
+ { 
+     if (empty($_POST['name'])) 
+     {
+        $m_s="Please add a name";
+     }
+
+     if (empty($_POST['city'])) 
+     {
+        $m_s="Please add your city name";
+     }
+
+     if ($m_s == "") 
+     {
+       $query="INSERT INTO `users`(`name`, `city`, `gender`) VALUES (:name , :city , :gender)"; 
+
+       $stm=$connect--->prepare($query); 
+
+       $stm-&gt;bindParam(':name',$_POST['name'],PDO::PARAM_STR); 
+       $stm-&gt;bindParam(':city',$_POST['city'],PDO::PARAM_STR); 
+       $stm-&gt;bindParam(':gender',$_POST['gender'],PDO::PARAM_STR); 
+
+       if ($stm-&gt;execute()) 
+         {
+           $m_s="successfully inserted";
+         }
+     }
+     ?&gt;
+      <script type="text/javascript">
+          var m_s='<?php echo $m_s ?>';
+          $("#alert").html('<div class="alert alert-warning" role="alert">'+m_s+'</div>');
+      </script>
+     <!--?php
+
+     $m_s="";
+ } 
+?--></pre></div><count></count></div><div id="delete3" class="review_code" bis_skin_checked="1"><p id="3" class=" delete_review_code hide3">a file
+index.php,
+This file shows which users have been sent to mysqli,
+ by
+fetch_users
+and this button,
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+     research
+   </button>
+Provides an interface to search for suitable friends,
+By entering the name, place and gender,
+Do you want to search individually by a single value, or double search by all values,
+And when you click Search
+In this case, the code will be executed
+$("#search"). Click (function () {
+ var name = $ ("# name"). val();
+ var city = $("# City"). val();
+ var gender = $ ("# gender"). val();
+ var how_to_search = $("#how_to_search"). val();
+fetch_users(name, city, gender, how_to_search);
+});
+
+Thus, the function is called
+fetch_users,
+Again, in a different way, this time, the values â€‹â€‹will be sent to a file
+fetch_user.php,
+Don't worry, I'll explain what happens
+fetch_user.php</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">
+
+
+  <!--?php include 'mysqli.php'; ?-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+ <div class="container" bis_skin_checked="1">
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+     search
+   </button>
+   <br>
+   <br>
+  <div class="row" id="users" bis_skin_checked="1">
+
+  </div>
+</div>
+  <div class="modal" id="myModal" bis_skin_checked="1">
+         <div class="modal-dialog" bis_skin_checked="1">
+            <div class="modal-content" bis_skin_checked="1">
+               <!-- Modal Header -->
+               <div class="modal-header" bis_skin_checked="1">
+                  <h4 class="modal-title">Look for friends</h4>
+                  <button type="button" class="close" data-dismiss="modal">Ã—</button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body" bis_skin_checked="1">
+                 
+                  <div class="form-group" bis_skin_checked="1">
+                    <label for="inputAddress">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                  </div>
+                 <div class="form-row" bis_skin_checked="1">
+                   <div class="form-group col-md-6" bis_skin_checked="1">
+                     <label for="inputCity">City</label>
+                     <input type="text" class="form-control" id="City">
+                   </div>
+                 <div class="form-group col-md-4" bis_skin_checked="1">
+                   <label for="inputState">gender</label>
+                     <select id="gender" class="form-control">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                </div>
+              </div>
+                  <div class="form-group" bis_skin_checked="1">
+                   <label for="how_to_search">how to search</label>
+                     <select id="how_to_search" class="form-control">
+                      <option value="one">Search by one value</option>
+                      <option value="multiple">Search by multiple values</option>
+                    </select>
+                  </div>
+                <button type="submit" id="search" class="btn btn-primary">Search</button>
+              
+               </div>
+               <div class="modal-footer" bis_skin_checked="1">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+<style type="text/css">
+body{
+    margin-top:20px;
+    background:#eee;
+}
+.avatar.avatar-xl {
+    width: 5rem;
+    height: 5rem;
+}
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    display: inline-block;
+    background: #ced4da no-repeat center/cover;
+    position: relative;
+    text-align: center;
+    color: #868e96;
+    font-weight: 600;
+    vertical-align: bottom;
+}
+.card {
+    background-color: #fff;
+    border: 0 solid #eee;
+    border-radius: 0;
+}
+.card {
+    margin-bottom: 30px;
+    -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+}
+.card-body {
+    padding: 1.25rem;
+}
+.tile-link {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 30;
+}
+</style>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+     $("#search").click(function(){
+        
+        var name=$("#name").val();
+        var city=$("#City").val();
+        var gender=$("#gender").val();
+        var how_to_search=$("#how_to_search").val();
+
+        fetch_users(name,city,gender,how_to_search);
+
+    });
+
+       fetch_users();
+       function fetch_users(name , city , gender , how_to_search)
+       {
+         $.ajax({
+          url:"fetch_user.php",
+          method:"post",
+          data:{name:name,city:city,gender:gender,how_to_search:how_to_search},
+          success:function(data)
+          {
+               $("#users").html(data);
+          }
+         });
+       }
+  });
+</script>
+</pre></div><count></count></div><div id="delete4" class="review_code" bis_skin_checked="1"><p id="4" class=" delete_review_code hide4"></p><div bis_skin_checked="1"><span style="font-size: 10px;">will display a file</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">fetch_user.php</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">Users by search or public view</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">and send it to a file</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">index,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">This condition</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(238, 238, 238);">&nbsp;<span style="background-color: rgb(102, 102, 102);">if(isset($_POST ['how_to_search']))</span></span></div><div bis_skin_checked="1"><span style="font-size: 10px;">This condition checks if the user clicks search</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">If it is clicked, the values â€‹â€‹of another idea will be displayed</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">Based on the name, city name and gender, this query will work</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(204, 0, 0);">$query = "select * from `users' where $clean_tb";</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">but</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">If the search is single</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">will take</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp;$type_se = 'AND';</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">But if the search is double, you will take</span></div><div bis_skin_checked="1"><span style="font-size: 10px; background-color: rgb(204, 204, 204);">&nbsp;$type_se = 'OR';,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">But what about this variable?</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(255, 0, 0);">&nbsp;$ name. = "&gt; name = '". $_ POST [' name ' ]. "' &lt;";</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">concentration</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(255, 0, 0);">&nbsp;$ name. = "&gt; name = '". $_ POST [' name ' ]. "' &lt;";</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">table name</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">. for example ,</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(255, 0, 0);">&nbsp;$ name. = "&gt; name = '". $_ POST [' name ' ]. "' &lt;";</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">The value of the next name of the form</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">But what about braces?</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(204, 0, 0);">&lt;&gt;</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">These parentheses will be necessary to solve a problem,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">If there are no parentheses between the table name and the name value,</span></div><div bis_skin_checked="1"><span style="font-size: 10px; background-color: rgb(238, 238, 238);">can not add</span></div><div bis_skin_checked="1"><span style="font-size: 10px; background-color: rgb(238, 238, 238);">OR</span></div><div bis_skin_checked="1"><span style="font-size: 10px; background-color: rgb(238, 238, 238);">or</span></div><div bis_skin_checked="1"><span style="font-size: 10px;"><span style="background-color: rgb(238, 238, 238);">AND,</span> in the query,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">And here he has a problem</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">What do parentheses have to do with this problem?</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">yes i will tell you,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">Notice</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">between each value of the two variables</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(0, 0, 255);">&nbsp;$ name. = "&gt; name = '". $_ POST [' name ' ]. "' &lt;";</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(0, 0, 255);">&nbsp;$ city. = "&gt;city = '". $_POST['city']. "' &lt;";</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">for example</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(0, 0, 255);">name = 'jhon' &lt;&gt; 'city' = 'ungsd',</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">When we add the value together,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">We will notice this result</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">but</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">Show us between the value of the name and the city,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">Arch</span></div><div bis_skin_checked="1"><span style="font-size: 10px; color: rgb(204, 0, 0);">&lt;&gt;</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">In this case it is easy to erase these parentheses, and replace them with OR or AND</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">According to the value of a variable</span></div><div bis_skin_checked="1"><span style="background-color: rgb(238, 238, 238); font-size: 10px;">$type_se</span><span style="font-size: 10px; background-color: rgb(204, 204, 204);">,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">This will be done using</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">method <span style="color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">$clean_tb = str_replace(array("&gt;", "&lt;"), '', str_replace("&lt;&gt;", $type_se, $tab)),</span></span></div><div bis_skin_checked="1"><span style="font-size: 10px;">But what is the use of OR or AND,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">We use these two in the query to determine how users view,</span></div><div bis_skin_checked="1"><span style="font-size: 10px;">Thus the values â€‹â€‹will be displayed without any restrictions</span></div><p></p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php 
+    include 'mysqli.php';
+
+    if (isset($_POST['how_to_search'])) 
+    { 
+      $name="";
+      $city="";
+      $gender="";
+      if ($_POST['how_to_search'] == "one") 
+      { 
+        $type_se=' AND ';
+      }
+     if ($_POST['how_to_search'] == "multiple") 
+      { 
+        $type_se=' OR ';
+      }
+
+      if (!empty($_POST['name'])) 
+      {
+        $name.="-->name='".$_POST['name']."'&lt;";
+      }
+
+      if (!empty($_POST['city'])) 
+      {
+        $city.="&gt;city='".$_POST['city']."'&lt;";
+      }
+
+      if (!empty($_POST['gender'])) 
+      {
+         $gender.="&gt;gender='".$_POST['gender']."'&lt;";
+      }
+
+      $tables=$name.$city.$gender;
+      $clean_tb=str_replace(array("&gt;","&lt;"),'',str_replace("&lt;&gt;",$type_se,$tables));
+      $query="SELECT * FROM `users` WHERE $clean_tb";   
+    }else{
+      $query="SELECT * FROM `users`";
+    }
+
+    $stm=$connect-&gt;prepare($query);
+    $stm-&gt;execute();
+
+    $data=$stm-&gt;FetchAll();
+
+    foreach ($data as $row) 
+    {
+      if ($row['gender'] == "male") 
+      {
+        $image="man.png";
+      }
+        
+        if ($row['gender'] == "female") 
+        {
+          $image="woman.png";  
+        }
+   ?&gt;
+    <div class="col-md-6 col-xl-4" bis_skin_checked="1">                       
+      <div class="card" bis_skin_checked="1">
+        <div class="card-body" bis_skin_checked="1">
+          <div class="media align-items-center" bis_skin_checked="1">
+            <span style="background-image: url(<?php echo $image; ?>)" class="avatar avatar-xl mr-3"></span>
+            <div class="media-body overflow-hidden" bis_skin_checked="1">
+              <h5 class="card-text mb-0"><!--?php echo $row['name'];?--></h5>
+              <p class="card-text text-uppercase text-muted"><!--?php echo $row['city'];?--></p>-
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--?php 
+      }
+    ?--></pre></div><count></count></div>     
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+    <h1>Create a fast live chat system without a database</h1>
+</div>
+<!-- Post Headline End -->
+<!-- Post Detail Start -->
+<div class="post-info">
+    <span>2022.12.07 by <a href="#" target="_blank">Murad Shaker</a></span>
+</div>
+<!-- Post Detail End -->
+<p></p>
+<div class="code">
+    <div id="t_code_app">
+        <div class="margin-top-40 margin-bottom-40 1">
+            <p onclick="remove_o_c(1)"></p>
+            <pre class="brush:php">
+   <!--?php 
+      session_start();
+      if (isset($_SESSION['user'])) 
+      {
+        header('location:index');
+      }
+   ?-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+
+
+ <form class="formoid-metro-cyan form_r" method="post" style="font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;">
+  <div class="title">
+  <h2><strong>Register</strong></h2>
+ </div>
+
+  <div id="alert"><!--?php echo $alert;?--></div>
+  <div class="element-input">
+   <label class="title">username
+     <span class="required">*</span>
+   </label>
+    <input class="large" type="text" name="username" required="required">
+  </div>
+
+  <div class="element-input">
+   <label class="title">
+      passsword<span class="required">*</span>
+   </label>
+   <input class="large" type="text" name="password" required="required">
+  </div>
+  
+  <div class="element-input">
+   <label class="title">
+      confirm password<span class="required">*</span>
+   </label>
+   <input class="large" type="text" name="confirm_password" required="required">
+  </div>
+
+   <div class="submit">
+    <a class="btn btn-primary" href="login.php" role="button">login</a>
+    <input type="submit" value="register" name="click">
+   </div> 
+</form>
+
+<!--?php 
+ 
+ $users_t=file_get_contents('users.txt');
+
+ if (isset($_POST['click'])) 
+ {
+  $username='{'.$_POST['username'].'}';
+  $ch_find_username=strpos($users_t,$username);
+
+  if (!preg_match('/[\';:^£$%&*()}{@#~?-->&lt;&gt;,|=_+¬-]/',$_POST['username'])) 
+  {
+    if (empty($ch_find_username)) 
+    {
+       if (strlen($_POST['username']) &gt; 5) 
+       {
+        if ($_POST['password'] == $_POST['confirm_password']) 
+        {
+         
+         $id_user=rand();
+         $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+         $user_in_t='(id='.$id_user.';user='.$username.';pass='.$pass.';):';
+
+         file_put_contents('users.txt',$user_in_t,FILE_APPEND);
+             
+             $alert='<div class="alert alert-success">successfully registered</div>';
+             
+             header('location:login.php');
+        }else{
+          $alert='<div class="alert alert-warning">password does not match</div>';
+        }
+       }else{
+        $alert='<div class="alert alert-warning">Please add more than 5 characters</div>';
+       }
+    }else{
+      $alert='<div class="alert alert-danger">This username is already in use</div>';
+    }
+  }else{
+    $alert='<div class="alert alert-danger">It is not possible to add special characters</div>';
+  }
+ }
+?&gt;
+<script type="text/javascript">
+  $("#alert").html('<?php echo $alert ?>');
+</script>
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 2">
+            <p onclick="remove_o_c(2)"></p>
+            <p><span style="font-size: 18pt;">Create a file register.php</span><br>User login page, Note We store data such as names and passwords in a <span style="background-color: rgb(206, 212, 217);">users .txt</span> text file.<br>Knowing that we make the texts encrypted, and no one can read the data, not even I can read it.<br>When you click on the register button, it verifies the data entered<br>Create a text file named<br><span style="background-color: rgb(206, 212, 217);">users.txt,</span><br>in the project folder,</p>
+            <p>After this, we have to read the values ​​entered when clicking on the record button to check if something is wrong,<br>This code will come true</p>
+            <p>From the user name that was entered if it is a user of another account,<br>If it is for another account, it will show an alert message "<span style="color: rgb(224, 62, 45);"><strong>This username is already in use</strong></span>"</p>
+            <p><span style="background-color: rgb(52, 73, 94);"><strong>&nbsp; &nbsp; &nbsp;<span style="color: rgb(255, 255, 255);">$username<span style="color: rgb(224, 62, 45);">=</span></span><span style="color: rgb(251, 238, 184);">'{'</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(255, 255, 255);">$_POST[</span><span style="color: rgb(251, 238, 184);">'username'</span><span style="color: rgb(255, 255, 255);">]</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'}'</span><span style="color: rgb(255, 255, 255);">;</span></strong></span><br><span style="background-color: rgb(52, 73, 94);"><strong>&nbsp; &nbsp; &nbsp;<span style="color: rgb(255, 255, 255);">$ch_find_username</span><span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">strpos</span><span style="color: rgb(255, 255, 255);">($users_t</span><span style="color: rgb(230, 126, 35);">,</span><span style="color: rgb(255, 255, 255);">$username);</span></strong></span><br><span style="background-color: rgb(52, 73, 94);"><strong>&nbsp; &nbsp; <span style="color: rgb(53, 152, 219);">if </span><span style="color: rgb(255, 255, 255);">(</span><span style="color: rgb(53, 152, 219);">empty</span><span style="color: rgb(255, 255, 255);">($ch_find_username))</span>&nbsp;</strong></span><br><span style="background-color: rgb(52, 73, 94);"><strong>&nbsp; <span style="color: rgb(255, 255, 255);">&nbsp; &nbsp; {</span></strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; }</strong></span><br>Or if it is not used, the username and password will be inserted directly into the <span style="background-color: rgb(206, 212, 217);">text file</span><br><span style="background-color: rgb(206, 212, 217);">users.txt</span><br>With this I created a new account, <span style="color: rgb(45, 194, 107);">thank you,</span><br>The data is entered into the users.php text file using the function<br><span style="color: rgb(53, 152, 219); background-color: rgb(52, 73, 94);"><strong>file_put_contents</strong></span>,</p>
+            <p>As shown here<br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(255, 255, 255);">$user_in_t</span><span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(251, 238, 184);">'(id='</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(255, 255, 255);">$id_user</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">';user='</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(255, 255, 255);">$username</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">';pass='</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(255, 255, 255);">$pass</span><span style="color: rgb(224, 62, 45);">.<span style="color: rgb(251, 238, 184);">';):'</span></span><span style="color: rgb(255, 255, 255);">;</span></span></strong><br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(53, 152, 219);">file_put_contents</span><span style="color: rgb(255, 255, 255);">(</span><span style="color: rgb(251, 238, 184);">'users.txt'</span><span style="color: rgb(224, 62, 45);">,</span><span style="color: rgb(255, 255, 255);">$user_in_t</span><span style="color: rgb(185, 106, 217);"><span style="color: rgb(241, 196, 15);">,</span>FILE_APPEND</span><span style="color: rgb(255, 255, 255);">);</span></span></strong></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>_____________________________________________________________</p>
+            <p>_____________________________________________________________</p>
+            <p>login file <span style="background-color: rgb(206, 212, 217);">login.php</span></p>
+            <p></p>
+            <pre class="brush:php">
+
+
+  <!--?php 
+     session_start();
+     if (isset($_SESSION['user'])) 
+      {
+        header('location:index');
+      }
+  ?-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+  <form class="formoid-metro-cyan form_l" method="post" style="font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;">
+    <div class="title">
+    <h2><strong>Login</strong></h2>
+  </div>
+    <div id="alert">
+      
+    </div>
+
+    <div class="element-input">
+   <label class="title">
+      username<span class="required">*</span>
+   </label>
+     <input class="large" type="text" name="username" required="required">
+  </div>
+
+  <div class="element-input">
+    <label class="title">
+      password<span class="required">*</span>
+    </label>
+    <input class="large" type="text" name="password" required="required">
+  </div>  
+
+    <div class="submit">
+      <a class="btn btn-primary" href="register.php" role="button">Register</a>
+      <input type="submit" value="Login" name="click_l">
+    </div>  
+
+  </form>
+
+<!--?php
+ 
+ $users_t=file_get_contents('users.txt');
+
+ if (isset($_POST['click_l'])) 
+ {
+   if (strlen($_POST['username']) --> 5) 
+   {
+     $username='{'.$_POST['username'].'}';
+     $ch_find_username=strpos($users_t,$username);
+
+     if (!empty($ch_find_username)) 
+     {
+         $length_username_oth=strlen($username)+6;
+         $get_pass_this_account=substr($users_t,$ch_find_username+$length_username_oth);
+         $password=substr($get_pass_this_account,0,strpos($get_pass_this_account,';'));
+
+         if (password_verify($_POST['password'],$password)) 
+         {
+          $alert='<div class="alert alert-success">Successful login</div>';
+          $_SESSION['user']=$_POST['username'];
+          header('location:index.php');
+
+         }else{
+          $alert='<div class="alert alert-warning">wrong password</div>';
+         }
+
+     }else{
+      $alert='<div class="alert alert-warning">This username does not exist</div>';
+     }
+   }else{
+    $alert='<div class="alert alert-warning">Please add more than 5 characters</div>';
+   }
+ }
+?&gt;
+<script type="text/javascript">
+  $("#alert").html('<?php echo $alert ?>');
+</script>
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 3">
+            <p onclick="remove_o_c(3)"></p>
+            <p><span style="background-color: rgb(194, 224, 244);">When registering</span><br>We need to log in to check if my data is correct or not,<br>For this<br>We will create a login file<br><span style="background-color: rgb(206, 212, 217);">login.php,</span><br>we check whether my information is correct or not.<br>Whether the username you entered in the input is present in the text<strong> <span style="background-color: rgb(236, 202, 250);">(users.txt)</span></strong> file or not&nbsp;<br>We check of the username by this<br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(255, 255, 255);">$username</span><span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);">'{'</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(255, 255, 255);">$_POST[</span><span style="color: rgb(251, 238, 184);">'username'</span><span style="color: rgb(255, 255, 255);">]</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'}'</span>;</span></strong><br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(236, 240, 241);">$ch_find_username<span style="color: rgb(224, 62, 45);">=</span></span><span style="color: rgb(53, 152, 219);">strpos<span style="color: rgb(255, 255, 255);">($users</span></span><span style="color: rgb(255, 255, 255);">_t</span><span style="color: rgb(224, 62, 45);">,</span><span style="color: rgb(255, 255, 255);">$username);</span></strong></span><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(53, 152, 219);">if</span> (<span style="color: rgb(224, 62, 45);">!</span><span style="color: rgb(53, 152, 219);">empty</span>($ch_find_username)}</span></strong><br>If the username you entered in the input, is in the <strong><span style="background-color: rgb(236, 202, 250);">{users.php}</span></strong> text file, ,<br>We will fetch the password for the account with this username,<br>We put it in a variable<br><span style="color: rgb(230, 126, 35);"><strong>$password,</strong></span></p>
+            <p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(255, 255, 255);">$password<span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">substr</span>($get_pass_this_account<span style="color: rgb(230, 126, 35);">,0,</span><span style="color: rgb(53, 152, 219);">strpos</span>($get_pass_this_account<span style="color: rgb(230, 126, 35);">,</span><span style="color: rgb(251, 238, 184);">';'</span>)));</span></strong></span><br>and check if the password you entered in input <span style="background-color: rgb(206, 212, 217);">$_POST['password'],</span> matches the password<br>which are in<br>a variable<br><strong><span style="color: rgb(230, 126, 35);">$password</span></strong>,<br>As stated in the condition<br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(225, 5, 148);">if</span> <span style="color: rgb(255, 255, 255);">(</span><span style="color: rgb(53, 152, 219);">password_verify</span><span style="color: rgb(255, 255, 255);">($_POST[</span><span style="color: rgb(251, 238, 184);">'password'</span><span style="color: rgb(255, 255, 255);">]<span style="color: rgb(230, 126, 35);">,</span>$password))</span></span></strong><br>If the<span style="background-color: rgb(206, 212, 217);"> $_POST['password']</span><br>password matches<br>This is good. The registration succeeded because this is your account<br>If the password does not match, a message appears, <strong><span style="color: rgb(224, 62, 45);">wrong password</span></strong>,<br></span></p>
+            <p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">This verification is done using these codes<br><span style="background-color: rgb(52, 73, 94); font-size: 14pt;"><span style="color: rgb(255, 255, 255);">$length_username_oth</span><span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">strlen</span><span style="color: rgb(255, 255, 255);">($username)</span><strong><span style="color: rgb(186, 55, 42);">+</span></strong><span style="color: rgb(255, 255, 255);">6;</span></span></span></p>
+            <p><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">$get_pass_this_account<span style="font-size: 14pt; color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">substr</span>($users_t<span style="font-size: 18pt; color: rgb(230, 126, 35);">,</span>$ch_find_username<span style="font-size: 18pt; color: rgb(224, 62, 45);">+</span>$length_username_oth);</span></strong></span></p>
+            <p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>$password<span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">substr</span>($get_pass_this_account<span style="font-size: 14pt; color: rgb(230, 126, 35);">,0,</span><span style="color: rgb(53, 152, 219);">strpos</span>($get_pass_this_account<span style="font-size: 18pt; color: rgb(230, 126, 35);">,</span><span style="color: rgb(251, 238, 184);">';'</span>)));</strong></span><br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(53, 152, 219);">if </span><span style="color: rgb(255, 255, 255);">(</span><span style="color: rgb(53, 152, 219);">password_verify</span><span style="color: rgb(255, 255, 255);">($_POST[</span><span style="color: rgb(251, 238, 184);">'password'</span><span style="color: rgb(255, 255, 255);">]</span><span style="font-size: 18pt; color: rgb(230, 126, 35);">,</span><span style="color: rgb(255, 255, 255);">$password))</span></strong></span><br>But you may be wondering how to get the password for the account with this username<br><span style="background-color: rgb(191, 237, 210);">Don't worry, I'll explain this to you</span>.<br>But you may find it difficult to understand this but it's okay,<br>In principle<br>If we want to take, show or fetch part of the chain<br>We need a function<br></span><strong><span style="background-color: rgb(52, 73, 94); font-size: 18pt;"><span style="color: rgb(53, 152, 219);">substr</span>,</span></strong><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"><br></span></p>
+            <p>So when we want to fetch a part of the string, we have to specify<span style="background-color: rgb(251, 238, 184);"> <span style="background-color: rgb(236, 202, 250);">where (position) </span></span>to start in the string, in the function<br><strong>substr</strong>,<br>And when we find the username, we must get the username's <span style="background-color: rgb(236, 202, 250);">position in the text string &lt;text file&gt;,</span><br>using the function<br><span style="background-color: rgb(52, 73, 94); color: rgb(230, 126, 35); font-size: 18pt;"><strong>strpos</strong></span><br>And with this line<br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">$ch_find_username <span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(53, 152, 219);">strpos </span>($users_t<span style="font-size: 18pt; color: rgb(230, 126, 35);">,</span> $username);</span></strong></span><br>You can get the position of the username,<br>We have<strong> <span style="color: rgb(11, 50, 246);">stored the username's position</span></strong><br><strong><span style="color: rgb(11, 50, 246);">in the variable</span></strong><br><strong><span style="background-color: rgb(206, 212, 217);">$ch_find_username,</span></strong></p>
+            <p>But you may be wondering what is the point of fetching the position of the username in the string of the text file,</p>
+            <p>As I told you earlier, when we want to fetch part of a string, using the <span style="color: rgb(132, 63, 161); font-size: 14pt;"><strong>substr </strong></span>function, We must mark the position of the thread to start cutting.This is done by passing a numeric value (position) as an argument in the parameter second,of the <span style="font-size: 14pt; color: rgb(132, 63, 161);"><strong>substr </strong></span>function,<br>Note that the substr function takes 3 parameters<br>as shown</p>
+            <table style="border-collapse: collapse; width: 42.3135%; height: 178px;" border="1">
+                <colgroup>
+                    <col style="width: 23.7838%;">
+                    <col style="width: 76.2162%;">
+                </colgroup>
+                <tbody>
+                    <tr style="height: 26.1406px;">
+                        <td style="height: 26.1406px;"><span style="font-size: 18pt;"><strong>Parameter</strong></span></td>
+                        <td style="height: 26.1406px;"><span style="font-size: 18pt;"><strong>Description</strong></span></td>
+                    </tr>
+                    <tr style="height: 22.3906px;">
+                        <td><strong><span style="color: rgb(22, 145, 121);"><em>string</em></span></strong></td>
+                        <td><span style="color: rgb(186, 55, 42);">Required</span>. Specifies the string to return a part of</td>
+                    </tr>
+                    <tr style="height: 22.3906px;">
+                        <td><strong><span style="color: rgb(22, 145, 121);"><em>start</em></span></strong></td>
+                        <td><span style="color: rgb(186, 55, 42);">Required</span>. Specifies where to start in the string</td>
+                    </tr>
+                    <tr style="height: 22.3906px;">
+                        <td style="height: 22.3906px;"><strong><span style="color: rgb(22, 145, 121);"><em>length</em></span></strong></td>
+                        <td style="height: 22.3906px;"><span style="color: rgb(45, 194, 107);">Optional</span>. Specifies the length of the returned string. Default is to the end of the string.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Based on this, we will pass the variable <span style="color: rgb(230, 126, 35);"><strong>$ch_find_username</strong></span> as an argument to the parameter second of the <strong>substr </strong>function,<br>knowing that<br>The value of the variable <span style="color: rgb(230, 126, 35);"><strong>$ch_find_username</strong></span> is the position of the username,<br><span style="color: rgb(22, 145, 121);"><strong>In this case it's easy to fetch a password for the account with that username</strong></span> to check if it matches or not with the <span style="background-color: rgb(206, 212, 217);">$_POST['password']</span> variable,<br><span style="color: rgb(132, 63, 161);"><strong>But you may be curious to know what is the relationship of getting the position of the username to fetch the password, or how it is done</strong></span></p>
+            <p><span style="background-color: rgb(194, 224, 244);"><strong><span style="font-size: 18pt; background-color: rgb(194, 224, 244);">good and clever question,</span></strong></span></p>
+            <blockquote>
+                <p>Look at the format of user data in the text file <span style="background-color: rgb(206, 212, 217);">users.txt</span></p>
+                <p><span style="font-size: 14pt;"><strong><span style="background-color: rgb(206, 212, 217);">(<span style="color: rgb(230, 126, 35);">id=</span>16688227;<span style="color: rgb(230, 126, 35);">user=</span>{johni7};<span style="color: rgb(230, 126, 35);">pass=</span>$2y$10$IqTUcVTttz/iILzJvtR0PennTM/ximnfKQmlfvJ0QbimUvc7.Tp7q;):</span></strong></span><br>The password is next to the username.<br>In this when knowing the position of the name used,<br><strong><span style="color: rgb(0, 0, 0); background-color: rgb(206, 212, 217);">{johni7};.</span></strong><br>It becomes easy for us to fetch the password<br>using the function<br><strong>substr</strong><br>as shown<br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">$password=<span style="color: rgb(53, 152, 219);">substr</span>($get_pass_this_account<span style="font-size: 18pt; color: rgb(230, 126, 35);">,0,</span><span style="color: rgb(53, 152, 219);">strpos</span>($get_pass_this_account<span style="font-size: 18pt; color: rgb(230, 126, 35);">,</span><span style="color: rgb(251, 238, 184);">';'</span>)));</span></strong><br>And check it, whether it matches the password you<span style="font-size: 14pt;"> </span>entered in the input<span style="background-color: rgb(206, 212, 217);"> $_POST['password'],</span><br>If the passwords do not match, a message will appear<br>"<span style="color: rgb(224, 62, 45);">The password is wrong</span>",<br>If it matches, this means that this is your account<br><span style="color: rgb(22, 145, 121);">Thank you for logging in</span></p>
+                <p>We will save the username in the <strong><span style="color: rgb(53, 152, 219);">session</span></strong><br>And we go directly to the page<br><span style="color: rgb(0, 0, 0); background-color: rgb(206, 212, 217);">index.php,</span><br><span style="background-color: rgb(206, 212, 217);">header('location:index.php');</span><br>We store username in session,<br><span style="background-color: rgb(206, 212, 217);">$_SESSION['user']=$_POST['username'];,</span><br>&nbsp;we will need it a lot in this system and chat<br>If you do not understand what is happening above, try to understand<br>functions<br><span style="font-size: 14pt;"><strong><span style="color: rgb(132, 63, 161);">strpos</span></strong></span><br>and the<br><span style="font-size: 14pt;"><strong><span style="color: rgb(132, 63, 161);">substr</span></strong></span></p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>________________________________________________________</p>
+                <p>________________________________________________________</p>
+                <p><span style="font-size: 14pt;"><strong>Create a file with this name&nbsp;</strong></span></p>
+                <p><strong>navbar.php</strong></p>
+            </blockquote>
+            <p></p>
+            <pre class="brush:php"><!--?php
+session_start();
+ 
+if (!isset($_SESSION['user'])) 
+{
+  header('location:register.php');
+}
+?-->
+<div class="container">
+  <div class="row">
+   <div class="col-lg-10 col-sm-10 col-12 offset-lg-1 offset-sm-1">
+    <nav class="navbar navbar-expand-lg bg-info rounded">
+     <a class="navbar-brand text-light" href="#">Navbar</a>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: unset !important;">
+        <ul class="nav nav-pills mr-auto justify-content-end">
+
+         <!--?php
+          $current_page_name=basename($_SERVER['PHP_SELF']);
+
+          if ($current_page_name != "index.php") 
+          {
+         ?-->
+         <li class="nav-item active">
+           <a class="nav-link text-light" href="index.php">index</a>
+         </li>
+         <!--?php
+          }
+         ?-->
+         <li class="nav-item active">
+           <a class="nav-link text-light" href="logout.php">logout</a>
+         </li>
+
+         <li class="nav-item active">
+           <a class="nav-link text-light" href="profile.php">Profile (<!--?php echo $_SESSION['user'];?-->)</a>
+         </li>
+
+         <li class="nav-item">
+         </li>
+      </ul>
+     </div>
+    </nav> 
+   </div>
+  </div>
+ </div>
+
+
+
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 4">
+            <p onclick="remove_o_c(4)"></p>
+            <p><span style="font-size: 14pt;"><strong>a file<span style="background-color: rgb(255, 255, 255);"> navbar.php</span></strong></span><br>The page of this file contains a navigation bar that contains some options such as heading to the user data update page or the option to log out, etc.<br>Include this file in<br><span style="background-color: rgb(206, 212, 217);">index.php</span></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p><span style="color: rgb(0, 0, 0);">___</span><span style="color: rgb(0, 0, 0);">___________________________________________________</span></p>
+            <p><span style="color: rgb(0, 0, 0);">______________________________________________________</span></p>
+            <p><span style="color: rgb(0, 0, 0);"><span style="font-size: 14pt;"><strong>a file logout.php</strong></span><br>&nbsp;destroys the session or logs out<br></span></p>
+            <p></p>
+            <pre class="brush:php"><!--?php 
+ 
+session_start();
+session_destroy();
+session_unset();
+
+header('location:register.php');
+
+?-->
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 5">
+            <p onclick="remove_o_c(5)"></p>
+            <p><span style="font-size: 14pt;"><strong>a file index.php</strong></span></p>
+            <p></p>
+            <pre class="brush:php">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style_ch_list.css">
+
+
+  <br>
+  <br>
+ <!--?php include 'navbar.php'; ?-->
+ <!--box chat-->
+ <div class="col-md-12 col-lg-6" style="left:200px;">
+     <div class="panel box_ch" style="width:380px;display:none;">
+ 
+      <div class="panel-heading">
+         <div class="panel-control">
+           <div class="btn-group">
+             <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#demo-chat-body"><i class="fa fa-chevron-down"></i></button>
+             <button type="button" class="btn btn-default"><i class="fa fa-gear"></i></button>
+           </div>
+        </div>
+        <h3 class="panel-title"></h3>
+     </div>
+    
+       <div id="demo-chat-body" class="collapse in">
+
+         <div class="nano has-scrollbar" style="height:380px">
+           <div class="nano-content pad-all" tabindex="0" style="right: -17px;">
+             <ul class="list-unstyled media-block msgm">
+
+             </ul>
+           </div>
+            <div class="nano-pane">
+              <div class="nano-slider" style="height: 141px; transform: translate(0px, 0px);"></div>
+            </div>
+         </div>
+
+            <div class="panel-footer">
+              <div class="row">
+                <div class="col-xs-9">
+                 <input type="text" placeholder="Enter your text" class="form-control chat-input">
+                </div>
+                <div class="col-xs-3">
+                  <button class="insert_msg btn btn-primary btn-block" type="submit">Send</button></div>
+              </div>
+            </div>
+          <input type="hidden" id="username_ch">
+
+       </div>
+     </div>
+ </div>
+
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-3 col-sm-6" style="right:145px;">
+      <div class="panel panel-default" style="width:350px;">
+        <div class="panel-heading c-list">
+            <span class="title">Contacts</span>           
+        </div>
+         <ul class="list-group">
+           <!--?php 
+               
+               $t_users=file_get_contents('users.txt');
+               $c_s_t=str_replace(array('(',')'),'',$t_users);
+
+               $users=explode(':',$c_s_t);
+
+               for ($i=0; $i < count($users)-1; $i++) 
+               { 
+                 $da_user=str_replace(array('id=','user=','pass=','img='),'',$users[$i]);
+                 $val_d_user=explode(';',$da_user);
+
+                 $id_user=$val_d_user[0];
+                 $username=preg_replace('/[^A-Za-z0-9\-]/','',$val_d_user[1]);
+                 $img_profile=$val_d_user[3];
+                 
+                 if ($img_profile != "") 
+                 {
+                  $image_profile=$img_profile; 
+                 }else{
+                    $image_profile='profile.jpg';
+                 }
+                 
+                 //Ban my account from showing up
+                 if ($_SESSION['user'] != $username) 
+                 {
+                 ?-->
+                  <li class="list-group-item">
+                   <div class="col-xs-12 col-sm-3">
+                     <img src="Profile_Picture/<?php echo $image_profile?>" alt="<?php echo $username?>" style="width:60px;height:60px;border-radius:50%;">
+                   </div>
+
+                  <div class="col-xs-12 col-sm-9">
+                   <span class="name"><!--?php echo $username; ?--></span><br>
+                     <span id="display_box" data-username="<?php echo $username;?>" class="fa fa-comments text-muted c-info"></span>
+                  </div>
+                   <div class="clearfix"></div>
+                 </li>
+                <!--?php
+                  }
+                 }
+               ?-->
+         </ul>
+      </div>
+    </div>
+  </div>
+ </div>
+
+<script type="text/javascript">
+
+  var user_clicking_chat;
+  $(document).on('click','#display_box',function(){
+
+       $(".msgm").html('');
+        var username=$(this).data('username');
+        $(".panel-title").text(username);
+        user_clicking_chat=username;
+        
+        $("#username_ch").val(username);
+
+        $(".insert_msg").attr('id',username);
+        if ($(".box_ch").is(":hidden")) 
+        {
+          $(".box_ch").show();
+        }
+
+  });
+
+  $(document).on('click','.insert_msg',function(){
+            
+          var msg=$(".chat-input").val();
+          var us_chat=$(this).attr('id');
+
+          if (msg.trim() != "") 
+            {
+               $.ajax({
+                  url:"insert_msg.php",
+                  method:"post",
+                  data:{msg:msg,us_chat:us_chat},
+                  success:function(data)
+                  {
+                    $(".chat-input").val('');
+                  }
+               });
+            }
+
+  });
+
+  setInterval(function(){
+      
+       if (typeof user_clicking_chat != 'undefined') 
+       { 
+         var c_msg_box_chat=$(".msgm").children('li').length;
+         
+          $.ajax({
+              url:"msgs_ch_us.php",
+              type:"post",
+              data:{user_clicking_chat:user_clicking_chat,c_msg_box_chat:c_msg_box_chat},
+              success:function(data)
+              {
+                if (data != "") 
+                {
+                 $(".msgm").html(data);
+                 $(".nano-content").scrollTop($(".nano-content")[0].scrollHeight);
+                }
+              }
+          });
+       }
+  },1000);
+
+  $(document).on('click','.remove_msg',function(){
+      
+         var id_msg_chat=$(this).data('id_ch');
+         var username_ch=$("#username_ch").val();
+
+         $.ajax({
+            url:"remove_msg.php",
+            type:"post",
+            data:{id_msg_chat:id_msg_chat,username_ch:username_ch},
+            success:function(data)
+            {
+              $(".h_msg_sess"+id_msg_chat).remove();
+            }
+         });
+  });
+</script>
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 6">
+            <p onclick="remove_o_c(6)"></p>
+            <p>This page contains<br>user list,<br>also the chat box,etc..,<br>But now I will explain to you how you can show users in a list from a text file<br><span style="background-color: rgb(236, 202, 250);">Will explain to you ,</span><br>At each end of the user data there is a <span style="color: rgb(224, 62, 45);"><strong>tag colon<span style="font-size: 24pt;">{:}</span></strong></span><br>as shown</p>
+            <blockquote>
+                <p><strong>(<span style="color: rgb(230, 126, 35);">id=</span>16688227;<span style="color: rgb(230, 126, 35);">user=</span>{johni7};<span style="color: rgb(230, 126, 35);">pass=</span>$2y$10$IqTUcVTttz/iILzJvtR0PennTM/ximnfKQmlfvJ0QbimUvc7.Tp7q;):(<span style="color: rgb(230, 126, 35);">id=</span>1293304695;<span style="color: rgb(230, 126, 35);">user=</span>{amarki};<span style="color: rgb(230, 126, 35);">pass=</span>$2y$10$ck9QqwVQfrluUXcH/N8x2uq7KrFHCNrVmlw5xp2GvgEazOlEo8lS6;):(<span style="color: rgb(230, 126, 35);">id=</span>1870012858;<span style="color: rgb(230, 126, 35);">user=</span>{strongw55};<span style="color: rgb(230, 126, 35);">pass=</span>$2y$10$90QGuS64DRs6aW.CMeWGTOQ2/GHHuR3cPG0cRPFgrT/C0il0iUDGK;<span style="color: rgb(230, 126, 35);">img=</span>strongw55male-profile.jpg;):</strong><br>Note that there is a sign<br><span style="font-size: 36pt; color: rgb(230, 126, 35);">&nbsp;:</span><br>Not<br><span style="font-size: 36pt; color: rgb(230, 126, 35);">&nbsp;;</span><br>Focus on distinguishing between them,</p>
+            </blockquote>
+            <p>Thanks to this tag <span style="color: rgb(230, 126, 35);"><span style="font-size: 24pt;">{:}</span>&nbsp;</span> <span style="background-color: rgb(191, 237, 210);">you can easily get users and make them in a list,</span><br><span style="background-color: rgb(191, 237, 210);">Use the function to convert the string into an array,</span> thus converting each set of data<br>Existing users in the users.txt script file, to a value in the array.<br>using this<br><span style="color: rgb(236, 240, 241); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">$t_users<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">file_get_contents</span>('users.txt');</span></strong></span><br><span style="color: rgb(236, 240, 241); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">$c_s_t<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">str_replace</span>(<span style="color: rgb(194, 224, 244);">array</span>(<span style="color: rgb(251, 238, 184);">'(',')'</span>)<span style="color: rgb(230, 126, 35);">,</span><span style="color: rgb(251, 238, 184);">''</span><span style="color: rgb(230, 126, 35);">,</span>$t_users);</span></strong></span><br><span style="color: rgb(236, 240, 241); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">$users<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">explode</span>(<span style="color: rgb(251, 238, 184);">':'</span><span style="color: rgb(230, 126, 35);">,</span>$c_s_t);</span></strong></span><br>We make each set of user data as a value in an array,<br>In this we can display them using<br>the ring<br><strong><span style="background-color: rgb(206, 212, 217);">for ($i=0; $i &lt; count($users)-1; $i++)</span></strong><br><br>This fetches the number of users in the text file<br><span style="background-color: rgb(206, 212, 217);"><strong>count($users)</strong></span><br>Array values ​​inside the loop come like this, for example</p>
+            <table style="border-collapse: collapse; width: 70.7763%; height: 44.7812px;" border="1">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                    <tr style="height: 44.7812px;">
+                        <td style="height: 44.7812px;"><strong>[0] = (<span style="color: rgb(230, 126, 35);">id=</span>16688227;<span style="color: rgb(230, 126, 35);">user=</span>{johni7};<span style="color: rgb(230, 126, 35);">pass=</span>$2y$10$IqTUcVTttz/iILzJvtR0PennTM/ximnfKQmlfvJ0QbimUvc7.Tp7q;)</strong><br><strong>[1] = (<span style="color: rgb(230, 126, 35);">id</span>=1293304695;<span style="color: rgb(230, 126, 35);">user=</span>{amarki}<span style="color: rgb(230, 126, 35);">;pass=</span>$2y$10$ck9QqwVQfrluUXcH/N8x2uq7KrFHCNrVmlw5xp2GvgEazOlEo8lS6;)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><br>But how do we get the <span style="color: rgb(230, 126, 35);">ID</span><span style="color: rgb(230, 126, 35);"> or </span><span style="color: rgb(22, 145, 121);"><strong>username </strong></span>or <strong><span style="color: rgb(185, 106, 217);">profile picture</span></strong> of user accounts?<br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(191, 237, 210);">good question,</span></strong></span><br>To do this, the value of the user data that came inside the loop must be converted into an array,<br>the meaning<br>for example<br>Values<br><span style="font-size: 14pt; background-color: rgb(236, 202, 250);"><strong>[1] = (<span style="color: rgb(230, 126, 35);">id=</span>1293304695;<span style="color: rgb(230, 126, 35);">user=</span>{amarki};<span style="color: rgb(230, 126, 35);">pass=</span>$2y$10$ck9QqwVQfrluUXcH/N8x2uq7KrFHCNrVmlw5xp2GvgEazOlEo8lS6;)</strong></span><br>So we're going to convert this into an array,<br>We take the data directly</p>
+            <p>inside the loop<br>as shown</p>
+            <p><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp;$da_user<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">str_replace</span>(<span style="color: rgb(194, 224, 244);">array</span>(<span style="color: rgb(251, 238, 184);">'id='</span>,<span style="color: rgb(251, 238, 184);">'user='</span>,<span style="color: rgb(251, 238, 184);">'pass='</span>,<span style="color: rgb(251, 238, 184);">'img='</span>),<span style="color: rgb(251, 238, 184);">''</span>,$users[<span style="color: rgb(230, 126, 35);">$i</span>]);</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; $val_d_user<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">explode</span>(<span style="color: rgb(251, 238, 184);">';',</span>$da_user);</span></strong></span></p>
+            <p>__________________<br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp;$id_user<span style="color: rgb(225, 5, 148);">=</span>$val_d_user[<span style="color: rgb(230, 126, 35);">0</span>];</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp;$username<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">preg_replace</span>(<span style="color: rgb(45, 194, 107);">'/[</span><span style="color: rgb(185, 106, 217);"><span style="color: rgb(225, 5, 148);">^</span>A-Za-z0-9\-</span><span style="color: rgb(45, 194, 107);">]/'</span>,<span style="color: rgb(251, 238, 184);">'</span>',$val_d_user[<span style="color: rgb(230, 126, 35);">1</span>]);</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp;$img_profile<span style="color: rgb(225, 5, 148);">=</span>$val_d_user[<span style="color: rgb(230, 126, 35);">3</span>];</span></strong></span><br>as you see<br>fetch <strong>username</strong><br>and the <strong>identifier</strong><br>and <strong>profile picture</strong></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p><strong>________________________________________________</strong></p>
+            <p><strong>________________________________________________</strong></p>
+            <p><strong><span style="font-size: 18pt;">Profile.php a file</span></strong></p>
+            <p></p>
+            <pre class="brush:php">
+
+
+<style type="text/css">
+.inputs span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #9e9e9e
+}
+.inputs input {
+    height: 48px;
+    border: 2px solid #9e9e9e
+}   
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <br>
+  <br>
+  <!--?php include 'navbar.php'; ?-->
+  <div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+     <div class="col-md-8">
+      <!--?php 
+       $t_users=file_get_contents('users.txt');
+       
+       $usrename_sess='{'.$_SESSION['user'].'}';
+       $from_user_to=strlen($usrename_sess)+6;
+
+       $ch_find_po_username_sess=strpos($t_users,$usrename_sess)+$from_user_to;
+       $text_this_username=substr($t_users,$ch_find_po_username_sess);
+
+       //fetch_name_img
+
+       $to_name_image=substr($text_this_username,strpos($text_this_username,';')+5);
+       $name_image=substr($to_name_image,0,strpos($to_name_image,';'));
+
+       if ($name_image == "") 
+          {
+             $img_profile='profile.jpg';
+          }else{
+             $img_profile=$name_image;
+          }
+      ?-->
+      <br>
+     <div id="alert">
+        
+     </div>
+     <form method="post" enctype="multipart/form-data">
+       <div class="card py-5">
+        <div class="inputs px-4"> <span class="text-uppercase">UserName</span> 
+          <input type="text" name="username" id="username" value="<?php echo $_SESSION['user']?>" class="form-control"> 
+         </div>
+
+      <div class="row mt-3 g-2">
+        <div class="col-md-6">
+           <div class="inputs px-4"> 
+            <span class="text-uppercase">Previous Password
+            </span> 
+            <input type="text" required="" name="p_password" id="p_password" class="form-control">
+        </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="inputs px-4"> <span class="text-uppercase">new password</span><input type="text" name="n_password" id="n_password" class="form-control"> </div>
+        </div>
+       </div>
+
+      <div class="mt-3 px-4"> 
+        <span class="text-uppercase name">Profile Picture</span>
+        <div class="d-flex flex-row align-items-center mt-2"> 
+           <img src="Profile_Picture/<?php echo $img_profile?>" id="img_us" width="110" class="rounded">
+           <div class="ml-3"><input type="file" name="img_profile" id="img_profile"></div>
+        </div>
+     </div>
+     <br>
+
+       <div class="mt-3 px-4 d-flex justify-content-between align-items-center">
+         <input type="submit" class="btn btn-primary" value="Update" name="click">
+       </div> 
+             
+     </div>
+   </form>
+   </div>
+ </div>
+  </div>
+    &#60;?php 
+    if (isset($_POST['click'])) 
+    {
+      $password_po=strpos($text_this_username,';');
+      $p_password=substr($text_this_username,0,strpos($text_this_username,';'));
+      
+      $alert="";
+      $n_password="";
+      if (password_verify($_POST['p_password'],$p_password)) 
+      {
+       
+       if (empty($_POST['n_password'])) 
+       {
+         $start=$ch_find_po_username_sess+$password_po+1;
+         $end_w_p=0;
+       }else{
+         $start=$ch_find_po_username_sess;
+         $end_w_p=strlen($p_password)+1;
+         $n_password.=password_hash($_POST['n_password'],PASSWORD_DEFAULT).';';
+         $alert.='<div class="alert alert-success">Password changed</div>';
+       }
+       
+       $target_dir='Profile_Picture/';
+       $target_file=$target_dir.$_SESSION['user'].$_FILES['img_profile']['name'];
+       $FileType=strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+       $types=['png','jpg'];
+
+       $FILE_IMG='';
+       $end_w_img=0;
+       if (!empty($_FILES['img_profile']['name'])) 
+       {
+         if (in_array($FileType,$types)) 
+          {             
+             if ($name_image != "") 
+             {
+                 unlink('Profile_Picture/'.$name_image);
+                 $end_w_img=5+strlen($name_image);
+             }
+
+             move_uploaded_file($_FILES['img_profile']['tmp_name'],$target_file);
+
+             $FILE_IMG='img='.$_SESSION['user'].$_FILES['img_profile']['name'].';';
+
+             $alert.='<div class="alert alert-success">The image has been successfully updated</div>';
+
+          ?>
+           <script type="text/javascript">
+             var n_image_user='<?php echo $target_dir.$_SESSION['user'].$_FILES['img_profile']['name']?>';
+
+             $('#img_us').attr('src',n_image_user);
+           </script>
+         &#60;?php
+
+         }else{
+            $alert.='<div class="alert alert-danger">Please select a valid image file';
+         }
+       }
+
+       $text_val_n_insert=$n_password.$FILE_IMG;
+       $end=$end_w_p+$end_w_img;
+
+       $username_p='{'.$_POST['username'].'}';
+
+       $ch_po_find_username=strpos($t_users,$username_p);
+       
+       $ch_su_us='';
+       if ($_POST['username'] != "") 
+       {
+         if (!preg_match('/[\';:^£$%&amp;*()}{@#~?&gt;&lt;&gt;,|=_+¬-]/',$_POST['username'])) 
+         {
+            if (strlen($_POST['username']) &gt; 5) 
+            {
+                if ($_SESSION['user'] != $_POST['username']) 
+                 {
+                    if (!empty($ch_po_find_username)) 
+                    {
+                      $alert.='<div class="alert alert-danger">This username belongs to someone else</div>';
+                    }else{
+
+                        $_SESSION['user']=$_POST['username'];
+                        $ch_su_us='yes';
+                        $alert.='<div class="alert alert-success">Username has changed</div>';
+                        
+               ?&gt;
+               <script type="text/javascript">
+                  $("#username").val('<?php echo $_POST['username'];?>');
+               </script>
+              &#60;?php
+                    }
+                 } 
+
+            }else{
+                $alert.='<div class="alert alert-warning">Please add more than 5 characters in the username field';
+            }
+         }else{
+            $alert.='<div class="alert alert-danger">Please do not enter special characters in the username field</div>';
+         }
+       }else{
+        $alert.='<div class="alert alert-danger">Please add something in the username field</div>';
+       }
+
+       $update_n_t=substr_replace($t_users,$text_val_n_insert,$start,$end);
+
+       if ($ch_su_us == 'yes') 
+        {
+          $update_n_t=str_replace($usrename_sess,$username_p,$update_n_t);
+        }
+
+       file_put_contents('users.txt',$update_n_t);
+
+
+      }else{
+        $alert.='<div class="alert alert-warning">The previous password is incorrect</div>';
+      }
+    
+    }
+  ?&gt; 
+  <script type="text/javascript">
+    $("#alert").html('<?php echo $alert;?>')
+  </script>
+  
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 7">
+            <p onclick="remove_o_c(7)"></p>
+            <p>Profile.php a file<br>On this profile page, we update data, such as password and username, and upload or update profile picture<br>But now we want to display the private data in the account in the text fields or the input box<br>We also show a profile picture<br>These codes do that, there is no need to explain them, because the work of these codes is like the previous codes<br>We also fetch a part of the string by <span style="color: rgb(45, 194, 107); background-color: rgb(255, 255, 255); font-size: 14pt;"><strong>substr </strong></span>function and we also get the positions using&nbsp;<br><span style="background-color: rgb(255, 255, 255); color: rgb(230, 126, 35); font-size: 14pt;"><strong>strpos</strong></span></p>
+            <p>This code is as mentioned above in the<span style="background-color: rgb(206, 212, 217);"> profile.php</span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&lt;?php&nbsp;</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;$t_users<span style="color: rgb(225, 5, 148);">=<span style="color: rgb(53, 152, 219);">file_get_contents</span></span>(<span style="color: rgb(251, 238, 184);">'users.txt'</span>);</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;$usrename_sess<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(251, 238, 184);">'{'</span><span style="color: rgb(224, 62, 45);">.</span>$_SESSION[<span style="color: rgb(251, 238, 184);">'user'</span>]<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'}'</span>;</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;$from_user_to<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">strlen</span>($usrename_sess)<span style="color: rgb(225, 5, 148);">+</span><span style="color: rgb(230, 126, 35);">6</span>;</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;$ch_find_po_username_sess<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">strpos</span>($t_users<span style="color: rgb(224, 62, 45);">,</span>$usrename_sess)<span style="color: rgb(224, 62, 45);">+</span>$from_user_to;</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;$text_this_username<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">substr</span>($t_users,$ch_find_po_username_sess);</span></strong></span><br><span style="color: rgb(191, 237, 210); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;//fetch_name_img</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;$to_name_image<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">substr</span>($text_this_username<span style="color: rgb(230, 126, 35);">,</span>strpos($text_this_username,<span style="color: rgb(230, 126, 35);">';'</span>)<span style="color: rgb(225, 5, 148);">+</span><span style="color: rgb(230, 126, 35);">5</span>);</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;$name_image=substr($to_name_image,<span style="color: rgb(230, 126, 35);">0</span>,<span style="color: rgb(53, 152, 219);">strpos</span>($to_name_image,<span style="color: rgb(251, 238, 184);">';'</span>));</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgb(225, 5, 148);">if </span>($name_image <span style="color: rgb(225, 5, 148);">==</span> "")&nbsp;</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$img_profile<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(251, 238, 184);">'profile.jpg'</span>;&nbsp;</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<span style="color: rgb(225, 5, 148);">else</span>{</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$img_profile<span style="color: rgb(225, 5, 148);">=</span>$name_image;</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; ?&gt;</span></strong></span></p>
+            <p>right Now<br>When you hit the update button<br>We want to update my account data in the text file to the data you entered in the input fields</p>
+            <p><span style="background-color: rgb(191, 237, 210);">I will explain this to you</span><br>When we want to change something, you must enter the previous password in the field<br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp;&lt;<span style="color: rgb(225, 5, 148);">input </span><span style="color: rgb(45, 194, 107);">type</span><span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);">"text"</span> <span style="color: rgb(45, 194, 107);">required name</span><span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);">"p_password"</span> <span style="color: rgb(45, 194, 107);">id</span><span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);">"p_password"</span> <span style="color: rgb(45, 194, 107);">class</span><span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);">"form-control"</span>&gt;</span></strong></span><br>And the<br>This code checks<br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255); font-size: 14pt;"><strong>&nbsp; &nbsp; $password_po <span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(53, 152, 219);">strpos</span>($text_this_username<span style="color: rgb(230, 126, 35);">,</span> <span style="color: rgb(251, 238, 184);">';'</span>);</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255); font-size: 14pt;"><strong>&nbsp; &nbsp; $p_password <span style="color: rgb(224, 62, 45);">= </span><span style="color: rgb(53, 152, 219);">substr </span>($text_this_username<span style="color: rgb(230, 126, 35);">, 0,</span> <span style="color: rgb(53, 152, 219);">strpos </span>($text_this_username<span style="color: rgb(230, 126, 35);">,</span><span style="background-color: rgb(52, 73, 94); color: rgb(251, 238, 184);"> ';'</span>)));</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255); font-size: 14pt;"><strong>&nbsp; &nbsp; $n_password <span style="color: rgb(224, 62, 45);">=<span style="color: rgb(251, 238, 184);"> </span></span><span style="color: rgb(251, 238, 184);">""</span>;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255); font-size: 14pt;"><strong>&nbsp; &nbsp; <span style="color: rgb(224, 62, 45);">if</span>(<span style="color: rgb(53, 152, 219);">password_verify</span>($_POST[<span style="color: rgb(251, 238, 184);">'p_password'</span>]<span style="color: rgb(230, 126, 35);">, </span>$p_password))</strong></span></p>
+            <p>From the password you entered in the field with the previous password<br>If it does not match, a message will appear<br><span style="color: rgb(224, 62, 45);">The previous password is wrong</span>, and your data cannot be updated.<br>if they match,<br>The following commands will be executed</p>
+            <table style="border-collapse: collapse; width: 89.5738%; height: 90.1719px;" border="1">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                    <tr style="height: 90.1719px;">
+                        <td style="height: 90.1719px;">
+                            <p><span style="background-color: rgb(241, 235, 235);">When we want to change my password, we must start from the starting position of the password to the position of the end of the password, In the text file users.txt</span></p>
+                            <p><span style="color: rgb(0, 0, 0);"><strong>As follows</strong></span><br><span style="background-color: rgb(194, 224, 244); font-size: 14pt;"><strong><span style="color: rgb(230, 126, 35);">pass=</span>$2y$10$IqTUcVTttz/iILzJvtR0PennTM/ximnfKQmlfvJ0QbimUvc7.Tp7q ;</strong></span><br><span style="background-color: rgb(191, 237, 210);">To replace this text in the selected text</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <table style="border-collapse: collapse; width: 89.4977%; height: 118.562px;" border="1">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                    <tr style="height: 118.562px;">
+                        <td style="height: 118.562px;"><span style="background-color: rgb(241, 235, 235);">And when we want to change the profile picture, we must start from the starting position of the profile picture name to the end position of the picture name</span><br><strong>As follows</strong><br><span style="background-color: rgb(194, 224, 244); font-size: 14pt;"><strong>;<span style="color: rgb(230, 126, 35);">img=</span>profile.jpg;</strong></span><br><span style="background-color: rgb(191, 237, 210);">to Replace this image name in the image name specified in the field</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <table style="border-collapse: collapse; width: 89.4977%; height: 136.953px;" border="1">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                    <tr style="height: 136.953px;">
+                        <td style="height: 136.953px;"><span style="background-color: rgb(241, 235, 235);">And when we want to change the password and the picture name together, we must start from the starting position of the password to the end position of the picture name</span><br><strong>as follows</strong><br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(194, 224, 244);"><span style="color: rgb(230, 126, 35);">pass=</span>$2y $10 ck9QqwVQfrluUXcH/N8x2uq7KrFHCNrVmlw5xp2GvgEazOlEo8lS6;<span style="color: rgb(230, 126, 35);"> img =</span> profile.jpg;</span></strong></span><br><span style="background-color: rgb(191, 237, 210);">to replace the password and the image name in the new values</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <p>That's why we have to choose the appropriate positions in the string to start to replace texts</p>
+            <p>We wrote this code to precisely locate the positions in the string(users.txt)<br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="color: rgb(225, 5, 148);">&nbsp;if</span> (<span style="color: rgb(53, 152, 219);">empty</span>($_POST[<span style="color: rgb(251, 238, 184);">'n_password'</span>]))</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp;{</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$start<span style="color: rgb(224, 62, 45);">=</span>$ch_find_po_username_sess<span style="color: rgb(224, 62, 45);">+</span>$password_po<span style="color: rgb(224, 62, 45);">+</span><span style="color: rgb(230, 126, 35);">1</span>;</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$end_w_p<span style="color: rgb(224, 62, 45);">=</span><span style="background-color: rgb(52, 73, 94); color: rgb(230, 126, 35);">0</span>;</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; }else{</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$start<span style="color: rgb(224, 62, 45);">=</span>$ch_find_po_username_sess;</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$end_w_p<span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">strlen</span>($p_password)<span style="color: rgb(224, 62, 45);">+</span><span style="color: rgb(230, 126, 35);">1</span>;</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$n_password<span style="color: rgb(224, 62, 45);">.=</span><span style="color: rgb(53, 152, 219);">password_hash</span>($_POST[<span style="color: rgb(251, 238, 184);">'n_password'</span>]<span style="color: rgb(230, 126, 35);">,</span><span style="color: rgb(194, 224, 244);">PASSWORD_DEFAULT</span>)<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">';'</span>;</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$alert<span style="color: rgb(224, 62, 45);">.=</span><span style="color: rgb(251, 238, 184);">'&lt;div class="alert alert-success"&gt;Password changed&lt;/div&gt;'</span>;</strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp;}</strong></span><br><strong>As I told you before, whether to replace the text or fetch part of the string depends on the Determine the starting location of the chain</strong><br>,<br>The code above determines the appropriate position to start replacing text in the string,<br>I will explain these codes to you if the password field does not contain a value,<br>&nbsp;this indicates that we do not want to change the password, in this case the position starts from the end of the password<br><span style="font-size: 14pt; color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>$start<span style="color: rgb(224, 62, 45);">=</span>$ch_find_po_username_sess<span style="color: rgb(224, 62, 45);">+</span>$password_po<span style="color: rgb(224, 62, 45);">+</span><span style="color: rgb(230, 126, 35);">1</span>;</strong></span><br><span style="font-size: 14pt; color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>$end_w_p<span style="color: rgb(230, 126, 35);">=0</span>;</strong></span><br>After this, you cannot control the password string contained in the private text file in my account.<br>You might say what is the last number 1؟<br>This number includes the mark <span style="font-size: 24pt; color: rgb(230, 126, 35);"><strong>; </strong></span>With the end of the password<br><br></p>
+            <p>And when we put a value in the password field to change the password<br><span style="background-color: rgb(191, 237, 210);">In this case, the position will start from the beginning to the end of {the password for my account} in the text file (users.txt)</span></p>
+            <p><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 14pt; color: rgb(255, 255, 255);">$start <span style="color: rgb(224, 62, 45);">=</span> $ch_find_po_username_sess;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 14pt; color: rgb(255, 255, 255);">$end_w_p <span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(53, 152, 219);">strlen </span>($p_password) <span style="color: rgb(224, 62, 45);">+</span><span style="color: rgb(230, 126, 35);">1</span>;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 14pt; color: rgb(255, 255, 255);">$ n_password<span style="color: rgb(224, 62, 45);">.</span> <span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(53, 152, 219);">password_hash </span>($_POST [<span style="color: rgb(251, 238, 184);">'n_password'</span>], <span style="color: rgb(194, 224, 244);">PASSWORD_DEFAULT</span>)<span style="color: rgb(224, 62, 45);">.</span> <span style="color: rgb(251, 238, 184);">';'</span>;</span></strong></p>
+            <p><br>Note:<br><span style="color: rgb(230, 126, 35);">&nbsp;<strong>$end_w_p</strong> variable</span><br>Specifies the length of the text to be replaced in the string, or determine the end<br>When we want to change the image, we check the selected image in the field</p>
+            <p><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">$target_dir <em><span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(251, 238, 184);">'P</span></em><span style="color: rgb(251, 238, 184);">rofile_Picture /'</span>;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp;$target_file <span style="color: rgb(224, 62, 45);">=</span> $target_dir<span style="color: rgb(224, 62, 45);">.</span> $_ SESSION [<span style="color: rgb(251, 238, 184);">'user'</span>]<span style="color: rgb(224, 62, 45);">.</span> $_FILES[<span style="color: rgb(251, 238, 184);">'img_profile'</span>] [<span style="color: rgb(251, 238, 184);">'name'</span>];</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp;$FileType <span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(53, 152, 219);">strtolower</span>(<span style="color: rgb(53, 152, 219);">pathinfo </span>($target_file<span style="color: rgb(224, 62, 45); font-size: 18pt;">,</span> <span style="color: rgb(194, 224, 244);">PATHINFO_EXTENSION</span>));</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp;$types <span style="color: rgb(224, 62, 45);">=</span> [<span style="color: rgb(251, 238, 184);">'png'</span><span style="color: rgb(230, 126, 35);">,</span><span style="color: rgb(251, 238, 184);"> 'jpg'</span>];</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp;$FILE_IMG <span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);"> ""</span>;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp;$end_w_img<span style="color: rgb(224, 62, 45);"> =</span> <span style="color: rgb(230, 126, 35);">0</span>,</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);"><span style="color: rgb(225, 5, 148);">if</span> (<span style="color: rgb(224, 62, 45);">!</span><span style="color: rgb(53, 152, 219);">empty</span>($_FILES[<span style="color: rgb(251, 238, 184);">'img_profile'</span>] [<span style="color: rgb(251, 238, 184);">'name'</span>])) {</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp;<span style="color: rgb(225, 5, 148);"> &nbsp;if </span>(<span style="color: rgb(53, 152, 219);">in_array </span>($FileType<span style="color: rgb(230, 126, 35);">,</span> $types)) {</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; <span style="color: rgb(225, 5, 148);">if</span> ($name_image<span style="color: rgb(224, 62, 45);"> !=</span> <span style="color: rgb(251, 238, 184);">""</span>) {</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgb(53, 152, 219);">unlink</span>(<span style="color: rgb(251, 238, 184);">'Profile_Picture /'</span><span style="color: rgb(224, 62, 45);">.</span>$name_image);</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$end_w_img<span style="color: rgb(224, 62, 45);"> =</span> <span style="color: rgb(230, 126, 35);">5</span> <span style="color: rgb(224, 62, 45);">+</span> <span style="color: rgb(53, 152, 219);">strlen</span>($name_image);</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp;<span style="color: rgb(53, 152, 219);">move_uploaded_file </span>($_FILES[<span style="color: rgb(251, 238, 184);">'img_profile'</span>] [<span style="color: rgb(251, 238, 184);">'tmp_name'</span>]<span style="color: rgb(230, 126, 35);">,</span> $target_file);</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; $FILE_IMG <span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);"> 'img ='</span><span style="color: rgb(224, 62, 45);">.</span> $_ SESSION [<span style="color: rgb(251, 238, 184);">'user'</span>]<span style="color: rgb(224, 62, 45);">. </span>$_FILES [<span style="color: rgb(251, 238, 184);">'img_profile'</span>] [<span style="color: rgb(251, 238, 184);">'name'</span>]<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);"> ';'</span>;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; $alert<span style="color: rgb(224, 62, 45);">. =</span> '<span style="color: rgb(251, 238, 184);">&lt;div class="alert alert-success"&gt;The image has been successfully updated&lt;/div&gt;</span>';</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; ?&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp;&lt;<span style="color: rgb(225, 5, 148);">script </span><span style="color: rgb(45, 194, 107);">type </span><span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(251, 238, 184);">"text/javascript"</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp; <span style="color: rgb(230, 126, 35);">var </span>n_image_user=<span style="color: rgb(251, 238, 184);">'&lt;?php echo $target_dir.$_SESSION['user'].$_FILES['img_profile']['name']?&gt;'</span>;</span></strong></p>
+            <p><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&nbsp; &nbsp; <span style="color: rgb(225, 5, 148);">$</span>(<span style="color: rgb(251, 238, 184);">'#img_us'</span>)<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(53, 152, 219);">attr</span>(<span style="color: rgb(251, 238, 184);">'src'</span><span style="color: rgb(230, 126, 35);">,</span>n_image_user);<br><br>&nbsp; &lt;/<span style="color: rgb(225, 5, 148);">script</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); font-size: 12pt; color: rgb(255, 255, 255);">&lt;? php</span></strong><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; }<span style="color: rgb(225, 5, 148);">else</span>{</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; $alert<span style="color: rgb(230, 126, 35);">.</span><span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(251, 238, 184);">'&lt;div class="alert alert-danger"&gt;Please select a valid image file&lt;/div&gt;'</span>;</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp;}</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);"><span style="font-size: 12pt; background-color: rgb(52, 73, 94);">}</span></span></strong></span><br>For example, image type<br>If the image type is valid, this is acceptable. The following commands will be executed:<br>NB:<br>When we create a new account, there is no picture name with the data for my new account<br>To this we add this condition.<br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(225, 5, 148);">if</span> ($name_image <span style="color: rgb(225, 5, 148);">!=</span> <span style="color: rgb(251, 238, 184);">""</span>) {</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; <span style="color: rgb(53, 152, 219);">unlink</span>(<span style="color: rgb(251, 238, 184);">'Profile_Picture /'</span><span style="color: rgb(224, 62, 45);">.</span>$name_image);</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp;$end_w_img <span style="color: rgb(224, 62, 45);">=</span> <span style="color: rgb(230, 126, 35);">5 </span><span style="color: rgb(224, 62, 45);">+</span> <span style="color: rgb(53, 152, 219);">strlen</span>($name_image);</span></strong></span><br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">}</span></strong></span></p>
+            <p><br><span style="font-size: 18pt;"><strong>note,</strong></span><br>variable <span style="background-color: rgb(206, 212, 217);">$name_image</span><br>Get the name of the profile picture My account if any</p>
+            <p><strong><span style="background-color: rgb(194, 224, 244);">This condition says that if there is a previous image name, we delete the previous image from a</span></strong><span style="color: rgb(230, 126, 35);"> <span style="color: rgb(185, 106, 217);">folder</span></span><br><span style="color: rgb(185, 106, 217);"><strong>upload</strong></span><br>using this function<br><span style="background-color: rgb(206, 212, 217);">unlink('Profile_Picture/'.$name_image);</span><br>Inserting the new picture into a <span style="color: rgb(185, 106, 217);"><strong>folder</strong></span><br><span style="color: rgb(185, 106, 217);"><strong>upload</strong></span><br>using the function<br><span style="background-color: rgb(206, 212, 217);">move_uploaded_file($_FILES['img_profile']['tmp_name'],$target_file);</span></p>
+            <p>We also include the name of the new image<br>&nbsp;<span style="background-color: rgb(191, 237, 210);">in my data in the users.txt text file,</span><br>or replace the name of the included image in my data,<br>From the position offered by a variable<br><span style="color: rgb(230, 126, 35);">$<strong>start</strong></span><br>to &nbsp;the position offered by a variable&nbsp;<br><span style="color: rgb(230, 126, 35);"><strong>$end_w_img</strong></span>&nbsp;<br><span style="background-color: rgb(191, 237, 210);">Note that the value of this variable is the length of the number of characters of the previous image,</span><br>This is the full name of the new image in a variable<br><span style="color: rgb(230, 126, 35);"><strong>$FILE_IMG</strong></span><br>as shown<br><span style="font-size: 14pt; color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">$FILE_IMG<span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(251, 238, 184);">'img='</span><span style="color: rgb(224, 62, 45);">.</span>$_SESSION[<span style="color: rgb(251, 238, 184);">'user'</span>].$_FILES[<span style="color: rgb(251, 238, 184);">'img_profile'</span>][<span style="color: rgb(251, 238, 184);">'name'</span>]<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">';'</span>;</span></strong></span><br>Which we want to include in my account in the text file<br><span style="background-color: rgb(206, 212, 217);">users.txt,</span><br>__________<br>After we have stored the value of the new password in a variable<br><span style="color: rgb(230, 126, 35);"><strong>$n_password</strong></span><br>The value of the image name in a variable<br><strong><span style="color: rgb(230, 126, 35);">$FILE_IMG,</span></strong></p>
+            <p>Now we combine these two variables into a variable<br>as shown</p>
+            <p><span style="font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">$text_val_n_insert<span style="color: rgb(225, 5, 148);">=</span>$n_password<span style="color: rgb(224, 62, 45); font-size: 24pt;">.</span>$FILE_IMG;</span></strong></span></p>
+            <p>We have to replace the value of this variable in the given part of the string<br>according to variable<br><strong><span style="color: rgb(230, 126, 35);">$start</span></strong><br>and variable<br><span style="color: rgb(230, 126, 35);"><strong>$end</strong></span><br>as shown<br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">$update_n_t<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">substr_replace</span>($t_users<span style="color: rgb(230, 126, 35);">,</span> $text_val_n_insert<span style="color: rgb(230, 126, 35);">,</span> $start<span style="color: rgb(230, 126, 35);">,</span> $end);</span></strong></span></p>
+            <p>note that value<br><span style="color: rgb(230, 126, 35);"><strong>$start</strong></span><br>&nbsp;Specifies where to start replacing in the string and value<br><span style="color: rgb(230, 126, 35);"><strong>$end</strong></span><br>Specifies how many characters should be replaced,</p>
+            <p><strong>After </strong>you have learned how to change the <span style="background-color: rgb(236, 202, 250);">image name</span> and <span style="background-color: rgb(236, 202, 250);">password</span>,<br><span style="background-color: rgb(191, 237, 210);">Now let's change the username.</span><br>It is very easy to change username<br>First, you should check the username you entered, if it contains special characters or not.<br>We check this condition</p>
+            <p><span style="background-color: rgb(52, 73, 94); font-size: 14pt;"><strong><span style="color: rgb(224, 62, 45);">if</span> <span style="color: rgb(255, 255, 255);">(</span><span style="color: rgb(224, 62, 45);">!</span><span style="color: rgb(53, 152, 219);">preg_match</span><span style="color: rgb(255, 255, 255);">(<span style="color: rgb(45, 194, 107);">'/[</span></span><span style="color: rgb(236, 202, 250);">\';:^£ $% &amp; *()} {@#~?&gt; &lt;&gt;, | = _ + ¬ -</span><span style="color: rgb(45, 194, 107);">]/'</span><span style="color: rgb(230, 126, 35);">,</span><span style="color: rgb(255, 255, 255);"> $_POST [</span><span style="color: rgb(251, 238, 184);">'username '</span><span style="color: rgb(255, 255, 255);">]))</span></strong></span><br>We also check for this condition<br>If the username you entered is the same as your username previously<br><span style="font-size: 14pt; background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(224, 62, 45);">If </span><span style="color: rgb(255, 255, 255);">($_SESSION[</span><span style="color: rgb(251, 238, 184);">'user'</span><span style="color: rgb(255, 255, 255);">]</span><span style="color: rgb(224, 62, 45);">!=</span> <span style="color: rgb(255, 255, 255);">$_POST [</span><span style="color: rgb(251, 238, 184);">'username'</span><span style="color: rgb(255, 255, 255);">]){</span></strong></span><br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>}</strong></span></p>
+            <p>This condition is fulfilled<br><span style="font-size: 14pt; background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="color: rgb(224, 62, 45);">if</span> (<span style="color: rgb(224, 62, 45);">!</span><span style="color: rgb(53, 152, 219);">empty</span>($ch_po_find_username))</strong></span><br>As I mentioned earlier, if the user name you entered is a user of another person’s account or not, if it is a user of another person’s account,<br>The message "<span style="color: rgb(224, 62, 45);">This username belongs to someone else's account</span>" will appear.<br>If it is not used, the new username will be replaced with the previous username in my account<br>Also, the value of the username will be stored in the session<br><span style="background-color: rgb(206, 212, 217);">$_SESSION['user']=$_POST['username'];</span></p>
+            <p>Wow!<br><span style="background-color: rgb(52, 73, 94); font-size: 14pt; color: rgb(236, 240, 241);"><strong>&nbsp;$update_n_t<span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">substr_replace</span>($t_users<span style="color: rgb(230, 126, 35);">,</span> $text_val_n_insert<span style="color: rgb(230, 126, 35);">,</span> $start<span style="color: rgb(230, 126, 35);">,</span> $end);</strong></span><br><span style="background-color: rgb(52, 73, 94); font-size: 14pt; color: rgb(236, 240, 241);"><strong>&nbsp;<span style="color: rgb(224, 62, 45);"> if</span> ($ch_su_us <span style="color: rgb(224, 62, 45);">==</span> <span style="color: rgb(251, 238, 184);">'yes'</span>) {</strong></span><br><span style="background-color: rgb(52, 73, 94); font-size: 14pt; color: rgb(236, 240, 241);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $update_n_t<span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">str_replace</span>($usrename_sess<span style="color: rgb(230, 126, 35);">,</span>$username_p<span style="color: rgb(230, 126, 35);">,</span>$update_n_t);</strong></span><br><span style="background-color: rgb(52, 73, 94); font-size: 14pt; color: rgb(236, 240, 241);"><strong>&nbsp; &nbsp;}</strong></span><br><span style="font-size: 14pt; color: rgb(236, 240, 241);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; <span style="color: rgb(53, 152, 219);">file_put_contents</span>(<span style="color: rgb(251, 238, 184);">'users.txt'</span>,$update_n_t);</span></strong></span><br>&nbsp;<br>The function helps us<br><span style="color: rgb(230, 126, 35); font-size: 14pt;"><strong>substr_replace</strong></span><br>In replacing the name of the images and the password according to the plan or based on the words that I mentioned above</p>
+            <p>This function performs<br><span style="color: rgb(255, 255, 255); font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94);">$update_n_t<span style="color: rgb(224, 62, 45);">=</span><span style="color: rgb(53, 152, 219);">str_replace</span>($usrename_sess<span style="color: rgb(230, 126, 35);">,</span>$username_p<span style="color: rgb(230, 126, 35);">,</span>$update_n_t);</span></strong></span><br>Replacing the user name directly without specifying positions</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p><strong>________________________________________________</strong></p>
+            <p><strong>________________________________________________</strong></p>
+            <p><strong>________________________________________________</strong></p>
+            <p>&nbsp;</p>
+            <ul>
+                <li><span style="font-size: 18pt;"><strong>Now how can we display the chat box when we want to send a message to someone</strong></span><br>There is a button next to each account in the user list<br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(225, 5, 148);">span </span><span style="color: rgb(45, 194, 107);">id</span><span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(251, 238, 184);">"display_box"</span><span style="color: rgb(45, 194, 107);"> data-username</span><span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(251, 238, 184);">"&lt;?php echo $username;?&gt;"</span> <span style="color: rgb(45, 194, 107);">class</span><span style="color: rgb(224, 62, 45);">=<span style="color: rgb(251, 238, 184);">"fa fa-comments text-muted c-info"</span></span>&gt; &lt;/<span style="color: rgb(225, 5, 148);">span</span>&gt;</span></strong></span><br>When you click this you can view the chat box<br>by code<br>jquery<br><span style="font-size: 14pt;"><strong>located in the file</strong></span><br><span style="background-color: rgb(206, 212, 217); font-size: 14pt;">index.php</span></li>
+            </ul>
+            <p>&nbsp;</p>
+            <p></p>
+            <pre class="brush:php"> var user_clicking_chat;
+  $(document).on('click','#display_box',function(){
+
+       $(".msgm").html('');
+        var username=$(this).data('username');
+        $(".panel-title").text(username);
+        user_clicking_chat=username;
+        
+        $("#username_ch").val(username);
+
+        $(".insert_msg").attr('id',username);
+        if ($(".box_ch").is(":hidden")) 
+        {
+          $(".box_ch").show();
+        }
+
+  });
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 8">
+            <p onclick="remove_o_c(8)"></p>
+            <p>After we display the chat box, <span style="background-color: rgb(191, 237, 210);">how can we send the message to the specified user?</span><br>You can do this by clicking on the submit button,<br>through</p>
+            <p></p>
+            <pre class="brush:php">  $(document).on('click','.insert_msg',function(){
+            
+          var msg=$(".chat-input").val();
+          var us_chat=$(this).attr('id');
+
+          if (msg.trim() != "") 
+            {
+               $.ajax({
+                  url:"insert_msg.php",
+                  method:"post",
+                  data:{msg:msg,us_chat:us_chat},
+                  success:function(data)
+                  {
+                    $(".chat-input").val('');
+                  }
+               });
+            }
+
+  });
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 9">
+            <p onclick="remove_o_c(9)"></p>
+            <p>We fetch the text of the message through a variable<br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(206, 212, 217);">&nbsp; var msg=$(".chat-input").val();</span></strong></span><br>And the username of the person we want to send a message to<br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(206, 212, 217);">var us_chat=$(this).attr('id');</span></strong></span><br>When you click on the send button, AJAX will send The text message and the person's username<br>to file<br><strong><span style="background-color: rgb(206, 212, 217);">insert_msg.php</span></strong><br>We will go to this file</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>____________________________________________________________</p>
+            <p>____________________________________________________________</p>
+            <p><span style="background-color: rgb(206, 212, 217);"><strong>insert_msg.php</strong></span> &nbsp;file<br>First, create a text file called<br><span style="color: rgb(230, 126, 35);"><strong>chat.txt</strong></span></p>
+            <p></p>
+            <pre class="brush:php"><!--?php 
+  session_start();
+  $us_se=$_SESSION['user'];
+  $special_Character=array("'",'"',';','-->','&lt;','_','-',':');
+  //The message is encrypted
+  $msg=str_rot13(str_replace($special_Character,'',$_POST['msg']));
+
+  $msg_us=$us_se.'_to_'.$_POST['us_chat'].'-'.$us_se.'&gt;'.rand().';'.$msg.':';
+
+  file_put_contents('chat.txt',$msg_us,FILE_APPEND);
+?&gt;</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 10">
+            <p onclick="remove_o_c(10)"></p>
+            <p><strong>Let's explain this code</strong><br><span style="font-size: 14pt;"><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">$msg<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">str_rot13</span>(<span style="color: rgb(53, 152, 219);">str_replace</span>($special_Character,<span style="color: rgb(251, 238, 184);">''</span>,$_POST[<span style="color: rgb(251, 238, 184);">'msg'</span>])));</span></strong></span><br>This line fetches the encrypted message devoid of any special characters specified in the array<br><span style="font-size: 14pt; color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; $special_Character<span style="color: rgb(225, 5, 148);">=<span style="color: rgb(53, 152, 219);">array</span></span>(<span style="color: rgb(251, 238, 184);">"'"<span style="color: rgb(255, 255, 255);">,</span>'"'<span style="color: rgb(255, 255, 255);">,</span>';','&gt;'<span style="color: rgb(255, 255, 255);">,'</span>&lt;','_','-'<span style="color: rgb(255, 255, 255);">,</span>':'</span>);</span></strong></span></p>
+            <p><span style="font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">$msg_us<span style="color: rgb(225, 5, 148);">=</span>$us_se<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'_to_'</span><span style="color: rgb(224, 62, 45);">.</span>$_POST[<span style="color: rgb(251, 238, 184);">'us_chat'</span>]<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'-'</span><span style="color: rgb(224, 62, 45);">.</span>$us_se<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'&gt;'</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">rand()</span><span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">';'</span><span style="color: rgb(224, 62, 45);">.</span>$msg<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">':'</span>;</span></strong></span><br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp;<span style="color: rgb(53, 152, 219);">file_put_contents</span>(<span style="color: rgb(251, 238, 184);">'chat.txt'</span><span style="color: rgb(224, 62, 45);">,</span>$msg_us,<span style="color: rgb(194, 224, 244);">FILE_APPEND</span>);</span></strong></span></p>
+            <p>This code inserts the text message and username of the user<br><span style="font-size: 14pt; background-color: rgb(191, 237, 210);"><strong>in the text file</strong></span><br><span style="font-size: 14pt; background-color: rgb(191, 237, 210);"><strong>chat.txt</strong></span></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>__________________________________________________________</p>
+            <p>__________________________________________________________</p>
+            <p><span style="font-size: 14pt; background-color: rgb(191, 237, 210);"><strong>After we have inserted the messages in the text file</strong></span><br><strong><span style="background-color: rgb(191, 237, 210); font-size: 14pt;">Now let's display the messages in the chat box</span></strong><br>We display new messages every second by AJAX, which fetches messages from the <strong><span style="background-color: rgb(206, 212, 217);">msgs_ch_us.php</span></strong> file<br>But inside the setInterval method there is an important variable<br>he is <span style="color: rgb(230, 126, 35);"><strong>$c_msg_box_chat</strong></span><br>This variable fetches the number of messages in the given chat box,<br>We take advantage of this variable in file<br><span style="background-color: rgb(206, 212, 217);">msgs_ch_us.php</span></p>
+            <p></p>
+            <pre class="brush:php">setInterval(function(){
+if (typeof user_clicking_chat != 'undefined') { 
+var c_msg_box_chat=$(".msgm").children('li').length;
+$.ajax({
+              url:"msgs_ch_us.php",
+              type:"post",
+              data:{user_clicking_chat:user_clicking_chat,c_msg_box_chat:c_msg_box_chat},
+              success:function(data){
+                if (data != "") {
+                 $(".msgm").html(data);
+                 $(".nano-content").scrollTop($(".nano-content")[0].scrollHeight);
+                }
+              }
+          });
+       }
+},1000);
+</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 11">
+            <p onclick="remove_o_c(11)"></p>
+            <p><span style="font-size: 14pt; background-color: rgb(206, 212, 217);"><strong>msgs_ch_us.php</strong></span><br>Let's explain the codes found in this file,<br>These are the codes that fetch messages from the text file and send them to Ajax<br>for example<br>my username</p>
+            <p>is<span style="color: rgb(185, 106, 217);"><strong> <span style="font-size: 14pt;">{amarki},</span></strong></span><br>I sent a message to a person whose username</p>
+            <p>is<span style="color: rgb(45, 194, 107); font-size: 14pt;"><strong> {strongw55}</strong></span></p>
+            <table style="border-collapse: collapse; width: 66.7996%;" border="1">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td><span style="color: rgb(45, 194, 107); font-size: 14pt;"><strong><span style="font-size: 14pt;"><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">$msg_us_session<span style="color: rgb(225, 5, 148);">=</span>$_SESSION[<span style="color: rgb(251, 238, 184);">'user'</span>]<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'_to_'</span><span style="color: rgb(224, 62, 45);">.</span>$_POST[<span style="color: rgb(251, 238, 184);">'user_clicking_chat'</span>]<span style="color: rgb(224, 62, 45);">.</span>'-';</span></span><br>This line searches for the message that I sent to {strongw55}</strong></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <table style="border-collapse: collapse; width: 67.1984%;" border="1">
+                <colgroup>
+                    <col style="width: 100%;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td><span style="font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">$us_sent_me_msg<span style="color: rgb(224, 62, 45);">=</span>$_POST[<span style="color: rgb(251, 238, 184);">'user_clicking_chat'</span>]<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'_to_'</span><span style="color: rgb(224, 62, 45);">.</span>$_SESSION[<span style="color: rgb(251, 238, 184);">'user'</span>]<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'-'</span>;</span></strong></span><br><span style="font-size: 14pt; color: rgb(45, 194, 107);"><strong>This line searches for the message {strongw55} sent me</strong></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <p>We fetch messages using<br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">$get_msgs<span style="color: rgb(225, 5, 148);">=</span><span style="color: rgb(53, 152, 219);">preg_split</span>(<span style="color: rgb(251, 238, 184);">'/('</span><span style="color: rgb(224, 62, 45);">.</span>$msg_us_session<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">'|'</span><span style="color: rgb(224, 62, 45);">.</span>$us_sent_me_msg<span style="color: rgb(224, 62, 45);">.</span><span style="color: rgb(251, 238, 184);">')/'</span><span style="color: rgb(230, 126, 35);">,</span>$text_ch_user);</span></strong></span><br>As we mentioned above, we store the number of messages in the chat box in a variable<br><strong><code><span style="color: rgb(230, 126, 35);">c_msg_box_chat</span>,</code></strong><br>This variable gives us a &nbsp;unique way to display messages in the chat box<br>as shown<br><span style="font-size: 14pt;"><strong><span style="background-color: rgb(206, 212, 217);">if (count($get_msgs)-1 != $_POST['c_msg_box_chat'])</span></strong></span><br><span style="background-color: rgb(251, 238, 184);">This condition says if the number of our messages me and strongw55 that are in the text file (users.txt) is not equal to the number of our messages me and strongw55 that are in the chat box</span><br><br><span style="background-color: rgb(191, 237, 210);">This heralds that there is a new message,</span></p>
+            <p>In this case, the command that fetches the messages will be executed, After fetching the message, it is set directly in the chat box<br>After you set it The command that fetches the message will stop Because the number of our messages in the chat box, me and strongw55, is now equal to the number of our messages in the text file,And if that means there are no new messages<br><span style="color: rgb(186, 55, 42);">If we always run the command that fetches messages, our old or previous messages will be fetched over and over again without stopping and put into the chat box,</span><br>This is a problem in and of itself<br>And iteration is done by<br><span style="color: rgb(53, 152, 219);"><strong>setInterval</strong></span><br>to solve this problem, this condition was set above</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>______________________________________________________________</p>
+            <p>______________________________________________________________</p>
+            <p>If you want to delete a specific message, Click the delete icon next to the message<br>We will send the ID of the message we want to delete<br>to me<br>a file<br><strong>remove_msg.php</strong><br>using<br><span style="color: rgb(241, 196, 15);">ajax</span></p>
+            <p></p>
+            <pre class="brush:php">$(document).on('click','.remove_msg',function(){
+      
+         var id_msg_chat=$(this).data('id_ch');
+         var username_ch=$("#username_ch").val();
+
+         $.ajax({
+            url:"remove_msg.php",
+            type:"post",
+            data:{id_msg_chat:id_msg_chat,username_ch:username_ch},
+            success:function(data)
+            {
+              $(".h_msg_sess"+id_msg_chat).remove();
+            }
+         });
+  });</pre>
+        </div>
+        <div class="margin-top-40 margin-bottom-40 12">
+            <p onclick="remove_o_c(12)"></p>
+            <p>___________________________________________________________</p>
+            <p>a file<br><span style="background-color: rgb(206, 212, 217);"><strong><span style="font-size: 14pt; background-color: rgb(206, 212, 217);">remove_msg.php</span></strong></span></p>
+            <p></p>
+            <pre class="brush:php"><!--?php 
+ 
+ session_start();
+
+ $text_msg=file_get_contents('chat.txt');
+
+ $id_msg=$_POST['id_msg_chat'];
+ $username_ch=$_POST['username_ch'];
+ $user_se=$_SESSION['user'];
+ 
+ $find_id_to=substr($text_msg,strpos($text_msg,$id_msg));
+ $le_fr_id_to_endmsg=strlen(substr($find_id_to,0,strpos($find_id_to,':')));
+
+ $len_f_n_user=strlen($user_se.'_to_'.$username_ch.'-'.$user_se.'-->');
+
+ $full_length_u_ch=$len_f_n_user+$le_fr_id_to_endmsg+1;
+
+ $st_pi_f_msg=strpos($text_msg,$id_msg)-$len_f_n_user;
+
+ $remove_msg_ch=str_replace(substr($text_msg,$st_pi_f_msg,$full_length_u_ch),'',$text_msg);
+
+ file_put_contents('chat.txt',$remove_msg_ch);
+?&gt;</pre>
+        </div>
+    </div>box
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>How to upload a video file to my database in Laravel 8</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2021.09.06 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+
+         <div class="code">
+
+              
+            <div id="delete0" class="review_code"><p id="0" class=" delete_review_code hide0">Step 1: Create a new Laravel project with composer. You can give it any name but in this case we will call it laravel_exm.</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">composer create-project --prefer-dist laravel/laravel laravel_exm</pre></div><count></count></div><div id="delete1" class="review_code"><p id="1" class=" delete_review_code hide1">Step 2: In the laravel_exm project create a migration to create a videos table.</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">php artisan make:migration create_videos_table </pre></div><count></count></div><div id="delete2" class="review_code"><p id="2" class=" delete_review_code hide2">Step 3: In the migration process, add the two video fields</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">public function up()
+    {
+        Schema::create('videos', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;string('video');
+            $table-&gt;timestamps();
+        });
+    }</pre></div><count></count></div><div id="delete3" class="review_code"><p id="3" class=" delete_review_code hide3">Step 4: Next, create a model called Video</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">php artisan make:model Video</pre></div><count></count></div><div id="delete4" class="review_code"><p id="4" class=" delete_review_code hide4">Step 5: On the form, add the video fields in the fillable matrix. Also, add the name of the table</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class video extends Model
+{
+   protected $table="videos";
+   protected $fillable=['video'];
+}
+</div--></pre><count></count></div></div><div id="delete5" class="review_code"><p id="5" class=" delete_review_code hide5">Step 6: Next, create a controller and name it VideoController.</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\video;
+
+class VideoController extends Controller
+{
+    function index()
+    {
+        return view("index");
+    }
+
+
+    function fetch()
+    {
+      $data=video::all()--->toArray();
+      return view('videos',compact('data'));
+    }
+
+    function insert(Request $request)
+    {
+       $request-&gt;validate([
+           'video' =&gt; 'required|mimes:mp4,ogx,oga,ogv,ogg,webm'
+       ]);
+
+       $file=$request-&gt;file('video');
+       $file-&gt;move('upload',$file-&gt;getClientOriginalName());
+       $file_name=$file-&gt;getClientOriginalName();
+
+       $insert=new video();
+       $insert-&gt;video = $file_name;
+       $insert-&gt;save();
+
+       return redirect('/fetch_video');
+    }
+ }
+</pre></div><count></count></div><div id="delete6" class="review_code"><p id="6" class=" delete_review_code hide6"></p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">php artisan make:controller VideoController</pre></div><count></count></div><div id="delete7" class="review_code"><p id="7" class=" delete_review_code hide7">Step 7: Finally in the web.php file in the routes folder</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">Route::get('/fetch_video',[App\Http\Controllers\VideoController::class,'fetch']);
+
+Route::get('/index_u',[App\Http\Controllers\VideoController::class,'index']);
+
+Route::post('/insert_video',[App\Http\Controllers\VideoController::class,'insert'])-&gt;name('insert.file');
+</pre></div><count></count></div><div id="delete8" class="review_code"><p id="8" class=" delete_review_code hide8">Step 8: Create a file called index.blade.php.</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
+<div class="drag-area">
+    <form method="post" action="{{ Route('insert.file') }}" enctype="multipart/form-data">
+    {{ csrf_field() }}
+        <input type="file" name="video">
+        <p>
+         @if($errors-&gt;has('video'))
+           {{ $errors-&gt;first('video') }}
+         @endif
+        </p>
+        <input type="submit" name="click">
+    </form>
+</div>
+
+
+</pre></div><count></count></div><div id="delete10" class="review_code"><p id="10" class=" delete_review_code hide10">This is a css file, copy this code and put it in the /public/css/ directory of the project laravel_exm and name it style</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&amp;display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #5256ad;
+}
+.drag-area{
+  border: 2px dashed #fff;
+  height: 500px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}</pre></div><count></count></div><div id="delete11" class="review_code"><p id="11" class=" delete_review_code hide11">Now it's time to create a file that shows the video that was sent to mysqli Copy this code and paste there and name it videos.blade.php</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">@foreach($data as $row)
+<video width="320" height="240" autoplay="" muted="">
+  <source src="{{asset('upload')}}/{{$row['video']}}" type="video/mp4">
+</video>
+@endforeach
+</pre></div><count></count></div>     
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+    
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

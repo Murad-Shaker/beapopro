@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>Simple Login System in Laravel</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2021.07.26 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+
+         <div class="code">
+
+              
+            <div id="delete0" class="review_code" bis_skin_checked="1"><p id="0" class=" delete_review_code hide0">This command will make users table in Mysql database. Now we want to insert one user records in users table. For this we have use Laravel seeders. It will filled data into Mysql table. For this we have go to command prompt and write following command.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">php artisan migrate
+</pre></div><count></count></div><div id="delete1" class="review_code" bis_skin_checked="1"><p id="1" class=" delete_review_code hide1">This command will make UsersTableSeeder class in database/seeds/UsersTableSeeder.php. So we have open that file and under this we have define single user data in run() method.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">php artisan make:seeder UsersTableSeeder
+</pre></div><count></count></div><div id="delete2" class="review_code" bis_skin_checked="1"><p id="2" class=" delete_review_code hide2">After this we have open UsersTableSeeder.php class and under that class run() method we have called UsersTableSeeder.php.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php
+
+use Illuminate\Database\Seeder;
+use App\User;
+
+class UsersTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        User::create([
+           'name'     =--> 'mark stevons',
+           'email'    =&gt; 'mark22@gmail.com',
+           'password' =&gt; Hash::make('password'),
+           'remember_token' =&gt;Str::random(10)
+
+        ]);
+    }
+}
+</pre></div><count></count></div><div id="delete3" class="review_code" bis_skin_checked="1"><p id="3" class=" delete_review_code hide3">After this we have open UsersTableSeeder.php class and under that class run() method we have called UsersTableSeeder.php.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php
+
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+         Eloquent::unguard();
+         $this--->call('UsersTableSeeder');
+    }
+}
+</pre></div><count></count></div><div id="delete4" class="review_code" bis_skin_checked="1"><p id="4" class=" delete_review_code hide4">Now We want to export data into Mysql users table, so we have go to command prompt and write following command.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">composer dump-autoload
+</pre></div><count></count></div><div id="delete5" class="review_code" bis_skin_checked="1"><p id="5" class=" delete_review_code hide5"></p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">php artisan db:seed
+</pre></div><count></count></div><div id="delete6" class="review_code" bis_skin_checked="1"><p id="6" class=" delete_review_code hide6">This command will export data into users table. So this way we can filled data into Mysql table from Laravel application. Now we want to make one controller for handle login process. So, We have write following command in command prompt.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">php artisan make:controller MainController
+</pre></div><count></count></div><div id="delete7" class="review_code" bis_skin_checked="1"><p id="7" class=" delete_review_code hide7">It will make MainController.php in app/Http/Controllers folder. In this controller we have first make index() method for load login form</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class MainController extends Controller
+{
+    function index()
+    {
+     return view('login');
+    }
+}
+?-->
+</pre></div><count></count></div><div id="delete8" class="review_code" bis_skin_checked="1"><p id="8" class=" delete_review_code hide8">This code will load login form when we have called main controller directly, then it will display login form. After this we have to create Login form view file. So we have create login.blade.php view file for display login form.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">
+
+ 
+  <title>Simple Login System in Laravel</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+   .box{
+    width:600px;
+    margin:0 auto;
+    border:1px solid #ccc;
+   }
+  </style>
+ 
+ 
+  <br>
+  <div class="container box" bis_skin_checked="1">
+   <h3 align="center"></h3><br>
+     
+     @if(isset(Auth::user() -&gt; email))
+          <script>windwo.location="m/sucess"</script>
+     @endif
+ 
+    @if($mes_er = Session::get('error'))
+    <div class="alert alert-danger alert-block" bis_skin_checked="1">
+    <button type="button" class="close" data-dismiss="alert">Ã—</button>
+    <strong>{{ $mes_er }}</strong>
+   </div> 
+   @endif 
+    
+    @if(count($errors) &gt; 0)
+     <div class="alert alert-danger" bis_skin_checked="1">
+     <ul>
+      @foreach($errors-&gt;all() as $error)
+       <li>{{ $error }}</li>
+       @endforeach
+      </ul>
+    </div>
+    @endif
+ 
+   <form method="post" action="{{ url('ch/login') }}">
+   {{ csrf_field() }}
+     <div class="form-group" bis_skin_checked="1">
+     <label>Enter Email</label>
+     <input type="email" name="email" class="form-control">
+    </div>
+    <div class="form-group" bis_skin_checked="1">
+     <label>Enter Password</label>
+     <input type="password" name="password" class="form-control">
+    </div>
+    <div class="form-group" bis_skin_checked="1">
+     <input type="submit" name="login" class="btn btn-primary" value="Login">
+    </div>
+   </form>
+  </div>
+ 
+
+</pre></div><count></count></div><div id="delete9" class="review_code" bis_skin_checked="1"><p id="9" class=" delete_review_code hide9">This code will load login form when we have called main controller directly, then it will display login form. After this we have to create Login form view file. So we have create login.blade.php view file for display login form.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">
+
+ 
+  <title>Simple Login System in Laravel</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+   .box{
+    width:600px;
+    margin:0 auto;
+    border:1px solid #ccc;
+   }
+  </style>
+ 
+ 
+  <br>
+  <div class="container box" bis_skin_checked="1">
+   <h3 align="center"></h3><br>
+     
+     @if(isset(Auth::user() -&gt; email))
+          <script>windwo.location="m/sucess"</script>
+     @endif
+ 
+    @if($mes_er = Session::get('error'))
+    <div class="alert alert-danger alert-block" bis_skin_checked="1">
+    <button type="button" class="close" data-dismiss="alert">Ã—</button>
+    <strong>{{ $mes_er }}</strong>
+   </div> 
+   @endif 
+    
+    @if(count($errors) &gt; 0)
+     <div class="alert alert-danger" bis_skin_checked="1">
+     <ul>
+      @foreach($errors-&gt;all() as $error)
+       <li>{{ $error }}</li>
+       @endforeach
+      </ul>
+    </div>
+    @endif
+ 
+   <form method="post" action="{{ url('ch/login') }}">
+   {{ csrf_field() }}
+     <div class="form-group" bis_skin_checked="1">
+     <label>Enter Email</label>
+     <input type="email" name="email" class="form-control">
+    </div>
+    <div class="form-group" bis_skin_checked="1">
+     <label>Enter Password</label>
+     <input type="password" name="password" class="form-control">
+    </div>
+    <div class="form-group" bis_skin_checked="1">
+     <input type="submit" name="login" class="btn btn-primary" value="Login">
+    </div>
+   </form>
+  </div>
+ 
+
+</pre></div><count></count></div><div id="delete10" class="review_code" bis_skin_checked="1"><p id="10" class=" delete_review_code hide10">Now we have create one view file which user can view after authenticate his login details. So below you can find source code of successlogin.blade.php. This page user can not directly access without login into system.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">
+
+ 
+  <title>Simple Login System in Laravel</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+   .box{
+    width:600px;
+    margin:0 auto;
+    border:1px solid #ccc;
+   }
+  </style>
+ 
+ 
+  <br>
+  <div class="container box" bis_skin_checked="1">
+    <div class="alert alert-danger success-block" bis_skin_checked="1">
+     <strong>Welcom</strong>
+     <br> 
+    
+     {{ Auth::id() }}
+
+     @if(!isset(Auth::user() -&gt; name))
+        <script>windwo.location="/index"</script>
+     @endif
+
+     @if(isset(Auth::user() -&gt; email))
+        <div class="alert alert-danger success-block" bis_skin_checked="1"> 
+          <strong>Welcome {{ Auth::user() -&gt; email }}</strong>
+          <a href="{{ url('/main/logout') }}">Logout</a>
+        </div>
+     @else
+        <script>windwo.location="/index"</script>
+     @endif
+    </div>
+   <br>
+  </div>
+ 
+
+</pre></div><count></count></div><div id="delete11" class="review_code" bis_skin_checked="1"><p id="11" class=" delete_review_code hide11">Lastly, we want to set route of all method of Main Controller. So we have go to web.php file and in that we have set route of all request.
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/index','MainControler@index');
+Route::post('ch/login','MainControler@check_login');
+Route::get('m/sucess','MainControler@sucess_login');
+Route::get('/main/logout','MainControler@logout');</div--></pre><count></count></div></div>   
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

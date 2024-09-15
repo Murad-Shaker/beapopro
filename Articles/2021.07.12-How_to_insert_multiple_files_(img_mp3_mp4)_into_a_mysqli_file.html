@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>How to insert multiple files (img mp3 mp4) into a mysqli file</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2021.07.12 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+        
+         <div class="code">
+
+              
+            <div id="delete0" class="review_code" bis_skin_checked="1"><p id="0" class=" delete_review_code hide0">mysqli .php
+database connection</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php 
+   $connect=new mysqli('localhost','root','','exm');
+?--></pre></div><count></count></div><div id="delete1" class="review_code" bis_skin_checked="1"><p id="1" class=" delete_review_code hide1">this file
+Shows you the image, video, and audio file, which has been inserted into mysqli</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php
+ 
+ include 'mysqli.php';
+
+ $sql="SELECT * FROM `table_file`";
+
+ $result=$connect--->query($sql);
+
+  while ($row = $result-&gt;fetch_assoc()) 
+  {
+     ?&gt;
+     <br>
+     <img src="<?php echo $row['img'];?>">
+     <br>
+     <!--?php
+
+     if ($row['mp3'] != "")  
+     {
+      ?-->
+        <audio controls="">
+          <source src="<?php echo $row['mp3'];?>" type="audio/ogg">
+        </audio>
+        <br>
+      <!--?php
+     }
+
+     if ($row['mp4'] != "") 
+     {
+      ?-->
+         <video width="320" height="240" controls="">
+           <source src="<?php echo $row['mp4'];?>" type="video/mp4">
+         </video>
+      <!--?php
+     }
+  }
+?--></pre></div><count></count></div><div id="delete2" class="review_code" bis_skin_checked="1"><p id="2" class=" delete_review_code hide2">This file inserts files into mysqli
+**
+I'll explain this to you, don't close
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">
+
+
+  <meta charset="utf-8">
+  <title>How do I insert multiple files into mysqli</title>
+
+
+  <form method="post" action="index.php" enctype="multipart/form-data">
+     Select text to upload:
+     <br>
+     <label>insert file img</label>
+     <input type="file" name="img_file">
+     <br>
+     <label>insert file mp3</label>
+     <input type="file" name="mp3_file">
+     <br>
+     <label>insert file mp4</label>
+     <input type="file" name="mp4_file">
+
+     <br>
+     <br>
+     <input type="submit" name="click">
+  </form>
+
+<!--?php 
+  include 'mysqli.php';
+  if (isset($_POST['click'])) 
+  {  
+     $empty_files="";
+     $d_file="";
+     $tables="";
+     for ($i=1; $i < 4; $i++) 
+     { 
+      if ($i == 1) 
+      {
+        $files="img_file";
+        $chack_type_file="png jpg jpeg";
+        $alert_ch_file="Please add a valid picture file"."<br-->";
+        $table_name='`img`';
+      } 
+       if ($i == 2) 
+      {
+        $files="mp3_file";
+        $chack_type_file="mp3";
+        $alert_ch_file="Please add a valid mp3 file"."<br>";
+        $table_name='`mp3`';
+      } 
+      if ($i == 3) 
+      {
+        $files="mp4_file";
+        $chack_type_file="mp4";
+        $alert_ch_file="Please add a valid mp4 file"."<br>";
+        $table_name='`mp4`';
+
+      } 
+
+      if ($_FILES[$files]['name'] != "") 
+      {
+        $file_dir="file/";
+
+        $file_name=$file_dir.$_FILES[$files]['name'];
+
+        $file_type=strtolower(pathinfo($file_name,PATHINFO_EXTENSION));
+
+        if (strpos($chack_type_file,$file_type) !== false) 
+        {
+          move_uploaded_file($_FILES[$files]['tmp_name'],$file_name);
+          $tables.=$table_name;
+          $d_file.="'".$file_name."'";
+        }else{
+         echo $alert_ch_file;
+        }
+           
+      }else{
+        $empty_files.=$i.",";
+      }
+     }
+     if ($empty_files == "1,2,3,") 
+     {
+       echo "Please add at least one file";
+     }else{
+
+       $table=str_replace("``","`,`",$tables);
+       $FILE=str_replace("''","','",$d_file);
+       
+       if ($FILE != "") 
+       {
+         $sql="INSERT INTO `table_file`($table) VALUES ($FILE)";
+         if ($connect-&gt;query($sql)) 
+          {
+           echo "<br>".str_word_count($tables)." files have been added";
+          }
+       }
+     }
+  }
+?&gt;
+</pre></div>
+<div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">for ($i = 1; $i &lt; 4; $ i++)</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">&nbsp; It moves three times from 1 to 3 .</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">##########################################</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp;if ($i == 1)</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; {</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $files = "img_file";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $chack_type_file = "png jpg jpeg";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $ alert_ch_file = "Please add a valid image file". "&lt;br&gt;";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $table_name = '`img`';</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; }</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; if ($i == 2)</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; {</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $files="mp3_file";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $chack_type_file = "mp3";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $ alert_ch_file = "Please add a valid mp3 file". "&lt;br&gt;";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $table_name = '`mp3`';</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; }</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; if ($i == 3)</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; {</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $files="mp4_file";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $chack_type_file = "mp4";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $ alert_ch_file = "Please add a valid MP4 file". "&lt;br&gt;";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; $table_name = '`mp4`';</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);"><br></span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">&nbsp; }</span></div><div bis_skin_checked="1"><span style="font-size: 14px;"><br></span></div><div bis_skin_checked="1"><span style="font-size: 14px;">These terms mean, each time it is rotated 3 times,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">For example when you arrive</span></div><div bis_skin_checked="1"><span style="background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);">$i=1</span><span style="font-size: 14px;">&nbsp;will take the image file,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">And when he arrives</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">&nbsp;$i=</span><span style="background-color: rgb(255, 255, 255);">3 Take a file</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">mp3,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">And when he arrives</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">&nbsp;$i=</span><span style="background-color: rgb(255, 255, 255);">4 takes a file</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">MP4,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;"><br></span></div><div bis_skin_checked="1"><span style="font-size: 14px;">As for the variables under these circumstances,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">where represents a variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$files</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">File name,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">and the variable<span style="color: rgb(255, 0, 0);"> $chack_type_file&nbsp;</span></span></div><div bis_skin_checked="1"><span style="font-size: 14px;">uses the correct file type,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">For example, is it really a video file or not,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">&nbsp;and variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$alert_ch_file</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">The message will appear if the file type is</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">It is not suitable when loading, for example, a message will appear</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">Please add a valid MP4 file,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">represents a variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$table_name</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">table name</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">For those who want to send the value of the file</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$files</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">Present,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">So that the video file contains a special table,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">As well as his picture file</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">A special table, and the audio file also has a special table,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">The point is, if I don't put the table name here,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">We will have problems entering data</span></div><div bis_skin_checked="1"><span style="font-size: 14px;"><span style="color: rgb(0, 0, 255);">mysqli</span>,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">#############################################</span></div><div bis_skin_checked="1"><span style="font-size: 14px; text-decoration-line: underline; color: rgb(0, 0, 0); background-color: rgb(204, 204, 204);">$_FILES[$files]['name'] != ""</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">This checks whether the current file is uploaded or not on the basis of the file name through</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">a variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$files</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">#############################################</span></div><div bis_skin_checked="1"><div bis_skin_checked="1"><span style="background-color: rgb(204, 204, 204);">$ file_dir = "file /";</span></div><div bis_skin_checked="1"><span style="background-color: rgb(204, 204, 204);">$ file_name = $ file_dir. $_FILES [$ files] ["name"];</span></div><div bis_skin_checked="1"><span style="background-color: rgb(204, 204, 204);">$file_type = strtolower(pathinfo($file_name, PATHINFO_EXTENSION)));</span></div><div bis_skin_checked="1">These are the commands that process the current file,</div><div bis_skin_checked="1">where the file name is in a variable</div><div bis_skin_checked="1">&nbsp;<span style="color: rgb(255, 0, 0);">$file_name,</span></div><div bis_skin_checked="1">There is also a type, file in a variable</div><div bis_skin_checked="1"><span style="color: rgb(255, 0, 0);">$file_type</span> , for example</div><div bis_skin_checked="1"><span style="background-color: rgb(204, 204, 204);">&nbsp;$file_dir = "file /";</span></div><div bis_skin_checked="1">The folder we put the files in?</div><div bis_skin_checked="1">and his name</div><div bis_skin_checked="1">a file,</div><div bis_skin_checked="1">It's simple and I'm sure you understand, no need for further&nbsp;</div></div><div bis_skin_checked="1"><span style="font-size: 14px;">###################################################</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">if (strpos($chack_type_file, $file_type)! == false)</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">&nbsp; &nbsp; &nbsp; {</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">&nbsp; &nbsp;move_uploaded_file ($_FILES [$ files ['tmp_name'], $file_name);</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">&nbsp; $ tables. = $table_name;</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">&nbsp; $d file. = "". $ file_name. "";</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">&nbsp; &nbsp; &nbsp; }</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">This condition checks for the current file type.</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">on a variable basis</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$chack_type_file</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">and variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$file_type&nbsp;</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">These two variables have been previously explained. If you do not understand, see the explanation.</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">move_uploaded_file ($_FILES [$ files ['tmp_name'], $file_name);</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">If the file type is in a variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(255, 0, 0);">$file_type</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">Matching</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">file type</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">contained in a variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px;"><span style="color: rgb(255, 0, 0);">$chack_type_file</span>,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">File Transfer</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">to folder</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">"a file"</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">As for the two variables?</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">$ tables. = $table_name;</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">$d file. = "". $ file_name. "";</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">first variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">We store in it the name of the table,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">From the file we want to send the file to,</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(138, 43, 226);">Table names are</span></div><div bis_skin_checked="1"><span style="font-size: 14px; color: rgb(138, 43, 226);">, img, mp4, mp3,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">If the file type is invalid,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">It does not store the table name</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">from the current file,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">And the second variable</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">We store in it the full directory of the current file,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">For example</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">We store this<span style="color: rgb(255, 0, 255);"> directory / file.mp4</span> in the second variable&nbsp;</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">################################################</span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">$table = str_replace("", ""," $tables),</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">This function makes the table names in the <span style="color: rgb(255, 0, 0);">$tables</span> variable in the correct format that the query will accept without any problems.,,</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">Where you put a comma between the names of the tables</span></div><div bis_skin_checked="1"><span style="font-size: 14px;"><br></span></div><div bis_skin_checked="1"><span style="font-size: 14px; background-color: rgb(204, 204, 204);">$FILE=str_replace("''","','", $d_file);&nbsp;</span></div><div bis_skin_checked="1"><span style="font-size: 14px;">The function of this function is similar to the previous function, so that it makes the values of files coming from <span style="color: rgb(255, 0, 0);">$d_file</span>, in the correct format without any problems</span></div><count></count></div>
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

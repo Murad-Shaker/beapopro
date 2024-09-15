@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>How to Create a Simple Notes Application with Vue.js 3</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2022.12.07 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+
+         <div class="code">
+
+                <div class="margin-top-40 margin-bottom-40 1"><p onclick="remove_o_c(1)"></p><p><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">In order to create projects with <strong>Vue.js</strong>, you’ll need to have <strong>Node.js</strong> and npm already installed on your computer. Once that’s done, simply type the <strong>following command in your terminal</strong>:</span></p>
+<p><strong><span style="color: rgb(236, 240, 241); background-color: rgb(52, 73, 94);">npm install -g @vue/cli</span></strong><br><strong><span style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);"># OR</span></strong><br><strong><span style="color: rgb(236, 240, 241); background-color: rgb(52, 73, 94);">yarn global add @vue/cli</span></strong></p>
+<h3><strong>---------------------------------------------------------------------</strong></h3>
+<p>Create project files&nbsp;<br><span style="background-color: rgb(52, 73, 94); color: rgb(236, 240, 241);"><strong>vue create my-project</strong></span></p>
+<h3><strong>---------------------------------------------------------------------</strong></h3>
+<p>Once that is all set, let’s jump into the project’s roo t<span style="background-color: rgb(241, 196, 15);"> </span><strong><span style="background-color: rgb(241, 196, 15); color: rgb(0, 0, 0);">folder&nbsp; </span></strong>and <strong>run the command:</strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(236, 240, 241);">npm install --global yarn</span></strong></p>
+<p>____________________________________________________________________________<br>____________________________________________________________________________<br>This is necessary because we must download all the dependencies our project needs. After that, the only thing left to get the app running properly is executing the following <strong>command</strong>:</p>
+<p><span style="background-color: rgb(52, 73, 94); color: rgb(236, 240, 241);"><strong>yarn serve</strong></span></p>
+<p>This will start the server locally and open the default app template at <span style="background-color: rgb(255, 255, 255); color: rgb(185, 106, 217);">http://localhost:8080</span> on your local browser.<br>Next, let’s go directly to our project structure and into the root file <span style="background-color: rgb(206, 212, 217);"><strong>/index.html.</strong> </span>Paste the following code:</p>
+<p><strong>index.html</strong></p>
+<p>&nbsp;</p><p></p><pre class="brush:php">
+
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+  
+  
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  
+
+</pre></div><div class="margin-top-40 margin-bottom-40 2"><p onclick="remove_o_c(2)"></p><p>That’s all we need to have the libs of jQuery and Semantic.js imported on the main page. They are necessary to make the elements selecting as well as the style of some built-in components. Then, open the file <span style="color: rgb(0, 0, 0); background-color: rgb(206, 212, 217);"><strong>App.vue</strong></span> and replace its content with the following:</p>
+<p>&nbsp;</p><p></p><pre class="brush:php"><template>
+
+</template>
+
+
+<script>
+
+export default {
+  name: 'App',
+
+  data(){
+    return{
+       notes:[
+        {
+           title:"My friend",
+           description:"Visiting my friend who came from travel",
+        },{
+           title:"Play",
+           description:"Playing football with my favorite team",
+        },{
+           title:"carry out tasks",
+           description:"Do the things on your to-do list at the weekend'",
+        }],
+     }
+  },
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+</pre></div><div class="margin-top-40 margin-bottom-40 3"><p onclick="remove_o_c(3)"></p><p><span style="background-color: rgb(194, 224, 244);"><strong><span style="color: rgb(0, 0, 0);">For the <span style="color: rgb(0, 0, 255);">notes array</span> inside the <span style="color: rgb(132, 63, 161);">data()</span> method, we store the <span style="color: rgb(230, 126, 35);">title </span>and <span style="color: rgb(230, 126, 35);">description </span>of the <span style="color: rgb(0, 0, 255);">notes </span>in it</span></strong></span></p>
+<p><br>we can display notes as a list based on the notes array, we can use the&nbsp;<span style="background-color: rgb(52, 73, 94);"> </span><span style="color: rgb(20, 252, 0); background-color: rgb(52, 73, 94);"><strong><span style="background-color: rgb(52, 73, 94);">v-fo</span>r&nbsp;</strong></span> directive to display a list of items based on the <span style="color: rgb(0, 0, 255);"><strong>notes array</strong></span></p>
+<ol>
+<li><strong>Now let's create the steps for inserting new notes from the form into an array, </strong></li>
+<li>and then we move on to creating steps to display these notes in a list</li>
+</ol>
+<p>----------------</p>
+<h3>Create a file named create-notes.vue in the <span style="color: rgb(0, 0, 0); background-color: rgb(251, 238, 184);">components folder</span></h3>
+<p>and copy the below code into the <span style="background-color: rgb(206, 212, 217);"><strong>create-notes.vue</strong></span> file, these icons represent the interface of the form containing the <strong>title </strong>and <strong>description </strong>fields and a <strong>create button</strong></p>
+<p>file <strong>create-notes.vue</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p><p></p><pre class="brush:php"><template>
+  <div class="ui basic content center aligned segment">
+     <button class="ui basic button icon" v-on:click="showModel">
+        <i class="plus icon"></i>
+     </button>
+     <div class="ui centered card" v-show="shhielemnt">
+      <div class="content">
+        <div class="ui form">
+          <div class="field">
+            <label>Title</label>
+            <input type="text">
+          </div>
+          <div class="field">
+            <label>Description</label>
+            <input type="text">
+          </div>
+          <div class="ui two buttons">
+            <button class="ui basic green button">
+              Create
+            </button>
+            <button class="ui basic black button" v-on:click="closeModel">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+    data(){
+      return {
+         shhielemnt:false,
+      }
+    },methods:{
+        showModel:function(){
+          this.shhielemnt=true;
+        },
+        closeModel:function(){
+          this.shhielemnt=false;
+        }
+    }
+}
+</script>
+</pre></div><div class="margin-top-40 margin-bottom-40 4"><p onclick="remove_o_c(4)"></p><h3><strong>I will explain the <span style="color: rgb(35, 111, 161);">properties </span>and <span style="color: rgb(35, 111, 161);">functions </span>of this file</strong></h3>
+<p>These <strong>functions </strong>and <strong>properties </strong>control showing and hiding the form using the&nbsp;<span style="color: rgb(20, 252, 0); background-color: rgb(52, 73, 94);"> <strong>v-show&nbsp;</strong></span> directive, which is in the parent element of form elements, as you note</p>
+<h3><span style="background-color: rgb(52, 73, 94); color: rgb(236, 240, 241);"><strong><span style="background-color: rgb(52, 73, 94);">&lt;</span><span style="color: rgb(224, 62, 45);">div </span><span style="color: rgb(45, 194, 107);">class</span>=<span style="color: rgb(251, 238, 184);">"ui centered card"</span> <span style="color: rgb(45, 194, 107);">v-show</span>=<span style="color: rgb(251, 238, 184);">"shhielemnt"</span>&gt;</strong></span></h3>
+<p>If the property value in the <span style="color: rgb(185, 106, 217);"><strong><span style="color: rgb(132, 63, 161);">data()</span> </strong></span>method is <strong><span style="color: rgb(185, 106, 217);">false</span></strong>, the form interface will <strong>disappear</strong>, but if it is <strong><span style="color: rgb(185, 106, 217);">true</span></strong>, the form interface will <strong>appear</strong>. Based on the&nbsp;<span style="background-color: rgb(52, 73, 94);"> <span style="color: rgb(20, 252, 0);"><strong>v-model&nbsp;</strong>&nbsp;</span></span> &nbsp;directive,&nbsp;<strong><br></strong></p>
+<p>In this case, when we want to show the model, we click on the <span style="background-color: rgb(206, 212, 217);">&nbsp; </span><strong><span style="background-color: rgb(206, 212, 217);"><span style="font-size: 18pt; background-color: rgb(206, 212, 217);">+</span> &nbsp;</span> button</strong> and thus the&nbsp; <span style="color: rgb(0, 0, 255);"><strong><span style="color: rgb(53, 152, 219);">showModel()</span>&nbsp; &nbsp;</strong></span>function is called and the&nbsp; <span style="background-color: rgb(0, 0, 0);">&nbsp;</span><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>shhielemnt&nbsp; </strong></span><span style="color: rgb(255, 255, 255);"><strong>&nbsp;<span style="color: rgb(0, 0, 0);">property </span></strong></span>value becomes <span style="color: rgb(185, 106, 217);"><strong>true </strong></span>and thus the <strong>interface appears,</strong></p>
+<p>And when we want to exit the interface, we click on the <strong>close button</strong> and thus the <span style="color: rgb(53, 152, 219);"><strong>closeModel() </strong></span>function is called, so the value of <span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">shhielemnt&nbsp;<span style="background-color: rgb(255, 255, 255);"> </span></span><span style="color: rgb(0, 0, 0);">property&nbsp; </span></strong></span>becomes <span style="color: rgb(185, 106, 217);"><strong>false</strong></span>, and thus the model interface disappears<strong><br></strong></p>
+<p>&nbsp;</p>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p><span style="font-size: 18pt;">Now go to the file </span><strong><span style="font-size: 18pt;">App.vue</span><br></strong></p>
+<p><span style="font-size: 12pt;">Import the <strong>Child Component</strong> into the <strong>Parent Component</strong> inside <strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(255, 255, 255);">&lt;</span><span style="color: rgb(248, 202, 198);">script</span><span style="color: rgb(255, 255, 255);">&gt;</span></span></strong><span style="color: rgb(255, 255, 255);"> </span>tag but above export default function declaration.</span></p>
+<p><span style="font-size: 12pt;"><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; <span style="color: rgb(248, 95, 95);">import </span>CreateNote <span style="color: rgb(248, 95, 95);">from </span><span style="color: rgb(251, 238, 184);">'./components/create-notes.vue'</span>;</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&lt;/<span style="color: rgb(248, 95, 95);">script</span></span></strong></span></span></p>
+<p><span style="font-size: 12pt;">Then, Register the <strong>Child Component </strong>inside the <strong>Parent Component</strong> by adding it to components object.</span></p>
+<p><span style="font-size: 12pt;"><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="color: rgb(248, 95, 95);">import </span>CreateNote <span style="color: rgb(248, 95, 95);">from </span><span style="color: rgb(251, 238, 184);">'./components/create-notes.vue'</span>;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="color: rgb(248, 95, 95);">export </span><span style="color: rgb(248, 202, 198);">default </span>{</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; name: <span style="color: rgb(251, 238, 184);">'App'</span>,</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; components:{</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; <span style="color: rgb(194, 224, 244); background-color: rgb(52, 73, 94);">CreateNote</span>,</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; }</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; }</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="color: rgb(224, 62, 45);"><span style="color: rgb(255, 255, 255);">&lt;</span><span style="color: rgb(248, 95, 95);">script</span></span>&gt;</strong></span></span></p>
+<p><span style="font-size: 12pt;">Use the Child Component &lt;<strong>CreateNote .vue </strong>&gt; in the Parent Component &lt;<strong>App.vue</strong>&gt; Template.</span></p>
+<p><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;<span style="color: rgb(248, 202, 198);">template</span>&gt;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp;&lt;<span style="color: rgb(248, 95, 95);">CreateNote &nbsp;</span>/&gt;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;/<span style="color: rgb(248, 202, 198);">template</span>&gt;</strong></span></p>
+<p><strong>----------------</strong></p>
+<p><span style="font-size: 18pt;">Now going back to the <strong>create-notes.vue</strong> file&nbsp;</span><strong><br></strong></p>
+<p>Having learned how to display the form,</p>
+<p><strong><span style="background-color: rgb(191, 237, 210);">Now we will write the values in the <span style="color: rgb(224, 62, 45);">Title </span>and <span style="color: rgb(224, 62, 45);">Description </span>field and append these values to the<span style="color: rgb(53, 152, 219);"> <span style="color: rgb(0, 0, 255);">notes array</span>,</span> which is in <span style="background-color: rgb(206, 212, 217);">App.vue</span></span></strong></p>
+<p>Now create two properties named <strong><span style="color: rgb(185, 106, 217);">titleT </span></strong>and <strong><span style="color: rgb(185, 106, 217);">descriptionText </span></strong>and put them in the <strong><span style="color: rgb(53, 152, 219);">data()</span></strong> method<br>as shown</p>
+<p><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp;<strong><span style="color: rgb(53, 152, 219);">data</span>(){</strong></span><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgb(248, 95, 95);">return </span>{</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; titleT:<span style="color: rgb(251, 238, 184);">""</span>,</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; descriptionText:<span style="color: rgb(251, 238, 184);">""</span>,</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shielemnt: <span style="color: rgb(185, 106, 217);">false</span>,</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp;}</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp;}</span></strong><br>We store the values of the <span style="color: rgb(230, 126, 35);"><strong>Title </strong></span>and <span style="color: rgb(230, 126, 35);"><strong>Description </strong></span>form fields in these two properties<br>This is done by writing the&nbsp;<span style="background-color: rgb(52, 73, 94);"> </span><span style="color: rgb(20, 252, 0); background-color: rgb(52, 73, 94);"><strong><span style="background-color: rgb(52, 73, 94);">v</span>-mod<span style="background-color: rgb(52, 73, 94);">el</span></strong></span><span style="background-color: rgb(52, 73, 94);"> <span style="background-color: rgb(255, 255, 255);">&nbsp;</span></span>directive inside the&nbsp;<span style="background-color: rgb(52, 73, 94);"> <span style="color: rgb(255, 255, 255);"><strong>&lt;<span style="color: rgb(248, 95, 95);">input</span>&gt;&nbsp;</strong></span></span> tag as you can see</p>
+<p><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&lt;<span style="color: rgb(248, 95, 95);">input </span><span style="color: rgb(20, 252, 0);">type </span>= <span style="color: rgb(251, 238, 184);">'text'</span> <span style="color: rgb(20, 252, 0);">v-model </span>= <span style="color: rgb(251, 238, 184);">"titleT"</span>&gt;</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&nbsp;&lt;<span style="color: rgb(248, 95, 95);">input </span><span style="color: rgb(20, 252, 0);">type </span>= <span style="color: rgb(251, 238, 184);">'text'</span> <span style="color: rgb(20, 252, 0);">v-model</span> = <span style="color: rgb(251, 238, 184);">"descriptionText"</span>&gt;</span></strong></p>
+<p>The utility of&nbsp;<strong><span style="background-color: rgb(52, 73, 94); color: rgb(20, 252, 0);"> v-model</span></strong><span style="background-color: rgb(52, 73, 94);"> <span style="background-color: rgb(255, 255, 255);">&nbsp;</span></span>has many uses, it stores the value of fields in properties when you write something directly into the field؟</p>
+<p>Now we will append the new form values <strong>(<span style="color: rgb(230, 126, 35);">description </span>and <span style="color: rgb(230, 126, 35);">title</span>) </strong>into the <span style="color: rgb(0, 0, 255);"><strong>notes array</strong></span>, located in the the <strong>parent component<span style="background-color: rgb(206, 212, 217);"> App.Vue</span></strong></p>
+<ul>
+<li><span style="background-color: rgb(191, 237, 210);"><strong><span style="color: rgb(224, 62, 45);">Note</span>: App.Vue is the parent component of <span style="color: rgb(52, 73, 94);">create-notes.vue</span></strong></span></li>
+<li><span style="background-color: rgb(236, 202, 250);"><strong><span style="color: rgb(224, 62, 45);">Focus</span>:: When we want to send an event or value from a child component to a parent, in this case we need to use<span style="color: rgb(0, 0, 255);"> $emit&nbsp;</span></strong></span><br><strong><span style="background-color: rgb(191, 237, 210); color: rgb(224, 62, 45);"><span style="color: rgb(0, 0, 255);">$emit :</span> is a function that allows us to send custom events from a <span style="color: rgb(185, 106, 217);">child component</span> to a <span style="color: rgb(185, 106, 217);">parent</span></span></strong></li>
+</ul>
+<p>To send the form values to the <span style="color: rgb(0, 0, 255);"><strong>notes array</strong></span> click the <strong>Create button</strong> In this case the <strong><span style="color: rgb(35, 111, 161);">SendDataModel </span></strong>function, which is in the <strong><span style="background-color: rgb(206, 212, 217);">create-notes.vue</span></strong> file, is called,&nbsp;<br>As you can see this function</p>
+<p><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(53, 152, 219);">SendDataModel</span>(){</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(224, 62, 45);">if</span>(<span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">titleT</span>.length &gt; <span style="color: rgb(224, 62, 45);">0</span> <span style="color: rgb(45, 194, 107);">&nbsp;&amp;&amp;</span> <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">descriptionText</span>.length &gt; <span style="color: rgb(224, 62, 45);">0</span>){</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(194, 224, 244);">const </span>title = <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">titleT</span>;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(194, 224, 244);">const </span>description = <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">descriptionText</span>;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(45, 194, 107);">$emit</span>(<span style="color: rgb(251, 238, 184);">'SeDataToCnote'</span>,{&nbsp;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title,</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; description,</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(248, 202, 198);">//Clean fields</span></strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">titleT</span>="";</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">descriptionText</span>="";</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">shhielemnt</span>=<span style="color: rgb(191, 237, 210);">false</span>;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; }</strong></span><br>We got the title and description inside the function<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(194, 224, 244);">const </span>title = <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">titleT</span>;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp;<span style="color: rgb(194, 224, 244);">const </span>description = <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">descriptionText</span>;</span></strong></p>
+<p>These two values are sent to the parent component <strong><span style="background-color: rgb(206, 212, 217);">App.vue</span></strong> by this code<br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; <span style="color: rgb(230, 126, 35);">this</span>.$<span style="color: rgb(45, 194, 107);">emit</span>(<span style="color: rgb(251, 238, 184);">'SeDataToCnote'</span>,{&nbsp;</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;title,</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description,&nbsp;</span></strong></span><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">});</span></strong></span></p>
+<p><strong><span style="color: rgb(224, 62, 45);">Now you might tell me how this works I don't understand::</span></strong><br>Focus we are releasing an event called <span style="color: rgb(241, 196, 15);"><strong>SeDataToCnote </strong></span>as you saw in <strong><span style="color: rgb(45, 194, 107);">$emit </span></strong>as shown above,<br><span style="background-color: rgb(236, 202, 250);">Let me tell you something by using the<span style="color: rgb(20, 252, 0); background-color: rgb(52, 73, 94);"> <strong>v-on&nbsp;</strong></span> directive the parent component can listen to the custom event or <strong>(value)</strong> we received from<span style="color: rgb(22, 145, 121);"> <strong>$emit</strong></span> ,</span><br>As you can see, the form values in the function that takes this name <strong><span style="color: rgb(35, 111, 161);">CreateNote</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(224, 62, 45);">CreateNote </span><span style="color: rgb(45, 194, 107);">v-on</span>: SeDataToCnote = <span style="color: rgb(251, 238, 184);">"CreateNote"</span> /&gt;</span></strong></p>
+<p>As you can see we have put the name of<strong><span style="color: rgb(45, 194, 107);"> <span style="color: rgb(22, 145, 121);">$emit</span></span></strong> next to the directive <strong><span style="color: rgb(20, 252, 0); background-color: rgb(52, 73, 94);">v-on</span></strong><br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(230, 126, 35);">=&gt;</span> <span style="color: rgb(45, 194, 107);">v-on</span><span style="color: rgb(236, 240, 241);">:</span> <span style="color: rgb(236, 240, 241);">SeDataToCnote&nbsp;</span></strong></span><br>Now create a function called <strong><span style="color: rgb(35, 111, 161);">CreateNote</span></strong>, and copy the below codes and place them in your function<br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(255, 255, 255);"><span style="color: rgb(53, 152, 219);">CreateNote</span>(note){</span></strong></span><br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; <span style="color: rgb(230, 126, 35);">this</span>.<span style="color: rgb(236, 202, 250);">notes</span>.push(note);</span></strong></span><br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; <span style="color: rgb(53, 152, 219);">alert</span>(<span style="color: rgb(251, 238, 184);">"Note added"</span>);</span></strong></span><br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(255, 255, 255);">&nbsp; &nbsp; }</span></strong></span></p>
+<p>These codes enable us to append new values to the array using the<strong> push method</strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(230, 126, 35);">this</span>.notes.<span style="color: rgb(194, 224, 244);">push</span>(note);</span></strong></p>
+<p><span style="color: rgb(185, 106, 217);"><strong><span style="font-size: 14pt;">Now a question may come to your mind</span></strong></span><br>Where did the value in the argument (<strong>note</strong>) come from in the <strong><span style="color: rgb(35, 111, 161);">CreateNote</span></strong></p>
+<p><strong><span style="color: rgb(45, 194, 107);">Good question</span>,</strong> <span style="font-size: 24pt;"><strong>????</strong></span></p>
+<p>go to<strong><span style="background-color: rgb(206, 212, 217);"> create-notes.vue</span></strong> file, see to method<strong><span style="color: rgb(20, 252, 0);"> <span style="color: rgb(22, 145, 121);">$emit </span></span></strong>It contains the <strong><span style="color: rgb(230, 126, 35);">title </span></strong>and <strong><span style="color: rgb(230, 126, 35);">description</span></strong></p>
+<p>Now maybe you understand::: :<span style="font-size: 24pt;">????</span><br>where the <strong>argument </strong>in the <span style="color: rgb(53, 152, 219);"><strong>CreateNote </strong></span>function represents the new <span style="color: rgb(230, 126, 35);"><strong>title </strong></span>and <span style="color: rgb(230, 126, 35);"><strong>description </strong></span>you entered in the form,</p>
+<p>Now you can insert new notes into the array &nbsp;<span style="font-size: 24pt;">????</span></p>
+<p><br>We have finished the step of inserting notes<br><strong>If you do not understand, re-read the blog from the beginning</strong></p>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p><span style="font-size: 18pt;">Now we will show the array <strong>notes in a list</strong></span> &nbsp;where I can delete or modify one of the notes</p>
+<ul>
+<li>Create <strong>ListNotes.vue</strong> file in <span style="background-color: rgb(241, 196, 15);"><strong>Components folder</strong></span> and type the following in it</li>
+</ul>
+<p style="padding-left: 40px;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">template</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp;&lt;/<span style="color: rgb(248, 95, 95);">template</span>&gt;</span></strong></p>
+<p style="padding-left: 40px;"><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong></p>
+<p style="padding-left: 40px;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(248, 95, 95);">export </span><span style="color: rgb(248, 202, 198);">default </span>{<br></span></strong></p>
+<p style="padding-left: 40px;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">}</span></strong></p>
+<p style="padding-left: 40px;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;/<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong></p>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p><span style="font-size: 18pt;">Now go to the file<strong> App.vue</strong></span></p>
+<ul>
+<li>Now we import the <strong>ListNotes.vue </strong>child component To the parent component of <strong>App.vue </strong>inside the <span style="background-color: rgb(52, 73, 94); color: rgb(248, 95, 95);"><strong><span style="color: rgb(255, 255, 255);">&lt;</span>script<span style="color: rgb(255, 255, 255);">&gt;</span></strong></span> tag<br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="color: rgb(248, 95, 95);">import </span>ListNote <span style="color: rgb(248, 95, 95);">from<span style="color: rgb(251, 238, 184);"> </span></span><span style="color: rgb(251, 238, 184);">'./components/ListNotes.vue'</span>;</span><span style="color: rgb(255, 255, 255);">&nbsp; <span style="color: rgb(255, 255, 255); font-size: 18pt;"><span style="color: rgb(255, 255, 255);">✔️</span></span></span></strong></li>
+</ul>
+<p style="padding-left: 40px;"><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="color: rgb(248, 95, 95);">import <span style="color: rgb(255, 255, 255);">CreateNote </span>from </span><span style="color: rgb(251, 238, 184);">'./components/create-notes.vue</span>';</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">.............</span></strong><br><span style="color: rgb(248, 202, 198);"><strong><span style="background-color: rgb(52, 73, 94);">//code</span></strong></span><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&lt;/<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong></p>
+<p>&nbsp;</p>
+<ul>
+<li><span style="font-size: 18pt;">Now we <strong>register </strong>the component as follows</span><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="color: rgb(248, 95, 95);">import <span style="color: rgb(255, 255, 255);">CreateNote </span>from </span><span style="color: rgb(251, 238, 184);">'./components/create-notes.vue</span>';</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="color: rgb(248, 95, 95);">import </span>ListNote <span style="color: rgb(248, 95, 95);">from </span><span style="color: rgb(251, 238, 184);">'./components/ListNotes.vue'</span>;<span style="background-color: rgb(255, 255, 255);">&nbsp;&nbsp;</span></span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="color: rgb(248, 95, 95);">export </span><span style="color: rgb(248, 202, 198);">default </span>{</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&nbsp; &nbsp;name: 'App',</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&nbsp; &nbsp;components: {</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp;<span style="color: rgb(206, 212, 217);">CreateNote</span>,</span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&nbsp; &nbsp; &nbsp;ListNote,<span style="background-color: rgb(255, 255, 255);">&nbsp; </span></span><span style="color: rgb(255, 255, 255); font-size: 18pt;"><span style="color: rgb(255, 255, 255);">✔️</span></span></strong><br><strong><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);">&nbsp; &nbsp;},</span></strong></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Use the Child Component&nbsp; <strong>&lt;ListNotes.vue&gt;</strong> in the Parent Component <strong>&lt;App.vue&gt;</strong> Template.<br><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>&lt;<span style="color: rgb(248, 95, 95);">template</span>&gt;</strong></span><br><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>&nbsp; &lt;<span style="color: rgb(248, 95, 95);">CreateNote </span><span style="color: rgb(20, 252, 0);">v-on</span>:SeDataToCnote=<span style="color: rgb(251, 238, 184);">"CreateNote"</span>/&gt;</strong></span><br><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>&nbsp; &lt;<span style="color: rgb(248, 95, 95);">ListNote &nbsp;</span>/&gt;</strong></span><br><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong>&lt;/<span style="color: rgb(248, 95, 95);">template</span>&gt;</strong></span><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><br></span></li>
+</ul>
+<p>&nbsp;</p>
+<p><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><strong><span style="background-color: rgb(251, 238, 184); color: rgb(0, 0, 0);">As I told you earlier, when we want to send an event or value from a<span style="color: rgb(126, 140, 141);"> child component</span> to the<span style="color: rgb(126, 140, 141);"> parent component</span>, we use<span style="color: rgb(45, 194, 107);"> <span style="font-size: 18pt;">$emit</span></span></span><br></strong></span></p>
+<p><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="background-color: rgb(251, 238, 184); color: rgb(0, 0, 0);"><span style="color: rgb(45, 194, 107);"><span style="color: rgb(0, 0, 0);">If we want to pass data and values from <strong>parent component</strong> to <strong>child component</strong>, we use<span style="font-size: 14pt;"> </span><span style="color: rgb(45, 194, 107); font-size: 18pt;"><strong>props </strong></span></span></span></span><span style="background-color: rgb(251, 238, 184); color: rgb(0, 0, 0);"><span style="color: rgb(45, 194, 107);"><span style="color: rgb(0, 0, 0);">to Passes <strong><span style="color: rgb(53, 152, 219);"><span style="color: rgb(0, 0, 255);">array values (notes)</span> </span></strong>from the parent component <strong><span style="background-color: rgb(206, 212, 217);">App.Vue</span></strong> to the child component<strong> <span style="background-color: rgb(206, 212, 217);">ListNotes.vue</span></strong></span></span></span><strong><span style="background-color: rgb(251, 238, 184); color: rgb(0, 0, 0);"><span style="color: rgb(45, 194, 107);"><br></span></span></strong></span></p>
+<p>We have to write the <span style="color: rgb(20, 252, 0); background-color: rgb(52, 73, 94);"><strong>v-bind</strong></span> directive as follows<span style="background-color: rgb(52, 73, 94);"><strong><br><span style="color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">template</span>&gt;</span><br><span style="color: rgb(255, 255, 255);">&nbsp; &nbsp;&lt;<span style="color: rgb(248, 95, 95);">CreateNote </span><span style="color: rgb(45, 194, 107);">v-on</span>:SeDataToCnote=<span style="color: rgb(251, 238, 184);">"CreateNote"</span>/&gt;</span><br><span style="color: rgb(255, 255, 255);">&nbsp; &nbsp;&lt;<span style="color: rgb(248, 95, 95);">ListNote </span><span style="color: rgb(45, 194, 107);">v-bind</span>:notesd=<span style="color: rgb(251, 238, 184);">"notes"</span>/&gt;</span></strong></span><strong><span style="color: rgb(255, 255, 255);"> &nbsp;<span style="font-size: 18pt;">✔️</span></span></strong><span style="background-color: rgb(52, 73, 94);"><strong><br></strong><span style="color: rgb(255, 255, 255);"><strong>&lt;/<span style="color: rgb(248, 95, 95);">template</span>&gt;</strong></span></span><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="background-color: rgb(251, 238, 184); color: rgb(0, 0, 0);"><span style="color: rgb(45, 194, 107);"><span style="color: rgb(0, 0, 0);"><strong><span style="background-color: rgb(206, 212, 217);"><br></span></strong></span></span></span></span></p>
+<p>As you can see, we wrote the notesd name next to v- bind<br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(20, 252, 0);">v-bind</span>: notesd =<span style="color: rgb(251, 238, 184);"> "notes"</span></span></strong></span><br>So we invoked the<span style="color: rgb(0, 0, 255);"><strong> notes array</strong></span>, as a value for the <strong>notesd </strong>name as you can see<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(20, 252, 0);">v-bind</span>: notesd = <span style="color: rgb(251, 238, 184);">"notes"</span></span></strong></p>
+<p><br>You may be wondering what is the point of <strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(20, 252, 0);">v-bind</span>: notesd = <span style="color: rgb(251, 238, 184);">"notes"</span></span></strong><br>The benefit of this is that we send the values of the <strong><span style="color: rgb(0, 0, 255);">notes array </span></strong>to the <strong>ListNote </strong>child component.<br>The values are received there in <strong><span style="background-color: rgb(206, 212, 217);">ListNotes.vue </span></strong>using <span style="font-size: 18pt;"><strong><span style="color: rgb(0, 0, 255);">props</span></strong></span><span style="color: rgb(255, 255, 255); background-color: rgb(52, 73, 94);"><span style="background-color: rgb(251, 238, 184); color: rgb(0, 0, 0);"><span style="color: rgb(45, 194, 107);"><span style="color: rgb(0, 0, 0);"><strong><span style="background-color: rgb(206, 212, 217);"><br></span></strong></span></span></span></span></p>
+<p>&nbsp;</p>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p><span style="font-size: 18pt;">Now go to<strong> ListNotes.vue file</strong></span></p>
+<p><span style="font-size: 12pt;"> and include <span style="font-size: 18pt; color: rgb(45, 194, 107);"><strong>props </strong></span>like this<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(248, 95, 95);">export </span><span style="color: rgb(248, 202, 198);">default </span>{</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; <span style="color: rgb(45, 194, 107);">props</span>:[<span style="color: rgb(251, 238, 184);">'notesd'</span>],</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">}</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;/<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong><br>The name in the <span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(45, 194, 107);">props</span>:[<span style="color: rgb(251, 238, 184);">'notesd'</span>]</span></strong></span> represents the address we previously placed next to the&nbsp;<span style="background-color: rgb(52, 73, 94);"> <span style="color: rgb(20, 252, 0);"><strong>v-bind</strong></span>&nbsp;</span> as you can see in file <strong><span style="background-color: rgb(206, 212, 217);">App.vue</span></strong><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&lt;<span style="color: rgb(248, 95, 95);">ListNote </span><span style="color: rgb(20, 252, 0);">v-bind</span>:notesd=<span style="color: rgb(251, 238, 184);">"notes"</span>/&gt;</span></strong></span></span></p>
+<p><span style="font-size: 12pt;">So now the array values are in <strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(45, 194, 107);">props</span>:[<span style="color: rgb(251, 238, 184);">'notesd'</span>]</span> </strong>based on the array call as shown in file <strong><span style="background-color: rgb(206, 212, 217);">App.vue</span></strong><br><span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);">&lt;<span style="color: rgb(248, 95, 95);">ListNote </span><span style="color: rgb(20, 252, 0);">v-bind</span>:notesd=<span style="color: rgb(251, 238, 184);">"notes"</span>/&gt;</span></strong></span></span></p>
+<p><span style="font-size: 12pt;"><strong>-------------------------</strong></span></p>
+<p><span style="font-size: 12pt;"><br><span style="font-size: 18pt;">Now create a file in the <strong><span style="background-color: rgb(251, 238, 184);">components folder</span></strong> with the name <strong>TextNote.vue</strong></span></span></p>
+<p><span style="font-size: 12pt;">In this file we place the html elements &nbsp;for a list (the notes we want to display from the <span style="color: rgb(0, 0, 255);"><strong>Notes array</strong></span> &nbsp;located in the <strong><span style="background-color: rgb(206, 212, 217);">App.vue</span></strong> file)<br></span></p>
+<p><strong><span style="font-size: 12pt;">-----------------------</span></strong></p>
+<p><span style="font-size: 18pt;">Now go to the file <strong><span style="background-color: rgb(206, 212, 217);">ListNotes.vue</span></strong></span></p>
+<ul>
+<li>At the top of the&nbsp;<strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"> &lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;&nbsp;</span></strong> tag add the following to import our <strong>TextNote component</strong></li>
+</ul>
+<p style="padding-left: 40px;"><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(248, 95, 95);">import </span>Tnotes <span style="color: rgb(248, 95, 95);">from</span></span><span style="color: rgb(255, 255, 255);"><span style="color: rgb(248, 95, 95);"> </span></span><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><span style="color: rgb(251, 238, 184);">'./TextNote.vue'</span>;&nbsp;</span></strong><br><span style="color: rgb(236, 202, 250);"><strong><span style="background-color: rgb(52, 73, 94);">//code............</span></strong></span><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li>Then <strong>register </strong>the <strong>TextNote child component</strong> inside the <strong>parent component<span style="background-color: rgb(236, 240, 241);">&nbsp;</span><span style="background-color: rgb(206, 212, 217);"><span style="background-color: rgb(236, 240, 241);"> </span><span style="color: rgb(0, 0, 0); background-color: rgb(236, 240, 241);">ListNotes.vue</span></span></strong><span style="background-color: rgb(206, 212, 217);"> </span></li>
+</ul>
+<p style="padding-left: 40px;">as shown<br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="color: rgb(248, 95, 95);">import </span>Tnotes <span style="color: rgb(248, 95, 95);">from </span><span style="color: rgb(251, 238, 184);">'./TextNote.vue'</span>;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="color: rgb(248, 95, 95);">export </span><span style="color: rgb(248, 202, 198);">default </span>{</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; <span style="color: rgb(45, 194, 107);">props</span>:[<span style="color: rgb(251, 238, 184);">'notesd'</span>],</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; components: {</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgb(53, 152, 219);">Notes</span>,</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; },</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>}</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;/<span style="color: rgb(248, 95, 95);">script</span>&gt;</strong></span></p>
+<ul>
+<li>Use the <strong>&lt;/tnotes&gt;</strong> child component in the <strong>parent component template&nbsp;<span style="background-color: rgb(236, 240, 241);"> <span style="color: rgb(0, 0, 0);">ListNotes.vue</span></span></strong><br>as shown<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">template</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &lt;<span style="color: rgb(248, 95, 95);">tnotes &nbsp;</span>/&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;/<span style="color: rgb(248, 95, 95);">template</span>&gt;</span></strong></li>
+</ul>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p><span style="font-size: 18pt;">Now go to the file <strong>TextNote </strong></span></p>
+<p><span style="font-size: 18pt;">And <strong>paste </strong>this code</span></p><p></p><pre class="brush:php"><template>
+   <div class="ui centered card">
+     <div class="content">
+        <div class="header">
+        </div>
+        <div class="meta italic">
+        </div>
+        <div class="extra content">
+         <span class="right floated edit icon">
+           <i class="edit icon"></i>
+        </span>
+        <span class="right floated trash icon">
+           <i class="trash icon"></i>
+        </span>
+      </div>       
+     </div>    
+   </div>
+</template>
+<script>
+ export default {
+      }
+</script>
+<style scoped="">
+  .italic {font-style: italic}
+</style>
+</pre></div><div class="margin-top-40 margin-bottom-40 5"><p onclick="remove_o_c(5)"></p><p><span style="font-size: 18pt;">Now go back to <strong>ListNotes.vue</strong></span><br>Now we are in <span style="background-color: rgb(206, 212, 217);"><strong>ListNotes.vue</strong></span><br><strong>You should focus</strong>: as I told you before, we want to create a list based on the notes in the <strong><span style="color: rgb(0, 0, 255);">notes array</span></strong></p>
+<p>And our note array values are ready in <strong><span style="color: rgb(45, 194, 107);">props</span>:[<span style="color: rgb(206, 212, 217);">'<span style="color: rgb(126, 140, 141);">notesd</span>'</span>]</strong> &nbsp;<strong><span style="background-color: rgb(191, 237, 210);">First let me say something. We know that components are reusable with (different) custom elements or values.</span></strong><br><strong>props['notesd']</strong></p>
+<ul>
+<li>Now we have to write the <strong>v-for</strong> directive in the child component element as you can see<br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;<span style="color: rgb(248, 95, 95);">template</span>&gt;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp;&lt;<span style="color: rgb(248, 95, 95);">tnotes </span><span style="color: rgb(20, 252, 0);">v-for</span>=<span style="color: rgb(251, 238, 184);">"note in notesd"</span> :<span style="color: rgb(20, 252, 0);">key</span>=<span style="color: rgb(251, 238, 184);">"note"</span>/&gt;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;/<span style="color: rgb(248, 95, 95);">template</span>&gt;</strong></span></li>
+<li><br>Now the values of the current note must be passed to the <strong>TextNote </strong>child component to be displayed in the listThis is done by placing<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">:notesL=<span style="color: rgb(251, 238, 184);">"note"</span></span></strong></li>
+</ul>
+<p style="padding-left: 40px;"><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">template</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp;&lt;<span style="color: rgb(248, 95, 95);">tnotes </span><span style="color: rgb(20, 252, 0);">v-for</span>=<span style="color: rgb(251, 238, 184);">"note in notesd"</span> :<span style="color: rgb(20, 252, 0);">key</span>=<span style="color: rgb(251, 238, 184);">"note"</span> &nbsp;:notesL=<span style="color: rgb(251, 238, 184);">"note"</span> /&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;/<span style="color: rgb(248, 95, 95);">template</span>&gt;,</span></strong></p>
+<p><br><strong>focus on :notesL="note" ,</strong><br><span style="background-color: rgb(236, 202, 250);">This passes the current note (<strong><span style="color: rgb(230, 126, 35);">title </span></strong>and <strong><span style="color: rgb(230, 126, 35);">description</span></strong>), during the loop iteration process, to the TextNote child component</span><br><span style="background-color: rgb(236, 202, 250);">and displayed in the list and the observation is received by <strong>props</strong></span></p>
+<p><strong>-----------------</strong></p>
+<p><br><span style="font-size: 18pt;">Now go to the <strong>TextNote.vue</strong> file&nbsp;</span><br>and type the <strong>props </strong>inside the&nbsp; <span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</strong></span>&nbsp; tag as you can see<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp;<span style="color: rgb(248, 95, 95);">export </span><span style="color: rgb(248, 202, 198);">default </span>{</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp;<span style="color: rgb(45, 194, 107);">props</span>:[<span style="color: rgb(251, 238, 184);">'notesL'</span>],</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; }</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&lt;/<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></strong><br>To display the <strong><span style="color: rgb(230, 126, 35);">title </span></strong>and <strong><span style="color: rgb(230, 126, 35);">description </span></strong>of the note<br>Include&nbsp;<strong><span style="color: rgb(223, 223, 223); background-color: rgb(52, 73, 94);"> {{notes.title}}&nbsp;</span></strong> inside the <strong>div tag </strong>that has the name of the<span style="background-color: rgb(126, 140, 141);"> <span style="color: rgb(20, 252, 0);"><strong>class </strong></span><span style="color: rgb(251, 238, 184);">"header"</span>&nbsp;</span> &nbsp;as shown &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;&nbsp;<br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;<span style="color: rgb(248, 95, 95);">div </span><span style="color: rgb(20, 252, 0);">class</span>=<span style="color: rgb(251, 238, 184);">"header"</span>&gt;</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{ notesL.title }}</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&lt;/<span style="color: rgb(248, 95, 95);">div</span>&gt;</strong></span></p>
+<p>Also Inside a div tag that has a <span style="background-color: rgb(126, 140, 141);"><strong><span style="color: rgb(20, 252, 0);">class </span></strong><span style="color: rgb(255, 255, 255);">name </span><span style="color: rgb(251, 238, 184);">"meta italic"</span></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; <strong>&nbsp; &nbsp; &nbsp; &nbsp;&lt;<span style="color: rgb(248, 95, 95);">div </span><span style="color: rgb(20, 252, 0);">class</span>=<span style="color: rgb(251, 238, 184);">"meta italic"</span>&gt;</strong></span><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{ notesL.description }}</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/<span style="color: rgb(248, 95, 95);">div</span>&gt;</span></strong></p>
+<p>&nbsp;</p>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p>In this case, the component is duplicated or reused with different values <strong>(<span style="color: rgb(230, 126, 35);">title </span></strong>and <strong><span style="color: rgb(230, 126, 35);">description</span>)</strong> depending on the array of observations</p>
+<ul>
+<li>It happens behind the scenes this way<br><span style="background-color: rgb(194, 224, 244);"><strong>&lt;<span style="color: rgb(248, 95, 95);">template</span>&gt;</strong></span><br><span style="background-color: rgb(194, 224, 244);"><strong>&nbsp; &lt;<span style="color: rgb(248, 95, 95);">tnotes &nbsp;</span>v-for="note in notesd" :key="<span style="color: rgb(230, 126, 35);">note1</span>" :notesL="<span style="color: rgb(230, 126, 35);">note1</span>"/&gt;</strong></span><strong> </strong><strong>&nbsp;</strong>First list item for <strong>Note 1</strong><br><span style="background-color: rgb(194, 224, 244);"><strong>&nbsp; &lt;<span style="color: rgb(248, 95, 95);">tnotes &nbsp;</span>v-for="note in notesd" :key="<span style="color: rgb(230, 126, 35);">note2</span>" :notesL="<span style="color: rgb(230, 126, 35);">note2</span>"/&gt;</strong></span><strong> </strong>&nbsp;The second list item for <strong>Note 2</strong><br><span style="background-color: rgb(194, 224, 244);"><strong>&nbsp; &lt;<span style="color: rgb(248, 95, 95);">tnotes &nbsp;</span>v-for="note in notesd" :key="<span style="color: rgb(230, 126, 35);">note3</span>" :notesL="<span style="color: rgb(230, 126, 35);">note3</span>"/&gt;</strong></span><strong> </strong><strong>&nbsp;</strong>The third list item for<strong> Note 3</strong><br><strong>. 4</strong><br><strong>. 5</strong><br><strong>. 6</strong><br><strong>. 7</strong><br><span style="background-color: rgb(194, 224, 244);"><strong>&lt;/<span style="color: rgb(248, 95, 95);">template</span>&gt;</strong></span><br>These items represent (<strong>notes list items</strong>)&nbsp;<br><span style="font-size: 18pt;">Now you can see all notes in a list</span></li>
+</ul>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p><span style="font-size: 18pt;">Now we will learn how to delete one of the notes if we want</span></p>
+<p>Create a function named <strong><span style="color: rgb(35, 111, 161);">DeleteNote </span></strong>in the<strong><span style="background-color: rgb(206, 212, 217);"> TextNote.vue</span></strong> file<br>as follows</p>
+<p><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">methods:{</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp;<span style="color: rgb(194, 224, 244);">DeleteNote</span>(notesL){</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp;<span style="color: rgb(230, 126, 35);">this</span>.$emit(<span style="color: rgb(251, 238, 184);">'DeleteN'</span>,notesL);</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; },</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp;}</span></strong></p>
+<p>And write this directive&nbsp;<strong><span style="background-color: rgb(52, 73, 94); color: rgb(20, 252, 0);"> v-on<span style="color: rgb(255, 255, 255);">:click&nbsp;</span></span></strong> in the ( delete element ), as you can see<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;<span style="color: rgb(248, 95, 95);">span </span><span style="color: rgb(20, 252, 0);">class</span>=<span style="color: rgb(251, 238, 184);">'right floated trash icon'</span> <span style="color: rgb(20, 252, 0);">v-on</span>:click=<span style="color: rgb(251, 238, 184);">"DeleteNote(notesL)"</span>&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;i class='trash icon'&gt;&lt;/i&gt;</span></strong><br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/<span style="color: rgb(248, 95, 95);">span</span>&gt;</span></strong></p>
+<p>First, I want to say something. What is meant by deleting a note from the list is to delete a note or a specific value from the <strong><span style="color: rgb(0, 0, 255);">notes array</span></strong></p>
+<p>Simply I will explain to you how to delete a specific value from an array in <strong>javascript</strong><br>Initially, when we want to delete a specific value<br>These steps must be taken</p>
+<ul>
+<li>We have to put this value in <strong>indexOf </strong>method as shown<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);">indexOFval = <span style="color: rgb(53, 152, 219);">array</span>.indexOf( <span style="color: rgb(251, 238, 184);">'Put a specific value here'</span> );</span><span style="color: rgb(255, 255, 255);">&nbsp; </span></strong>In this case now we have in the <strong>indexOFval </strong>variable the index of occurrence of the value in the array</li>
+<li>In the second step we now put the variable, <strong>indexOFval </strong>in the <span style="color: rgb(53, 152, 219);"><strong>splice </strong></span>method as shown below<br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(255, 255, 255);">array.<span style="color: rgb(53, 152, 219);">splice</span>(indexOFval ,<span style="color: rgb(230, 126, 35);"> 1</span>);</span></strong></span></li>
+</ul>
+<p><br><span style="font-size: 14pt;">In this case the specified value is deleted from the array</span></p>
+<p>After you learned on how to delete a specific value from an array in <strong>Javascript</strong><br><strong>Now we will take steps to remove a specific note from the list</strong></p>
+<p>go to the list and choose one of the notes to delete<br>When you clicked <strong>(delete icon) </strong>for one of the notes in the list, you now need to get the value of this note, this value must be passed to the file or component <span style="background-color: rgb(206, 212, 217);"><strong>ListNotes.vue</strong></span> Now put the code below inside the <span style="color: rgb(53, 152, 219);"><strong>DeleteNote </strong></span>function<br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(53, 152, 219);">DeleteNote</span>(notesL){</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; &nbsp; <span style="color: rgb(230, 126, 35);">this</span>.$<span style="color: rgb(255, 255, 255);">emit</span>(<span style="color: rgb(251, 238, 184);">'DeleteN',notesL'</span>);</strong></span><br><span style="background-color: rgb(52, 73, 94); color: rgb(255, 255, 255);"><strong>&nbsp;},</strong></span><br>Note :: The note value came in the &nbsp;(<strong>notesL</strong>) &nbsp;Argument<br><strong><span style="color: rgb(186, 55, 42);">You might say what's the point of<span style="color: rgb(22, 145, 121);"> $emit </span>in this function</span></strong><br>As I told you before, you pass data from the child component to the parent component<br>In the <span style="color: rgb(35, 111, 161);"><strong>DeleteNote </strong></span>function, <strong><span style="color: rgb(45, 194, 107);">$emit</span></strong> passes the note's value to the <span style="background-color: rgb(236, 240, 241);"><strong>ListNotes.vue</strong></span> component as I told you above</p>
+<p>:::::<strong>You will know where we need this value of note</strong><br>Go to the <strong><span style="background-color: rgb(206, 212, 217);">ListNotes.vue</span></strong> component or file and type the&nbsp;<span style="background-color: rgb(52, 73, 94); color: rgb(20, 252, 0);"> <strong>v-on</strong>&nbsp;</span> directive and next to it the name you entered in <strong><span style="color: rgb(22, 145, 121);">$emit </span></strong>specifically inside the <span style="color: rgb(53, 152, 219);"><strong>DeleteNote </strong></span>function<br>to become <span style="color: rgb(255, 255, 255);"><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(20, 252, 0);">v-on</span>:DeleteN=<span style="color: rgb(251, 238, 184);">"deleteNoteSE"</span></span></strong></span></p>
+<p>Now create a function named <strong><span style="color: rgb(35, 111, 161);">deleteNoteSE </span></strong>in ListNotes.vue component<br>as you see</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p><p></p><pre class="brush:php"><script>
+import Tnotes from './TextNote.vue';
+export default {
+    props:['notesd'],
+    components: {
+       Notes,
+    },
+    methods:{
+       deleteNoteSE(note){
+           var ifRemove = confirm('Do you really want to delete the note');
+           if(ifRemove){
+             const ThisNote = this.notesd;
+             const indexOFNote = ThisNote.indexOf(note);
+             ThisNote.splice(indexOFNote , 1);
+             alert('Note deleted');
+           }
+       }
+    }
+}
+
+</script>
+</pre></div><div class="margin-top-40 margin-bottom-40 6"><p onclick="remove_o_c(6)"></p><p>You can now delete any note in the list by simply clicking <span style="color: rgb(224, 62, 45);"><strong><span style="color: rgb(0, 0, 0);">on </span>(icon Delete)</strong></span></p>
+<p>&nbsp;</p>
+<p><strong>---------------------------------------------------------------------</strong></p>
+<p><span style="font-size: 18pt;">Now we want to edit the value (<span style="color: rgb(230, 126, 35);"><strong>title </strong></span>and <span style="color: rgb(230, 126, 35);"><strong>description</strong></span>) of one of the selected notes</span></p>
+<p><span style="font-size: 18pt;"><span style="font-size: 12pt;">Now go to the file or component <strong><span style="background-color: rgb(206, 212, 217);">TextNote.vue</span></strong> </span><span style="font-size: 12pt;">And paste this form elements below the list elements</span></span></p><p></p><pre class="brush:php"><div class="content" v-show="showModelEdit">
+      <div class="ui form">
+        <div class="field">
+          <label>Title</label>
+          <input type="text" v-model="ThisEVnotesL.title">
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <input type="text" v-model="ThisEVnotesL.description">
+        </div>
+        <div class="ui two buttons">
+          <button class="ui basic button" v-on:click="saveEdF">
+            Save
+          </button>
+        </div>
+      </div>
+    </div> 
+</pre></div><div class="margin-top-40 margin-bottom-40 7"><p onclick="remove_o_c(7)"></p><p>Now create two properties named <strong>showModelEdit </strong>and <strong>ThisEVnotesL</strong><br>Also, create a function</p>
+<ol>
+<li>With the name <strong>showFedit </strong>to show the edit form</li>
+<li>And also a function called <strong>closeEdF </strong>to exit the edit form,<br><br></li>
+</ol>
+<p>To become, the codes inside a&nbsp;<strong><span style="background-color: rgb(52, 73, 94);"> <span style="color: rgb(255, 255, 255);">&lt;<span style="color: rgb(248, 95, 95);">script</span>&gt;</span></span></strong>&nbsp; tag look like this</p><p></p><pre class="brush:php"><script>
+ export default {
+   props:['notesL'],
+   data(){
+     return{
+       showModelEdit:false,
+       ThisEVnotesL:this.notesL,
+     }
+   },
+   methods:{
+    DeleteNote(notesL){
+      this.$emit('DeleteN',notesL);
+     },
+     showFedit(){
+       this.showModelEdit = true;
+     },
+     saveEdF(){
+      this.showModelEdit = false;
+     }
+    }
+  }
+</script>
+</pre></div><div class="margin-top-40 margin-bottom-40 8"><p onclick="remove_o_c(8)"></p><p>Thus, the value of the note (<span style="color: rgb(248, 95, 95);"><strong>title </strong></span>and <span style="color: rgb(248, 95, 95);"><strong>description</strong></span>) can be changed directly when typing something in the fields of the edit form<br>This is done by the&nbsp;<strong><span style="color: rgb(20, 252, 0); background-color: rgb(52, 73, 94);"> v-model&nbsp;</span></strong> directive mentioned in the mod form fields<br>__________________________________________________________</p>
+<p><br><strong><span style="color: rgb(185, 106, 217);">At the end, happy code, I h<span style="color: rgb(207, 39, 236);">ope you like my explanation&nbsp;</span></span></strong></p><p></p></div>        
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

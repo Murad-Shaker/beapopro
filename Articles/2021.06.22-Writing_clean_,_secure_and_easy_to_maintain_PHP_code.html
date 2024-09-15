@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>Writing clean, secure and easy to maintain PHP code</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2021-06-22 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+
+         <div class="code">
+
+              
+            <div id="delete0" class="review_code"><p id="0" class=" delete_review_code hide0">1.Commenting On Every Important Action That Is Performed Is Very Essential.
+
+This not only helps in easy identification of the need of that particular code, but also gives a neat look to the codes as well.</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">// Function for login checking
+if(!$user_login){
+header("Location:https://www.macronimous.com/");
+die();
+} </pre></div><count></count></div><div id="delete1" class="review_code"><p id="1" class=" delete_review_code hide1">2.Avoid Unwanted Usage Of Conditional Statements:
+
+This not only increases the execution time but also makes the coding long and complex.
+For example,</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+If (condition1==true){
+code which satisfies the above condition
+} else {
+perform   die(); or exit();
+}
+?--></pre></div><count></count></div><div id="delete2" class="review_code"><p id="2" class=" delete_review_code hide2">The same set of codes can be written as:</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?
+
+if(!condition){
+// display warning message.
+die("Invalid statement");
+}
+?--></pre></div><count></count></div><div id="delete3" class="review_code"><p id="3" class=" delete_review_code hide3">This reduces the execution time and also makes the codes easily maintainable.
+
+The same can also be written as</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+$response_text = ( $action == "edit" ) ?  "the action equals edit" : "the action does not equal edit";
+echo $response_text;
+?--></pre></div><count></count></div><div id="delete4" class="review_code"><p id="4" class=" delete_review_code hide4">This reduces the execution time and also makes the codes easily maintainable.
+
+The same can also be written as</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+$response_text = ( $action == "edit" ) ?  "the action equals edit" : "the action does not equal edit";
+echo $response_text;
+?-->
+//Here ternary operators have been used, instead of using conditional statements, to simplify the coding further.
+
+</pre></div><count></count></div><div id="delete5" class="review_code"><p id="5" class=" delete_review_code hide5">3.Code Indentation, In Order To Highlight Statement Beginnings And Endings.
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+If(mysql_num_rows($res)-->0) {
+while($a=mysql_fetch_object($res)){
+echo $a-&gt;first_name;
+}//ending of while loop
+}//ending of if condition
+?&gt;</pre></div><count></count></div><div id="delete6" class="review_code"><p id="6" class=" delete_review_code hide6">4.Avoid Unwanted Html Tags In The PHP Code:
+In the example given below, the PHP compiler goes through each and every line of the code and executes the function, which is time consuming.
+
+For example:</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+echo "<table-->";
+echo â€œâ€;
+echo â€œâ€;
+echo â€œHai welcome to phpâ€;
+echo â€œâ€;
+echo â€;
+echo â€œâ€;
+?&gt;</pre></div><count></count></div><div id="delete7" class="review_code"><p id="7" class=" delete_review_code hide7">Instead of the above we can simply say,
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">
+
+<count></count><table>
+<tbody><tr>
+<td><!--?php echo "Hai welcome to php"; ?--></td>
+</tr>
+
+</tbody></table></pre></div></div><div id="delete8" class="review_code"><p id="8" class=" delete_review_code hide8">Here the PHP compiler would execute the particular server code only, here in the example, <!--?php echo â€œHai welcome to phpâ€; ?-->, instead of creating html tags, as the html codes are alien to PHP. This facilitates in cutting down unnecessary checking time of the PHP compiler, thereby saving code execution time.
+
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"></pre></div><count></count></div><div id="delete9" class="review_code"><p id="9" class=" delete_review_code hide9">5.Clear Code With In Assigning Values To Mysql Arguments:
+
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">For example
+
+$sql="select first_name,last_name,email_address from tbl_user where user_id=".$user_id." and member_type='".$member_type."'";
+
+mysql_query($sql);</pre></div><count></count></div><div id="delete10" class="review_code"><p id="10" class=" delete_review_code hide10">In the above example, you can see that the PHP values are included in the query condition. Also there are lots of concatenations done to the variables within the query.
+
+Instead,
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">$sql="select first_name,last_name,email_address from tbl_user where user_id="%d" and member_type='"%s"'";
+
+mysql_query(sprintf($sql,$user_id,$member_type));</pre></div><count></count></div><div id="delete11" class="review_code"><p id="11" class=" delete_review_code hide11">By using this query, the values are automatically assigned to the appropriate positions, thereby saving the execution time and as well as the programmers can easily find the related values to the arguments passed.
+
+
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"></pre></div><count></count></div><div id="delete12" class="review_code"><p id="12" class=" delete_review_code hide12">6.Using Arrays:
+
+It is always better to use arrays in PHP, as they are quite easy to manage and easily understandable as well.
+
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?php
+$products=array("Dove","Apple","Nokia");
+?--></pre></div><count></count></div><div id="delete13" class="review_code"><p id="13" class=" delete_review_code hide13">Using Split array is also a very good way of coding in PHP. However, there are ways to use a split array:
+
+Rather than:</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?
+for($iC=0;$iC<count($products);$iC++){
+echo $products[$iC].â€<br-->â€;
+}
+?&gt;</pre></div><count></count></div><div id="delete14" class="review_code"><p id="14" class=" delete_review_code hide14">Instead, the codes can be written as follows:
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"> <!--?
+foreach($products as $product_value){
+echo $product_value;
+}
+?--></pre></div><count></count></div><div id="delete15" class="review_code"><p id="15" class=" delete_review_code hide15">foreach is specifically for arrays. When it is used, they reduce the coding length and also the functioning time.
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"></pre></div><count></count></div><div id="delete16" class="review_code"><p id="16" class=" delete_review_code hide16">7.Consistent Naming:
+
+It is always advisable to name classes, objects and others consistently. This helps in easy identification for other programmers who might work later on the project. Also names of files in local directories should also be easy to understand.</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"></pre></div><count></count></div><div id="delete17" class="review_code"><p id="17" class=" delete_review_code hide17">8.Using Objects [Class]
+Though they seem to be quite complicated to the newcomers, Objects are very useful as it reduces code repetition and also facilitates easier changes to the codes. In that when a class is used, it makes it more flexible to work with.
+
+A simple class functionality is explained below:</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js"><!--?
+
+Class shopping_cart{
+
+var $cart_items;
+
+function add_product_item($cart_number,$quantity){
+$this--->items[$cart_number]+=$quantity;
+}
+
+}
+
+// Call the class function
+$cart=new shopping_cart();
+$cart-&gt;add_product_item("123",10);
+
+?&gt;</pre></div><count></count></div><div id="delete18" class="review_code"><p id="18" class=" delete_review_code hide18">9.Appropriate Use Of Looping Codes:
+
+There are many looping codes available in PHP. It is very important to choose the right looping code for the right purpose, so that execution time can be saved upon and the work also would get over sooner.
+
+For example, instead of:</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">$res=mysql_query("select * from tbl_products");
+for($iC=0;$iC&lt; mysql_num_rows($res);$iC++){
+echo mysql_result($res,$iC);
+}</pre></div><count></count></div><div id="delete19" class="review_code"><p id="19" class=" delete_review_code hide19">The same can be coded this way, in order to reduce the execution time:
+
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">$res=mysql_query("select * from tbl_products");
+while($obj=mysql_fetch_object($res)){
+echo $obj-&gt;column_name1;
+}</pre></div><count></count></div><div id="delete20" class="review_code"><p id="20" class=" delete_review_code hide20">10.Using Of Case Switches:
+It is definitely advantageous to use Case switches instead of If conditions. This is because switch statements are equivalent to using a series of IF statements on the same expression.
+
+Example of using a series of If statements:
+</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">if($checking_value1==$value){
+echo "result1";
+}elseif($checking_value2==$value){
+echo "result2";
+}elseif($checking_value3==$value){
+echo "result3";
+}else{
+echo "result 4";
+}
+}</pre></div><count></count></div><div id="delete21" class="review_code"><p id="21" class=" delete_review_code hide21">The same thing can be expressed in a simpler way using the switch case, which greatly reduces the operational time:</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">switch($checking_value){
+case Value1:
+echo "result1";
+break;
+
+case Value2:
+echo "result2";
+break;
+
+case Value3:
+echo "result3";
+break;
+
+default:
+echo "result4";
+break;
+
+}</pre></div><count></count></div><div id="delete22" class="review_code"><p id="22" class=" delete_review_code hide22">11.Using Single Codes Instead Of Double Quotes:
+
+Though these two serve various purposes, using single quotes help in faster execution of the loops than when using double quotes.
+
+For example, a simple example of printing 1500 lines of information, can be done in two ways as:</p><br><br><div class="margin-top-40margin-bottom-40"><pre class="brush:js">//Using double quotes
+print â€œSerialNo : $serialno. WorkDone : $workdone. Location: $locationâ€;
+
+The same can be written with single quotes:
+
+//Using single quotes
+//print â€˜SerialNo :â€™.$serialno.â€™. WorkDone : â€˜.$workdoneâ€™. Locationâ€˜.$locationâ€™.';
+//Here, the second line of codes works much faster than the first one, where the strings have to be analyzed completely, all the 1500 times. In the second line of codes, no actual string analyzing takes place. Just combination of the strings happens in order to make the printing possible.
+
+//Few of these tips might sound quite familiar, but they have been included here in order to refresh the best practices that can be followed to get clean, secured at the same time easy to maintain PHP codes.</pre></div><count></count></div>       
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

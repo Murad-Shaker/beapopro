@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>PHP Pagination with Next Previous First Last page Link</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2021.07.04 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+        
+         <div class="code">
+
+              
+            <div id="delete0" class="review_code" bis_skin_checked="1"><p id="0" class=" delete_review_code hide0">mysqli.php
+database connection
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js"><!--?php
+   $connect=new mysqli("localhost","root","","pagination");
+?--></pre></div><count></count></div><div id="delete1" class="review_code" bis_skin_checked="1"><p id="1" class=" delete_review_code hide1">Table of names you can, copy, make it in the database
+</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">--
+-- Database: `pagination`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `name_stu`
+--
+
+CREATE TABLE IF NOT EXISTS `name_stu` (
+  `student_id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_name` varchar(250) NOT NULL,
+  `student_phone` varchar(20) NOT NULL,
+  PRIMARY KEY (`student_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+
+--
+-- Dumping data for table `name_stu`
+--
+
+INSERT INTO `name_stu` (`student_id`, `student_name`, `student_phone`) VALUES
+(1, 'Pauline S. Rich', '412-735-0224'),
+(2, 'Sarah C. White', '320-552-9961'),
+(3, 'Samuel L. Leslie', '201-324-8264'),
+(4, 'Norma R. Manly', '478-322-4715'),
+(5, 'Kimberly R. Castro', '479-966-6788'),
+(6, 'Elaine R. Davis', '701-685-8912'),
+(7, 'Concepcion S. Gardner', '607-829-8758'),
+(8, 'Patricia J. White', '803-789-0429'),
+(9, 'Michael M. Bothwell', '214-585-0737'),
+(10, 'Ronald C. Vansickle', '630-571-4107'),
+(11, 'Clarence A. Rich', '904-459-3747'),
+(12, 'Elizabeth W. Peterson', '404-380-9481'),
+(13, 'Renee R. Hewitt', '323-350-4973'),
+(14, 'John K. Love', '337-229-1983'),
+(15, 'Teresa J. Rincon', '216-394-6894'),
+(16, 'Erin S. Huckaby', '503-284-8652'),
+(17, 'Brian A. Handley', '989-304-7122'),
+(18, 'Michelle A. Polk', '540-232-0351'),
+(19, 'Wanda M. Brown', '718-262-7466'),
+(20, 'Phillip A. Hatcher', '407-492-5727'),
+(21, 'Dennis J. Terrell', '903-863-5810'),
+(22, 'Britney F. Johnson', '972-421-6933'),
+(23, 'Rachelle J. Martin', '920-397-4224'),
+(24, 'Leila E. Ledoux', '615-425-9930'),
+(25, 'Darrell A. Fields', '708-887-1913'),
+(26, 'Linda D. Carter', '909-386-7998'),
+(27, 'Melva J. Palmisano', '630-643-8763'),
+(28, 'Jessica V. Windham', '513-807-9224'),
+(29, 'Karen T. Martin', '847-385-1621'),
+(30, 'Jack K. McDonough', '561-641-4509'),
+(31, 'John M. Williams', '508-269-9346'),
+(32, 'Amelia W. Davis', '347-537-8052'),
+(33, 'Gertrude W. Lawrence', '510-702-7415'),
+(34, 'Michael L. Harris', '252-219-4076'),
+(35, 'Casey A. Groves', '810-334-9674'),
+(36, 'James H. Wilson', '865-259-6772'),
+(37, 'James A. Wesley', '443-217-1859'),
+(38, 'Armando C. Gay', '716-252-9230'),
+(39, 'James M. Duarte', '402-840-0541'),
+(40, 'Jason E. West', '360-610-7730'),
+(41, 'Gloria H. Saucedo', '205-861-3306'),
+(42, 'Paul T. Moody', '914-683-4994'),
+(43, 'Sandra L. Williams', '310-335-1336'),
+(44, 'Elaine T. Deville', '626-513-8306'),
+(45, 'Robyn L. Spangler', '754-224-7023'),
+(46, 'Sam A. Pino', '806-823-5344'),
+(47, 'Joseph H. Marble', '201-917-2804'),
+(48, 'Mark M. Bassett', '206-592-4665'),
+(49, 'Edgar M. Billy', '978-365-0324'),
+(50, 'Connie M. Yang', '815-288-5435');</pre></div><count></count></div><div id="delete2" class="review_code" bis_skin_checked="1"><p id="2" class=" delete_review_code hide2">pagination.php</p><br><br><div class="margin-top-40margin-bottom-40" bis_skin_checked="1"><pre class="brush:js">
+
+<!--?php 
+  include 'mysqli.php';
+?-->
+ 
+  <title>PHP Pagination with Next Previous First Last page Link</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <style>
+  a {
+   padding:8px 16px;
+   border:1px solid #ccc;
+   color:black;
+   font-weight:bold;
+  }
+  </style>
+ 
+ 
+  <div class="container" bis_skin_checked="1">
+   <h3 align="center"><title>PHP Pagination with Next Previous First Last page Link</title>
+  </h3><br>
+   <div class="table-responsive" bis_skin_checked="1">
+    query($sql);
+   
+     while ($row = $result-&gt;fetch_assoc()) 
+     {
+     ?&gt;
+     <table class="table table-bordered">
+     <tbody><tr>
+      <td>Name</td>
+      <td>Phone</td>
+     </tr>
+     <!--?php
+     $r_p_page=5;
+
+     if (isset($_GET['values'])) 
+     {
+        $st_page=$_GET['values'];
+
+     }else{
+        $st_page=5;
+     }
+      $sql="SELECT * FROM `name_stu` 
+            limit $st_page,$r_p_page";
+
+     $result=$connect---><tr>
+      <td><!--?php echo $row['student_name'];?--></td>
+      <td><!--?php echo $row['student_phone'];?--></td>
+     </tr>
+     <!--?php
+      }
+     ?-->
+    </tbody></table>
+    <div align="center" bis_skin_checked="1">
+    <br>
+    <!--?php
+     $sql="SELECT * FROM `name_stu`";
+     $countall=$connect--->query($sql);
+     $rowcount=mysqli_num_rows($countall);
+     
+     $__page=ceil($rowcount/5);
+
+     $start_loop=$st_page/5;
+
+     $last_val=($__page-1) * 5;
+     
+     $start_SH=$start_loop + 4;
+
+     if ($__page-1 &lt;= $start_SH) 
+      {
+         $end_loop = $__page;
+      }else{
+         $end_loop = $start_SH;
+      }
+
+     if ($st_page &gt; 5) 
+     {
+        echo "<a href="pagination.php?values=5">First</a>";
+        echo "<a href="pagination.php?values=&quot;.($st_page-5).&quot;">&lt;&lt;</a>"; 
+     }
+
+    for ($i=$start_loop;$i &lt; $end_loop; $i++) 
+     { 
+        $hide_values=$i*5;
+        echo "<a href="pagination.php?values=&quot;.$hide_values.&quot;">".ceil($i)."</a>";
+     }
+
+   if ($__page-1 != $start_loop) 
+      {
+        echo "<a href="pagination.php?values=&quot;.($st_page+5).&quot;">&gt;&gt;</a>";
+        echo "<a href="pagination.php?values=&quot;.$last_val.&quot;">Last</a>";
+      }
+    ?&gt;
+    </div>
+    <br><br>
+   </div>
+  </div>
+ 
+</pre></div><count></count></div>    
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>How to create a multilingual website using laravel</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2022.06.12 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+
+         <div class="code">
+          <iframe src="https://www.youtube.com/embed/HQmdqeDw8gk" width="850" height="477" allowfullscreen="allowfullscreen"></iframe>
+<div class="margin-top-40 margin-bottom-40 1">
+    <p onclick="remove_o_c(1)"></p>
+    <p><strong>Install Laravel</strong><br>Type the following command in your terminal.</p>
+    <p></p>
+    <pre class="brush:php">composer create-project laravel/laravel localization
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 2">
+    <p onclick="remove_o_c(2)"></p>
+    <p><strong>Create a file home.blade.php</strong></p>
+    <p>Include the below lines in this file, we do not want to send this form data to a database, we want to translate the texts of this page into the current language</p>
+    <p></p>
+    <pre class="brush:php">
+
+
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+
+ 
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+       <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         {{ Config::get('languages')[App::getLocale()] }}
+        </a>
+       
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+         @foreach(Config::get('languages') as $leng =&gt; $language)
+          @if($leng != App::getLocale())
+          <a class="dropdown-item" href="{{ route('lang.switch',$leng) }}">{{ $language }}</a>
+          @endif
+         @endforeach
+        </div>
+      </li>
+
+      </ul>
+    </div>
+ </nav>
+
+ <br>
+ <div class="container">
+   @if ($errors-&gt;any())
+
+      @foreach ($errors-&gt;all() as $error)
+        <div class="alert alert-warning" role="alert">
+           {{ $error }}
+        </div>
+      @endforeach
+
+   @endif
+   @if (\Session::has('success'))
+    <div class="alert alert-success">
+      <li>{!! \Session::get('success') !!}</li> 
+    </div>
+   @endif  
+  <div class="content">
+    <div class="left-side">
+      <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">Berlin</div>
+          <div class="text-two">Aachen</div>      
+      </div>
+      <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Phone</div>
+          <div class="text-one">+0098 9893 5647</div>
+          <div class="text-two">+0096 3434 5678</div>
+      </div> 
+      <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">codinglab@gmail.com</div>
+          <div class="text-two">info.codinglab@gmail.com</div>
+      </div>      
+    </div>
+     <div class="right-side">
+        <div class="topic-text">{{ __('messages.topic-text') }}</div>
+        <p>{{ __('messages.msg_p') }}</p>
+      <form action="{{ url('v_form') }}" method="post">
+        {{ csrf_field() }}
+        <div class="input-box">
+          <input type="text" name="name" placeholder="{{ __('messages.t_input_name') }}">
+        </div>
+        <div class="input-box">
+          <input type="text" name="email" placeholder="{{ __('messages.t_input_email') }}">
+        </div>
+        <div class="input-box message-box">
+          <textarea name="t_textm" placeholder="{{ __('messages.t_input_textera') }}"></textarea>
+        </div>
+        <div class="button">
+          <button type="submit" class="btn btn-primary">{{ __('messages.t_input_submit') }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+ </div>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+
+
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 3">
+    <p onclick="remove_o_c(3)"></p>
+    <p><strong>Create a css file </strong></p>
+    <p>in a directory \ public \ css \ style.css</p>
+    <p></p>
+    <pre class="brush:php">@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&amp;display=swap');
+.container{
+  width: 85%;
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px 60px 30px 40px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.container .content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .content .left-side{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  position: relative;
+}
+.content .left-side::before{
+  content: '';
+  position: absolute;
+  height: 70%;
+  width: 2px;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #afafb6;
+}
+.content .left-side .details{
+  margin: 14px;
+  text-align: center;
+}
+.content .left-side .details i{
+  font-size: 30px;
+  color: #3e2093;
+  margin-bottom: 10px;
+}
+.content .left-side .details .topic{
+  font-size: 18px;
+  font-weight: 500;
+}
+.content .left-side .details .text-one,
+.content .left-side .details .text-two{
+  font-size: 14px;
+  color: #afafb6;
+}
+
+
+.container .content .right-side{
+  width: 75%;
+  margin-left: 75px;
+}
+.content .right-side .topic-text{
+  font-size: 23px;
+  font-weight: 600;
+  color: #3e2093;
+}
+.right-side .input-box{
+  height: 50px;
+  width: 100%;
+  margin: 12px 0;
+}
+.right-side .input-box input,
+.right-side .input-box textarea{
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: #F0F1F8;
+  border-radius: 6px;
+  padding: 0 15px;
+  resize: none;
+}
+.right-side .message-box{
+  min-height: 110px;
+}
+.right-side .input-box textarea{
+  padding-top: 6px;
+}
+.right-side .button{
+  display: inline-block;
+  margin-top: 12px;
+}
+.right-side .button input[type="button"]{
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #3e2093;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button input[type="button"]:hover{
+  background: #5029bc;
+}
+
+@media (max-width: 950px) {
+  .container{
+    width: 90%;
+    padding: 30px 40px 40px 35px ;
+  }
+  .container .content .right-side{
+   width: 75%;
+   margin-left: 55px;
+}
+}
+@media (max-width: 820px) {
+  .container{
+    margin: 40px 0;
+    height: 100%;
+  }
+  .container .content{
+    flex-direction: column-reverse;
+  }
+ .container .content .left-side{
+   width: 100%;
+   flex-direction: row;
+   margin-top: 40px;
+   justify-content: center;
+   flex-wrap: wrap;
+ }
+ .container .content .left-side::before{
+   display: none;
+ }
+ .container .content .right-side{
+   width: 100%;
+   margin-left: 0;
+ }
+}</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 4">
+    <p onclick="remove_o_c(4)"></p>
+    <p>By default, the local language of our app is English.<br>You can find it in<span style="background-color: rgb(35, 111, 161);"><span style="background-color: rgb(230, 126, 35);"><span style="background-color: rgb(206, 212, 217);"> config &gt;&gt; app.php</span></span><span style="background-color: rgb(206, 212, 217);">.</span></span></p>
+    <p><span style="background-color: rgb(52, 73, 94);">&nbsp; &nbsp; <span style="color: rgb(22, 145, 121);"><span style="color: rgb(45, 194, 107);">'locale'</span> </span><span style="color: rgb(224, 62, 45);">=&gt;</span> <span style="color: rgb(251, 238, 184);">'en',</span></span></p>
+    <p><br>You can find English language files in<br>Now, if you check<span style="background-color: rgb(206, 212, 217);"> resources &gt;&gt; lang</span> folder, there is one folder called en, where there are some files like</p>
+    <p><span style="color: rgb(186, 55, 42);"> auth.php, </span></p>
+    <p><span style="color: rgb(186, 55, 42);">pagination.php, </span></p>
+    <p><span style="color: rgb(186, 55, 42);">passwords.php, </span></p>
+    <p><span style="color: rgb(186, 55, 42);">validation.php.</span></p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>We create a file for the languages ​​we want,<br><span style="background-color: rgb(206, 212, 217);">config / languages.php</span></p>
+    <p></p>
+    <pre class="brush:php"><!--? PHP
+return [
+      'en' =--> 'English',
+      'fr' =&gt; 'Français',
+      'ru' =&gt; 'russian',
+'de' =&gt; 'German'
+];
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 5">
+    <p onclick="remove_o_c(5)"></p>
+    <p>Now we need to fetch the current language name and put it in the navigation bar,<br>This code fetches the current language name set in Laravel</p>
+    <p><br><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(236, 240, 241);">{{</span><span style="color: rgb(53, 152, 219);">Config</span><span style="color: rgb(45, 194, 107);">::</span><span style="color: rgb(53, 152, 219);">get </span><span style="color: rgb(236, 240, 241);">(</span><span style="color: rgb(241, 196, 15);">'languages'</span><span style="color: rgb(236, 240, 241);">)</span> <span style="color: rgb(236, 240, 241);">[</span><span style="color: rgb(53, 152, 219);">App</span><span style="color: rgb(45, 194, 107);">::</span><span style="color: rgb(53, 152, 219);">getLocale</span><span style="color: rgb(236, 240, 241);">()]}}</span></span></p>
+    <p>As shown above, in the <span style="background-color: rgb(149, 165, 166);">home.blade.php</span><span style="background-color: rgb(126, 140, 141);"> </span>file,</p>
+    <p><br>does this<br><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(236, 240, 241);">[</span><span style="color: rgb(53, 152, 219);">App</span><span style="color: rgb(45, 194, 107);">::</span><span style="color: rgb(53, 152, 219);">getLocale</span><span style="color: rgb(236, 240, 241);">()]</span></span></p>
+    <p>Bring the first two letters of the language name, for <span style="background-color: rgb(236, 240, 241); color: rgb(224, 62, 45);">example { ru },</span></p>
+    <p>found in<br><span style="background-color: rgb(206, 212, 217);">Configuration &gt;&gt; app.php.</span><br><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(241, 196, 15);">'locale'</span> <span style="color: rgb(224, 62, 45);">=&gt;</span> <span style="color: rgb(251, 238, 184);">'ru',</span></span></p>
+    <p><br>does this<br><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(53, 152, 219);">config</span><span style="color: rgb(45, 194, 107);">::</span><span style="color: rgb(53, 152, 219);">get</span><span style="color: rgb(236, 240, 241);">(</span><span style="color: rgb(251, 238, 184);">"languages"</span><span style="color: rgb(236, 240, 241);">)</span></span><br>To fetch the full name of the current language<br>In the <span style="background-color: rgb(206, 212, 217);">config/languages.php</span> file,<br>that we created earlier, based on the first two letters of the language name it displays&nbsp;<br><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(236, 240, 241);">[</span><span style="color: rgb(53, 152, 219);">App</span><span style="color: rgb(45, 194, 107);">::<span style="color: rgb(53, 152, 219);">getLocale</span></span><span style="color: rgb(236, 240, 241);">()]</span></span></p>
+    <p></p>
+    <pre class="brush:php"><!--? PHP
+return [
+      'en' =--> 'English',
+      'fr' =&gt; 'Français',
+      'ru' =&gt; 'russian',
+      'de' =&gt; 'German'
+];
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 6">
+    <p onclick="remove_o_c(6)"></p>
+    <p>and the<br>Thus, the name of the current language appears based on the first two letters<br>whether,<br><span style="color: rgb(224, 62, 45);">en</span><br>or<br><span style="color: rgb(224, 62, 45);">ru,</span><br>Another language you want to use</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>_________________________________________________________________<br>This code does</p>
+    <p>&nbsp;</p>
+    <p></p>
+    <pre class="brush:php"> @foreach(Config::get('languages') as $leng =&gt; $language)
+   @if($leng != App::getLocale())
+         <a class="dropdown-item" href="{{ route('lang.switch', $leng) }}">{{ $language }}</a>
+   @endif
+@endforeach
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 7">
+    <p onclick="remove_o_c(7)"></p>
+    <p>Get all the language names that are in the file<br><span style="background-color: rgb(206, 212, 217);">config/languages.php</span><br>and puts it in a list in the navigation bar,<br>which ensures us the ease of choosing a language,</p>
+    <p>As for this line?<br><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(236, 240, 241);">&lt;<span style="color: rgb(225, 5, 148);">a</span></span> <span style="color: rgb(45, 194, 107);">class<span style="color: rgb(236, 240, 241);">=</span></span><span style="color: rgb(251, 238, 184);">"dropdown-item"</span> <span style="color: rgb(45, 194, 107);">href</span><span style="color: rgb(236, 240, 241);">=</span><span style="color: rgb(251, 238, 184);">"{{ route('lang.switch', $leng) }}"</span><span style="color: rgb(236, 240, 241);">&gt;{{ $language }}&lt;/</span><span style="color: rgb(225, 5, 148);">a</span><span style="color: rgb(236, 240, 241);">&gt;</span></span></p>
+    <p><br>With it we choose the language we want to use in Laravel from the list,<br>But before that we need to create a controller named<br><span style="background-color: rgb(206, 212, 217);">LanguageController.php,</span><br><span style="background-color: rgb(52, 73, 94); color: rgb(236, 240, 241);">&nbsp;php artisan make:controller LanguageController</span><br>After creating this<br>Put this file in<br><span style="color: rgb(224, 62, 45);">web.php</span></p>
+    <p></p>
+    <pre class="brush:php">Route::get('lang/{lang}',['as' =&gt; 'lang.switch', 'uses' =&gt;'App\Http\Controllers\LanguageController@switchLanguage']);
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 8">
+    <p onclick="remove_o_c(8)"></p>
+    <p>Next, go to <span style="background-color: rgb(206, 212, 217);">app/Http/Controllers/,</span> put these lines of code in the ,<span style="background-color: rgb(206, 212, 217);">LanguageController.php</span>,file,</p>
+    <p></p>
+    <pre class="brush:php">use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+ public function switchLanguage($lang)
+  {
+       if (array_key_exists($lang,Config::get('languages')))){
+       Session::put('c_applocale',$lang);
+       } return Redirect::back();
+    }
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 9">
+    <p onclick="remove_o_c(9)"></p>
+    <p>This function checks the first two characters of the language name, entered in the path,<br><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(45, 194, 107);"><span style="color: rgb(53, 152, 219);">Route</span>::</span> <span style="color: rgb(53, 152, 219);">get</span><span style="color: rgb(236, 240, 241);">(</span><span style="color: rgb(251, 238, 184);">'lang / {lang}',</span></strong></span><br>If it's not there, in the<span style="background-color: rgb(206, 212, 217);"> languages.php</span> file, it won't do anything, it will just return<br>Unlike that,<br>If it is located in <span style="background-color: rgb(206, 212, 217);">languages.php</span> file. These two literals of the language name will be stored in the session,<br>And it's okay, you can translate the text of the <span style="background-color: rgb(206, 212, 217);">home.blade.php</span> file page to the language specified by the path<br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(53, 152, 219);">Route<span style="color: rgb(45, 194, 107);">::</span></span> <span style="color: rgb(53, 152, 219);">get</span><span style="color: rgb(251, 238, 184);">('lang / {lang}'</span>,</span></strong></p>
+    <p><br><span style="color: rgb(53, 152, 219); background-color: rgb(206, 212, 217);"><strong>But you may wonder what is the point of storing the first two letters of the language name in the session</strong></span></p>
+    <p>&nbsp;<br>the summary<br>We will make the session value<br>for <span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(241, 196, 15);">'locale'</span> <span style="color: rgb(225, 5, 148);">=&gt;</span> <span style="color: rgb(251, 238, 184);">''</span>,</strong></span><br>I explained what is<span style="color: rgb(241, 196, 15);"> </span><span style="background-color: rgb(52, 73, 94);"><strong><span style="color: rgb(241, 196, 15);">'locale'</span><span style="color: rgb(225, 5, 148);"> =&gt;</span><span style="color: rgb(251, 238, 184);"> ''&nbsp; </span></strong></span>above</p>
+    <p><br><span style="color: rgb(53, 152, 219);"><strong><span style="background-color: rgb(206, 212, 217);">This helps us even if we reload the page, the page will keep the language we chose without losing it</span></strong></span></p>
+    <p>__________________________________________________________________</p>
+    <p><br>Now that the page is reloaded, we want to set the language we chose earlier<br>We must <strong><span style="color: rgb(224, 62, 45);">create Middleware</span></strong></p>
+    <p><br><span style="background-color: rgb(52, 73, 94); color: rgb(236, 240, 241);">php artisan make:middleware Language.php</span><br>After creating<span style="background-color: rgb(206, 212, 217);"> /app/Http/Middleware/Language.php/</span><br>&nbsp;We put this code inside a function<br><span style="color: rgb(224, 62, 45);"><strong>handle</strong></span></p>
+    <p>&nbsp;</p>
+    <p></p>
+    <pre class="brush:php">    public function handle(Request $request, Closure $next){  
+       if (Session()-&gt;has('c_applocale') AND array_key_exists(Session()-&gt;   get('c_applocale'),config('languages'))) {
+          App::setLocale(Session()-&gt;get('c_applocale')); 
+        }
+        return $next($request);
+    }
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 10">
+    <p onclick="remove_o_c(10)"></p>
+    <p>At the beginning of entering the web page, This The code&nbsp;<br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(53, 152, 219);">App</span><span style="color: rgb(45, 194, 107);">::</span><span style="color: rgb(53, 152, 219);">setLocale</span><span style="color: rgb(236, 240, 241);">(</span><span style="color: rgb(11, 50, 246);">Session</span><span style="color: rgb(236, 240, 241);">()</span><span style="color: rgb(225, 5, 148);">-&gt;</span><span style="color: rgb(53, 152, 219);">get</span><span style="color: rgb(255, 255, 255);">(<span style="color: rgb(251, 238, 184);">'c_applocale'</span>));</span>&nbsp;</span></strong><br>It will immediately take the first two letters of the language name present in the session,<br>and put it<br><span style="color: rgb(251, 238, 184);">&nbsp;</span><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(251, 238, 184);">'locale'</span> <span style="color: rgb(225, 5, 148);">=&gt;</span><span style="color: rgb(251, 238, 184);"> ' ',</span></span><br>Now add the middleware in&nbsp;<br><span style="background-color: rgb(206, 212, 217);">App\Http\Kernel’s</span><br><span style="color: rgb(186, 55, 42);"><strong>$middlewareGroup’s</strong></span> array like so.</p>
+    <p></p>
+    <pre class="brush:php">    protected $middlewareGroups = [
+        'web' =&gt; [
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\Language::class,            
+        ],
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 11">
+    <p onclick="remove_o_c(11)"></p>
+    <p>Now we create a folder with the name of the language we want<br>For example, the name of the folder<br><span style="color: rgb(224, 62, 45);"><strong>ru ,</strong></span><br>Russian language folder<br>Put this folder in<br><span style="background-color: rgb(206, 212, 217);">resources/lang/ru/</span><br>Create files in this folder, like the following</p>
+    <p><span style="color: rgb(224, 62, 45);"><strong>auth.php</strong></span></p>
+    <p></p>
+    <pre class="brush:php"><!--?php
+/*
+|--------------------------------------------------------------------------
+| Authentication Language Lines
+|--------------------------------------------------------------------------
+|
+| The following language lines are used during authentication for various
+| messages that we need to display to the user. You are free to modify
+| these language lines according to your application's requirements.
+|
+*/
+return [
+    'failed'   =--> 'Неверное имя пользователя или пароль.',
+    'password' =&gt; 'Неверный пароль.',
+    'throttle' =&gt; 'Слишком много попыток входа. Пожалуйста, попробуйте еще раз через :seconds секунд.',
+];
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 12">
+    <p onclick="remove_o_c(12)"></p>
+    <p><span style="color: rgb(224, 62, 45);"><strong>messages.php</strong></span></p>
+    <p></p>
+    <pre class="brush:php"><!--?php
+ return [
+  'topic-text' =--> "Отправьте нам сообщение",
+  'msg_p' =&gt; "Если у вас есть какие-либо мои работы или вопросы по моему учебнику, вы можете написать мне здесь. С удовольствием помогу вам",
+  't_input_name' =&gt; "Введите ваше имя",
+  't_input_email' =&gt; "Введите адрес электронной почты",
+  't_input_textera' =&gt; "Введите сообщение",
+  't_input_submit'  =&gt; "Отправить сейчас",
+  'success_a' =&gt; "Хорошо, зарегистрирован",
+ ];
+?&gt;
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 15">
+    <p onclick="remove_o_c(15)"></p>
+    <p><span style="color: rgb(224, 62, 45);"><strong>pagination.php</strong></span></p>
+    <p></p>
+    <pre class="brush:php"><!--?php
+/*
+|--------------------------------------------------------------------------
+| Pagination Language Lines
+|--------------------------------------------------------------------------
+|
+| The following language lines are used by the paginator library to build
+| the simple pagination links. You are free to change them to anything
+| you want to customize your views to better match your application.
+|
+*/
+return [
+    'next'     =--> 'Вперёд »',
+    'previous' =&gt; '« Назад',
+];
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 16">
+    <p onclick="remove_o_c(16)"></p>
+    <p><span style="color: rgb(224, 62, 45);"><strong>passwords.php</strong></span></p>
+    <p></p>
+    <pre class="brush:php"><!--?php
+/*
+|--------------------------------------------------------------------------
+| Password Reset Language Lines
+|--------------------------------------------------------------------------
+|
+| The following language lines are the default lines which match reasons
+| that are given by the password broker for a password update attempt
+| has failed, such as for an invalid token or invalid new password.
+|
+*/
+return [
+    'reset'     =--> 'Ваш пароль был сброшен!',
+    'sent'      =&gt; 'Ссылка на сброс пароля была отправлена!',
+    'throttled' =&gt; 'Пожалуйста, подождите перед повторной попыткой.',
+    'token'     =&gt; 'Ошибочный код сброса пароля.',
+    'user'      =&gt; 'Не удалось найти пользователя с указанным электронным адресом.',
+];
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 17">
+    <p onclick="remove_o_c(17)"></p>
+    <p><span style="color: rgb(224, 62, 45);"><strong>validation.php</strong></span></p>
+    <p></p>
+    <pre class="brush:php"><!--?php
+
+/*
+|--------------------------------------------------------------------------
+| Validation Language Lines
+|--------------------------------------------------------------------------
+|
+| The following language lines contain the default error messages used by
+| the validator class. Some of these rules have multiple versions such
+| as the size rules. Feel free to tweak each of these messages here.
+|
+*/
+
+return [
+    'accepted'             =--> 'Вы должны принять :attribute.',
+    'accepted_if'          =&gt; 'Вы должны принять :attribute, когда :other соответствует :value.',
+    'active_url'           =&gt; 'Значение поля :attribute не является действительным URL.',
+    'after'                =&gt; 'Значение поля :attribute должно быть датой после :date.',
+    'after_or_equal'       =&gt; 'Значение поля :attribute должно быть датой после или равной :date.',
+    'alpha'                =&gt; 'Значение поля :attribute может содержать только буквы.',
+    'alpha_dash'           =&gt; 'Значение поля :attribute может содержать только буквы, цифры, дефис и нижнее подчеркивание.',
+    'alpha_num'            =&gt; 'Значение поля :attribute может содержать только буквы и цифры.',
+    'array'                =&gt; 'Значение поля :attribute должно быть массивом.',
+    'before'               =&gt; 'Значение поля :attribute должно быть датой до :date.',
+    'before_or_equal'      =&gt; 'Значение поля :attribute должно быть датой до или равной :date.',
+    'between'              =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute должно быть между :min и :max.',
+        'file'    =&gt; 'Размер файла в поле :attribute должен быть между :min и :max Килобайт(а).',
+        'numeric' =&gt; 'Значение поля :attribute должно быть между :min и :max.',
+        'string'  =&gt; 'Количество символов в поле :attribute должно быть между :min и :max.',
+    ],
+    'boolean'              =&gt; 'Значение поля :attribute должно быть логического типа.',
+    'confirmed'            =&gt; 'Значение поля :attribute не совпадает с подтверждаемым.',
+    'current_password'     =&gt; 'Неверный пароль.',
+    'date'                 =&gt; 'Значение поля :attribute не является датой.',
+    'date_equals'          =&gt; 'Значение поля :attribute должно быть датой равной :date.',
+    'date_format'          =&gt; 'Значение поля :attribute не соответствует формату даты :format.',
+    'declined'             =&gt; 'Поле :attribute должно быть отклонено.',
+    'declined_if'          =&gt; 'Поле :attribute должно быть отклонено, когда :other равно :value.',
+    'different'            =&gt; 'Значения полей :attribute и :other должны различаться.',
+    'digits'               =&gt; 'Длина значения цифрового поля :attribute должна быть :digits.',
+    'digits_between'       =&gt; 'Длина значения цифрового поля :attribute должна быть между :min и :max.',
+    'dimensions'           =&gt; 'Изображение в поле :attribute имеет недопустимые размеры.',
+    'distinct'             =&gt; 'Значения поля :attribute не должны повторяться.',
+    'email'                =&gt; 'Значение поля :attribute должно быть действительным электронным адресом.',
+    'ends_with'            =&gt; 'Поле :attribute должно заканчиваться одним из следующих значений: :values',
+    'enum'                 =&gt; 'Выбранное значение для :attribute некорректно.',
+    'exists'               =&gt; 'Выбранное значение для :attribute некорректно.',
+    'file'                 =&gt; 'В поле :attribute должен быть указан файл.',
+    'filled'               =&gt; 'Поле :attribute обязательно для заполнения.',
+    'gt'                   =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute должно быть больше :value.',
+        'file'    =&gt; 'Размер файла в поле :attribute должен быть больше :value Килобайт(а).',
+        'numeric' =&gt; 'Значение поля :attribute должно быть больше :value.',
+        'string'  =&gt; 'Количество символов в поле :attribute должно быть больше :value.',
+    ],
+    'gte'                  =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute должно быть :value или больше.',
+        'file'    =&gt; 'Размер файла в поле :attribute должен быть :value Килобайт(а) или больше.',
+        'numeric' =&gt; 'Значение поля :attribute должно быть :value или больше.',
+        'string'  =&gt; 'Количество символов в поле :attribute должно быть :value или больше.',
+    ],
+    'image'                =&gt; 'Файл в поле :attribute должен быть изображением.',
+    'in'                   =&gt; 'Выбранное значение для :attribute некорректно.',
+    'in_array'             =&gt; 'Значение поля :attribute не существует в :other.',
+    'integer'              =&gt; 'Значение поля :attribute должно быть целым числом.',
+    'ip'                   =&gt; 'Значение поля :attribute должно быть действительным IP-адресом.',
+    'ipv4'                 =&gt; 'Значение поля :attribute должно быть действительным IPv4-адресом.',
+    'ipv6'                 =&gt; 'Значение поля :attribute должно быть действительным IPv6-адресом.',
+    'json'                 =&gt; 'Значение поля :attribute должно быть JSON строкой.',
+    'lt'                   =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute должно быть меньше :value.',
+        'file'    =&gt; 'Размер файла в поле :attribute должен быть меньше :value Килобайт(а).',
+        'numeric' =&gt; 'Значение поля :attribute должно быть меньше :value.',
+        'string'  =&gt; 'Количество символов в поле :attribute должно быть меньше :value.',
+    ],
+    'lte'                  =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute должно быть :value или меньше.',
+        'file'    =&gt; 'Размер файла в поле :attribute должен быть :value Килобайт(а) или меньше.',
+        'numeric' =&gt; 'Значение поля :attribute должно быть :value или меньше.',
+        'string'  =&gt; 'Количество символов в поле :attribute должно быть :value или меньше.',
+    ],
+    'mac_address'          =&gt; 'Значение поля :attribute должно быть корректным MAC-адресом.',
+    'max'                  =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute не может превышать :max.',
+        'file'    =&gt; 'Размер файла в поле :attribute не может быть больше :max Килобайт(а).',
+        'numeric' =&gt; 'Значение поля :attribute не может быть больше :max.',
+        'string'  =&gt; 'Количество символов в поле :attribute не может превышать :max.',
+    ],
+    'mimes'                =&gt; 'Файл в поле :attribute должен быть одного из следующих типов: :values.',
+    'mimetypes'            =&gt; 'Файл в поле :attribute должен быть одного из следующих типов: :values.',
+    'min'                  =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute должно быть не меньше :min.',
+        'file'    =&gt; 'Размер файла в поле :attribute должен быть не меньше :min Килобайт(а).',
+        'numeric' =&gt; 'Значение поля :attribute должно быть не меньше :min.',
+        'string'  =&gt; 'Количество символов в поле :attribute должно быть не меньше :min.',
+    ],
+    'multiple_of'          =&gt; 'Значение поля :attribute должно быть кратным :value',
+    'not_in'               =&gt; 'Выбранное значение для :attribute некорректно.',
+    'not_regex'            =&gt; 'Значение поля :attribute некорректно.',
+    'numeric'              =&gt; 'Значение поля :attribute должно быть числом.',
+    'password'             =&gt; 'Некорректный пароль.',
+    'present'              =&gt; 'Значение поля :attribute должно присутствовать.',
+    'prohibited'           =&gt; 'Значение поля :attribute запрещено.',
+    'prohibited_if'        =&gt; 'Значение поля :attribute запрещено, когда :other равно :value.',
+    'prohibited_unless'    =&gt; 'Значение поля :attribute запрещено, если :other не состоит в :values.',
+    'prohibits'            =&gt; 'Значение поля :attribute запрещает присутствие :other.',
+    'regex'                =&gt; 'Значение поля :attribute некорректно.',
+    'required'             =&gt; 'Поле :attribute обязательно для заполнения.',
+    'required_array_keys'  =&gt; 'Массив в поле :attribute обязательно должен иметь ключи: :values',
+    'required_if'          =&gt; 'Поле :attribute обязательно для заполнения, когда :other равно :value.',
+    'required_unless'      =&gt; 'Поле :attribute обязательно для заполнения, когда :other не равно :values.',
+    'required_with'        =&gt; 'Поле :attribute обязательно для заполнения, когда :values указано.',
+    'required_with_all'    =&gt; 'Поле :attribute обязательно для заполнения, когда :values указано.',
+    'required_without'     =&gt; 'Поле :attribute обязательно для заполнения, когда :values не указано.',
+    'required_without_all' =&gt; 'Поле :attribute обязательно для заполнения, когда ни одно из :values не указано.',
+    'same'                 =&gt; 'Значения полей :attribute и :other должны совпадать.',
+    'size'                 =&gt; [
+        'array'   =&gt; 'Количество элементов в поле :attribute должно быть равным :size.',
+        'file'    =&gt; 'Размер файла в поле :attribute должен быть равен :size Килобайт(а).',
+        'numeric' =&gt; 'Значение поля :attribute должно быть равным :size.',
+        'string'  =&gt; 'Количество символов в поле :attribute должно быть равным :size.',
+    ],
+    'starts_with'          =&gt; 'Поле :attribute должно начинаться с одного из следующих значений: :values',
+    'string'               =&gt; 'Значение поля :attribute должно быть строкой.',
+    'timezone'             =&gt; 'Значение поля :attribute должно быть действительным часовым поясом.',
+    'unique'               =&gt; 'Такое значение поля :attribute уже существует.',
+    'uploaded'             =&gt; 'Загрузка поля :attribute не удалась.',
+    'url'                  =&gt; 'Значение поля :attribute имеет ошибочный формат URL.',
+    'uuid'                 =&gt; 'Значение поля :attribute должно быть корректным UUID.',
+    'custom'               =&gt; [
+        'attribute-name' =&gt; [
+            'rule-name' =&gt; 'custom-message',
+        ],
+    ],
+];
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 18">
+    <p onclick="remove_o_c(18)"></p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>You can add folder any language you want,<br>In the same steps,</p>
+    <p><br><strong><span style="background-color: rgb(194, 224, 244);">You can download Ready Folders from the Internet in all languages of the world through this link click here</span></strong> <a href="https://github.com/Laravel-Lang/lang/tree/main/locales" target="_blank" rel="noopener">https://github.com/Laravel-Lang/lang/tree/main/locales</a></p>
+    <p>&nbsp;</p>
+    <p>_________________________________________________________________</p>
+    <p>Now how can we display texts by language selected on the page,<br>For example, form name, page title, subject text, and placeholder text,and etc.,</p>
+    <p>Simply you can do it<br>call up<br><strong><span style="background-color: rgb(52, 73, 94); color: rgb(236, 240, 241);">{{__('messages.t_input_name')}},</span></strong><br>for example<br>This brings up the existing text<br>in file<br><span style="background-color: rgb(206, 212, 217);">messages.php,</span><br>Specifically the value of this key<br><span style="background-color: rgb(206, 212, 217); color: rgb(186, 55, 42);"><strong>.t_input_name ,</strong></span><br>You can recall all existing texts<br>In these files,<br><strong><span style="color: rgb(45, 194, 107);">messages.php&nbsp;</span></strong><br><strong><span style="color: rgb(45, 194, 107);">pagination.php</span></strong><br><strong><span style="color: rgb(45, 194, 107);">passwords.php</span></strong><br><strong><span style="color: rgb(45, 194, 107);">validation.php</span></strong><br>And put them according to the appropriate place between the elements of the html</p>
+    <p>look at this</p>
+    <p></p>
+    <pre class="brush:php">    <div class="right-side">
+        <div class="topic-text">{{ __('messages.topic-text') }}</div>
+        <p>{{ __('messages.msg_p') }}</p>
+      <form action="{{ url('v_form') }}" method="post">
+        {{ csrf_field() }}
+        <div class="input-box">
+          <input type="text" name="name" placeholder="{{ __('messages.t_input_name') }}">
+        </div>
+        <div class="input-box">
+          <input type="text" name="email" placeholder="{{ __('messages.t_input_email') }}">
+        </div>
+        <div class="input-box message-box">
+          <textarea name="t_textm" placeholder="{{ __('messages.t_input_textera') }}"></textarea>
+        </div>
+        <div class="button">
+          <button type="submit" class="btn btn-primary">{{ __('messages.t_input_submit') }}</button>
+        </div>
+      </form>
+    </div>
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 19">
+    <p onclick="remove_o_c(19)"></p>
+    <p>In this displays texts in the current language that has been set</p>
+    <p>________________________________________________________________</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>put this line in <strong><span style="color: rgb(224, 62, 45);">Web.php</span></strong></p>
+    <p></p>
+    <pre class="brush:php">Route::post('v_form',[App\Http\Controllers\LanguageController::class,'ch_foinputf']);
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 20">
+    <p onclick="remove_o_c(20)"></p>
+    <p>&nbsp;</p>
+    <p>Now you will learn how you can display the error message depending on the chosen language,<br>For example, message</p>
+    <p><span style="color: rgb(224, 62, 45);">name field is required,</span><br>or any error message,<br>Go to&nbsp;<br><span style="background-color: rgb(206, 212, 217);">/app/Http/Controllers/LanguageController.php,</span><br>and create <strong><span style="color: rgb(224, 62, 45);">function <span style="color: rgb(53, 152, 219);">ch_foinputf</span></span></strong></p>
+    <p>&nbsp;</p>
+    <p></p>
+    <pre class="brush:php">   function ch_foinputf(Request $request)
+   {
+     $request-&gt;validate([
+        'name'  =&gt; 'required',
+        'email' =&gt; 'required|email',
+        't_textm' =&gt; 'required',
+     ]);
+    
+    return redirect()-&gt;back()-&gt;with('success',trans('messages.success_a'));
+
+   }</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 21">
+    <p onclick="remove_o_c(21)"></p>
+    <p>After that put<br>this code</p>
+    <p>&nbsp;</p>
+    <p></p>
+    <pre class="brush:php">  @foreach ($errors-&gt;all() as $error)
+      <div class="alert alert-warning" role="alert">
+           {{ $error }}
+     </div>
+  @endforeach
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 22">
+    <p onclick="remove_o_c(22)"></p>
+    <p>in file<br><span style="background-color: rgb(206, 212, 217);">home.blade.php</span><br>As shown, above in the file<br><span style="background-color: rgb(206, 212, 217);">home.blade.php</span><br>If it shows an error, it will display it according to the specified language</p>
+    <p>_________________________________________________________________</p>
+    <p>When there is success, there are no errors.<br>It will return and also show us the success message according to the chosen language<br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(225, 5, 148);">return </span><span style="color: rgb(53, 152, 219);">redirect</span><span style="color: rgb(236, 240, 241);">()<span style="color: rgb(225, 5, 148);">-&gt;</span></span><span style="color: rgb(53, 152, 219);">back()</span><span style="color: rgb(225, 5, 148);">-&gt;</span><span style="color: rgb(53, 152, 219);">with</span><span style="color: rgb(236, 240, 241);">(</span><span style="color: rgb(251, 238, 184);">'success'</span><span style="color: rgb(236, 240, 241);">,</span><span style="color: rgb(53, 152, 219);">trans</span><span style="color: rgb(255, 255, 255);">(</span><span style="color: rgb(251, 238, 184);">'messages.success_a'</span><span style="color: rgb(236, 240, 241);">));</span></span></strong><br>What is meant by this?<br><strong><span style="background-color: rgb(52, 73, 94);"><span style="color: rgb(53, 152, 219);">trans</span><span style="color: rgb(236, 240, 241);">(</span><span style="color: rgb(251, 238, 184);">'messages.success_a'</span><span style="color: rgb(255, 255, 255);">);</span></span></strong><br>You are bringing the message in a file<br>Messages<br>which has a<span style="color: rgb(0, 0, 0); background-color: rgb(236, 240, 241);"> key name</span><br><span style="color: rgb(186, 55, 42);"><strong>success_a</strong></span></p>
+    <p>&nbsp;</p>
+    <p>_______________________________________________<br>put this code&nbsp;</p>
+    <p></p>
+    <pre class="brush:php">   @if (\Session::has('success'))
+    <div class="alert alert-success">
+      <li>{!! \Session::get('success') !!}</li> 
+    </div>
+   @endif  
+
+</pre>
+</div>
+<div class="margin-top-40 margin-bottom-40 23">
+    <p onclick="remove_o_c(23)"></p>
+    <p>Also in the file<br><span style="color: rgb(224, 62, 45);"><strong>home.blade.php</strong></span><br>To show a success message<br>As described above<br>in file<br><span style="color: rgb(224, 62, 45);"><strong>home.blade.php</strong></span></p>
+    <p></p>
+</div>               
+    </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>

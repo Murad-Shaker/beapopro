@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.console && console.log('foo');
+    </script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../assets/favicon.png" />
+    <title>beapopro7</title>
+    <link rel="stylesheet" type="text/css" href="../prism.css">
+    <script>var _gaq = [['_setAccount', 'UA-33746269-1'], ['_trackPageview']];</script>
+    <script src="https://www.google-analytics.com/ga.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    <title>PeaPoPro</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="../images/favicon/apple-touch-icon.png">
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&family=Lemonada:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+</head>
+
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="rounder"></div>
+    </div>
+    <!-- Preloader End -->
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="interface_ifrm_me">
+                </div>
+                <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                        <div class="row">
+                            <div class="sub-title">
+                                <a href="index.html" title="Go to Home Page">
+                                    <h2>Back Home</h2>
+                                </a>
+                            </div>
+                            <div class="col-md-12 content-page">
+                                <div class="col-md-12 blog-post">
+                                    <div id="text_content">
+                                        <div class="post-title">
+            <h1>How to make laravel 8 Shopping Cart</h1>
+        </div>
+
+        <!-- Post Headline End -->
+        <!-- Post Detail Start -->
+
+        <div class="post-info">
+          <span>2022.06.05 by <a href="#" target="_blank">Murad Shaker</a></span>
+        </div>
+
+        <!-- Post Detail End -->
+        <p></p>
+
+         <div class="code">
+
+          
+     <div class="margin-top-40 margin-bottom-40 1"><p onclick="remove_o_c(1)">first of all we need to get fresh Laravel 8 version application using bellow command, So open your terminal OR command prompt and run bellow command
+</p><pre class="brush:php">composer create-project --prefer-dist laravel/laravel blog "8.*"
+</pre></div><div class="margin-top-40 margin-bottom-40 2"><p onclick="remove_o_c(2)">Next step, we will set the database credentials in the application. Let’s open your project .env file and set the database credentials here.
+</p><pre class="brush:php">DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=shopping
+DB_USERNAME=root
+DB_PASSWORD=
+</pre></div><div class="margin-top-40 margin-bottom-40 3"><p onclick="remove_o_c(3)">Create a migration with the name tbl_user
+</p><pre class="brush:php"><!--?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTblUserTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('tbl_user', function (Blueprint $table) {
+            $table--->id();
+            $table-&gt;string('name');
+            $table-&gt;string('email');
+            $table-&gt;string('password');
+            $table-&gt;string('address');
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('tbl_user');
+    }
+}
+
+</pre></div><div class="margin-top-40 margin-bottom-40 4"><p onclick="remove_o_c(4)">Create a migration with the name product
+</p><pre class="brush:php"><!--?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateProductTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('product', function (Blueprint $table) {
+            $table--->id();
+            $table-&gt;string('name_product');
+            $table-&gt;integer('price_product');
+            $table-&gt;string('about_product');
+            $table-&gt;integer('rating');
+            $table-&gt;string('img_product'); 
+            $table-&gt;integer('user_id');
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('product');
+    }
+}
+</pre></div><div class="margin-top-40 margin-bottom-40 5"><p onclick="remove_o_c(5)">Create a migration with the name cart
+</p><pre class="brush:php"><!--?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCartTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('cart', function (Blueprint $table) {
+            $table--->id();
+            $table-&gt;integer('buyer_user');
+            $table-&gt;integer('product_owner');
+            $table-&gt;integer('product_price');
+            $table-&gt;integer('id_product');
+            $table-&gt;timestamps();
+        });
+    }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('cart');
+    }
+}
+</pre></div><div class="margin-top-40 margin-bottom-40 6"><p onclick="remove_o_c(6)">Now migrate your tables by this command:
+</p><pre class="brush:php">php artisan migrate
+</pre></div><div class="margin-top-40 margin-bottom-40 7"><p onclick="remove_o_c(7)">Create a Model with the name tbl_user.php
+
+php artisan make:model tbl_user 
+</p><pre class="brush:php"><!--?php
+
+namespace App\Models;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class tbl_user extends Model implements AuthenticatableContract
+{
+    use HasFactory;
+    use Authenticatable;
+
+    protected $table='tbl_user';
+    protected $fillable=[
+      'name',
+      'email',
+      'password',
+      'address',
+    ];
+}
+</pre--></pre></div><div class="margin-top-40 margin-bottom-40 8"><p onclick="remove_o_c(8)">Create a Model with the name Product.php
+
+php artisan make:model Product
+</p><pre class="brush:php"><!--?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    use HasFactory;
+    protected $table='product';
+     
+    protected $fillable=[
+      'name_product',
+      'price_product',
+      'about_product',
+      'rating',
+      'img_product',
+      'user_id'
+    ];
+}
+</pre--></pre></div><div class="margin-top-40 margin-bottom-40 9"><p onclick="remove_o_c(9)">Create a Model with the name cart.php
+
+php artisan make:model cart.
+</p><pre class="brush:php"><!--?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCartTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('cart', function (Blueprint $table) {
+            $table--->id();
+            $table-&gt;integer('buyer_user');
+            $table-&gt;integer('product_owner');
+            $table-&gt;integer('product_price');
+            $table-&gt;integer('id_product');
+            $table-&gt;timestamps();
+        });
+    }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('cart');
+    }
+}
+</pre></div><div class="margin-top-40 margin-bottom-40 10"><p onclick="remove_o_c(10)">in this step, we need to create userController and add following code on that file:
+
+userController.php
+</p><pre class="brush:php"><!--?php
+ 
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Models\tbl_user;
+use App\Models\Product;
+use App\Models\cart;
+use Hash;
+use Validator;
+
+class userController extends Controller
+{
+    function insert(Request $request)
+    {
+        $request--->validate([
+          'name'                  =&gt; 'required',
+          'email'                 =&gt; 'required|unique:tbl_user,email',
+          'password'              =&gt; 'required|min:6|confirmed',
+          'address'               =&gt; 'required',
+        ]);
+        
+        $user = new tbl_user;
+
+        $user-&gt;name     = $request-&gt;input('name');
+        $user-&gt;email    = $request-&gt;input('email');
+        $user-&gt;password = Hash::make($request-&gt;input('password'));
+        $user-&gt;address  = $request-&gt;input('address');
+
+        $user-&gt;save();
+
+    }
+ 
+    function check_login(Request $request)
+    {
+         $request-&gt;validate([
+           'email_l'    =&gt; 'required',
+           'password_l' =&gt; 'required',
+         ]);
+          
+         if (Auth::attempt(['email' =&gt; $request-&gt;email_l, 'password' =&gt; $request-&gt;password_l])) 
+         {
+            return redirect('/');
+         }
+
+          return back()-&gt;with('failed_lgoin','This account doesn t exist.');
+    }
+    
+
+   function index()
+    {  
+      $data=Product::all()-&gt;toArray();
+      return view('index',compact('data'));
+    }
+
+    function insert_pro(Request $request)
+    {
+      $Validator=Validator::make($request-&gt;all(),[
+         'name_product'  =&gt; 'required',
+         'price_product' =&gt; 'required',
+         'about_product' =&gt; 'required',
+         'img_product'   =&gt; 'required|image|mimes:jpeg,png,jpg',
+      ]);
+   
+      
+       if ($Validator-&gt;passes()) 
+       {
+         $image_name=time().'.'.$request-&gt;img_p-&gt;extension();
+         $request-&gt;img_p-&gt;move(public_path('images'),$image_name);
+
+         $insert_info_product= new Product();
+
+         $insert_info_product-&gt;name_product=$request-&gt;name_p;
+         $insert_info_product-&gt;price_product=$request-&gt;price_p;
+         $insert_info_product-&gt;about_product=$request-&gt;about_p;
+         $insert_info_product-&gt;rating=$request-&gt;rating;
+         $insert_info_product-&gt;img_product=$image_name;
+         $insert_info_product-&gt;user_id=Auth::id();
+
+         $insert_info_product-&gt;save();
+
+         return response()-&gt;json(['success_insert' =&gt; 'yes']);
+        
+       }
+
+       $errors=array('name_product'=&gt;$Validator-&gt;errors()-&gt;first('name_product'),
+                     'price_product'=&gt;$Validator-&gt;errors()-&gt;first('price_product'),
+                     'about_product'=&gt;$Validator-&gt;errors()-&gt;first('about_product'),
+                     'img_product'=&gt;$Validator-&gt;errors()-&gt;first('img_product'));
+
+       return response()-&gt;json($errors);
+
+    }
+
+    function S_product($id)
+    {
+       $data_product=Product::find($id);
+       return view('show_product',['data_product' =&gt; $data_product]);
+    }
+
+    function add_cart(Request $request)
+    {
+      $Validator=Validator::make($request-&gt;all(),[
+           
+           'product_price' =&gt; 'required'
+      ]);
+
+      if ($Validator-&gt;passes()) 
+      {
+        $add_cart= new cart();
+         
+        $add_cart-&gt;buyer_user    = Auth::id();//session user
+        $add_cart-&gt;product_owner = $request-&gt;seller_user;
+        $add_cart-&gt;product_price = $request-&gt;product_price;
+        $add_cart-&gt;id_product    = $request-&gt;id_product;
+
+        $add_cart-&gt;save();
+
+        return '<div class="alert alert-success" role="alert">Added to cart</div>';
+      }
+      
+        return '<div class="alert alert-danger">'.$Validator-&gt;errors()-&gt;first('product_price').'</div>';
+    }
+
+    function update_d(Request $request)
+    {     
+         if (Auth::user()-&gt;email == $request-&gt;email) 
+         {
+           $check_email='';
+         }else{
+           $check_email='|unique:tbl_user,email';
+         }
+
+         $request-&gt;validate([
+          'username'     =&gt; 'required',
+          'email'        =&gt; 'required'.$check_email,
+          'password'     =&gt; 'required|min:6|confirmed',
+          'address'      =&gt; 'required',
+        ]);
+
+        tbl_user::where('id',Auth::id())-&gt;update([
+               
+               'name'      =&gt; $request-&gt;username,
+               'email'     =&gt; $request-&gt;email,
+               'password'  =&gt; Hash::make($request-&gt;password),
+               'address'   =&gt; $request-&gt;address,
+        ]);
+
+        return redirect()-&gt;back()-&gt;with('success', 'Updated successfully');
+
+    }
+
+    function sh_cart()
+    {
+      $d_cart=cart::join('product','cart.id_product','=','product.id')-&gt;select('cart.id','product_price','name_product','img_product')-&gt;get();
+      return view('carts',compact('d_cart'));
+    }
+
+    function cart_price_up(Request $request)
+    {
+       $Validator=Validator::make($request-&gt;all(),[
+            'ne_price' =&gt; 'required'
+        ]);
+        
+        if ($Validator-&gt;passes()) 
+        {
+          $cha_price_cart=cart::find($request-&gt;id_cart);
+          $cha_price_cart-&gt;product_price = $request-&gt;ne_price;
+          $cha_price_cart-&gt;save();
+
+          return '<div class="alert alert-success" role="alert">The price has changed</div>';
+        }
+
+          return '<div class="alert alert-danger">'.$Validator-&gt;errors()-&gt;first('ne_price').'</div>';
+    }
+    
+    function logout()
+    {
+       Session::flush();
+       Auth::logout();
+       return redirect('/register');
+    }
+}
+</pre></div><div class="margin-top-40 margin-bottom-40 11"><p onclick="remove_o_c(11)">here, we need to create blade files for layout, products and cart page. so let's create one by one files:
+
+style.blade.php</p><pre class="brush:php">
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&amp;display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+    <!-- animate css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
+    <!-- main style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <!-- responsive -->
+    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked 
+       {
+          color: orange;
+       }
+    </style>
+
+
+
+    @yield('content')
+
+<!-- jquery -->
+<script src="{{ asset('assets/js/jquery-1.11.3.min.js') }}"></script>
+<!-- bootstrap -->
+<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- count down -->
+<script src="{{ asset('assets/js/jquery.countdown.js') }}"></script>
+<!-- isotope -->
+<script src="{{ asset('assets/js/jquery.isotope-3.0.6.min.js') }}"></script>
+<!-- waypoints -->
+<script src="{{ asset('assets/js/waypoints.js') }}"></script>
+<!-- owl carousel -->
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+<!-- magnific popup -->
+<script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+<!-- mean menu -->
+<script src="{{ asset('assets/js/jquery.meanmenu.min.js') }}"></script>
+<!-- sticker js -->
+<script src="{{ asset('assets/js/sticker.js') }}"></script>
+<!-- main js -->
+<script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.cart-btn').click(function() {
+
+        var seller_user = $("#seller_user").val();
+        var id_product = $("#id_product").val();
+        var product_price = $("#price_pro_t").val();
+
+        $.ajax({
+            url: "{{ route('add.cart') }}",
+            method: "post",
+            data: { "_token": "{{ csrf_token() }}", seller_user: seller_user, id_product: id_product, product_price: product_price },
+            success: function(data) {
+                $(".alert_e").html(data);
+            }
+        });
+    });
+});
+
+</script>
+
+
+</pre></div><div class="margin-top-40 margin-bottom-40 12"><p onclick="remove_o_c(12)">Let's create a navigation bar and include this file in all project files
+
+navbar.blade.php
+</p><pre class="brush:php">@if(!Auth::check())
+<script type="text/javascript">
+ //window.location.href = '/register';
+</script>
+@endif
+<div class="top-header-area" id="sticker" style="background:#34495E;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 text-center">
+                <div class="main-menu-wrap">
+                    <div class="site-logo">
+                        <a><img src="{{ asset('assets/market.png') }}"></a>
+                    </div>
+                    <nav class="main-menu">
+                        <ul>
+                            @if(Auth::check())
+                            <li><a href="{{ url('/edit_profile') }}">Profile ( {{ Auth::user()-&gt;name }} )</a></li>
+                            @endif
+                            <li><a href="{{ url('/Logout') }}">Logout</a></li>
+                            <li>
+                                <div class="header-icons">
+                                    <div class="header-icons">
+                                        <a class="shopping-cart" href="{{ url('/carts') }}"><i class="fas fa-shopping-cart"></i></a>
+                                        <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                        <a href="{{ url('/insert') }}" class="fas"><svg fill="#ECF0F1" height="24" viewBox="0 0 26 27" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.5 10.9589V22.4112C20.5 23.905 19.3 25.1 17.8 25.1H4.2C2.7 25.1 1.5 23.905 1.5 22.4112V3.78878C1.5 2.295 2.7 1.09998 4.2 1.09998H17.8C19.3 1.09998 20.5 2.295 20.5 3.78878V4.98379V6.07923" stroke="#4F4F4F" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path d="M4.7 8.07092H16.7" stroke="#4F4F4F" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path d="M4.7 13.0502H13" stroke="#4F4F4F" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path d="M4.7 18.129H8.5" stroke="#4F4F4F" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path d="M21.7 4.58547L10.9 16.4361L10.1 19.7224L13.3 18.627L24.1 6.77634C24.5 6.27842 24.5 5.58132 24.1 5.18298L23.3 4.48588C22.9 4.08754 22.1 4.18713 21.7 4.58547Z" stroke="#4F4F4F" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path d="M20.5 5.97968L22.9 8.17054" stroke="#4F4F4F" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path d="M10.9 16.5356L13.3 18.6269" stroke="#4F4F4F" stroke-miterlimit="10" stroke-width="2"></path></svg>
+                                              </a>
+                                        </div>
+                                  </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a class="mobile-show search-bar-icon" href="#">
+                        <i class="fas fa-search"></i></a>
+                    <div class="mobile-menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</pre></div><div class="margin-top-40 margin-bottom-40 13"><p onclick="remove_o_c(13)">Let's create a user login and registration file
+
+register.blade.php
+
+</p><pre class="brush:php">@extends('style')
+@section('content')
+@include('PreLoader')
+<div class="checkout-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="checkout-accordion-wrap">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card single-accordion">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    Register
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show">
+                                <div class="card-body">
+                                    <div class="billing-address-form">
+                                        <form class="billing-address-form" method="post" action="{{ route('insert.data') }}">
+                                            {{ csrf_field() }}
+                                            <p><input type="text" placeholder="Name" name="name"></p>
+                                            <span style="color:red;">
+                                                @if($errors-&gt;has('name'))
+                                                {{ $errors-&gt;first('name') }}
+                                                @endif
+                                            </span>
+                                            <p><input type="email" placeholder="Email" name="email"></p>
+                                            <span style="color:red;">
+                                                @if($errors-&gt;has('email'))
+                                                {{ $errors-&gt;first('email') }}
+                                                @endif
+                                            </span>
+                                            <p><input type="password" placeholder="password" name="password"></p>
+                                            <p><input type="password" placeholder="password_c" name="password_confirmation"></p>
+                                            <span style="color:red;">
+                                                @if($errors-&gt;has('password'))
+                                                {{ $errors-&gt;first('password') }}
+                                                @endif
+                                            </span>
+                                            <p><input type="text" placeholder="Address" name="address"></p>
+                                            <span style="color:red;">
+                                                @if($errors-&gt;has('address'))
+                                                {{ $errors-&gt;first('address') }}
+                                                @endif
+                                            </span>
+                                            <br>
+                                            <input type="submit" name="Submit" value="REGISTER">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="order-details-wrap">
+                    <div class="checkout-accordion-wrap">
+                        <div class="accordion">
+                            <div class="card single-accordion">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Login
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <span style="color:red;">
+                                            @if($error=Session::get('failed_lgoin'))
+                                            {{ $error }}
+                                            @endif
+                                        </span>
+                                        <div class="billing-address-form">
+                                            <form method="post" action="{{ Route('check.data') }}">
+                                                {{ csrf_field() }}
+                                                <p><input type="email" placeholder="Email" name="email_l"></p>
+                                                <p><input type="password" placeholder="password" name="password_l"></p>
+                                                <input style="background:#CC19C2;" type="submit" alue="Login">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+</pre></div><div class="margin-top-40 margin-bottom-40 14"><p onclick="remove_o_c(14)">Create a file called     preLoader.blade.php       and include
+
+ in the register.blade.php
+
+</p><pre class="brush:php"><div class="loader">
+ <div class="loader-inner">
+   <div class="circle"></div>
+ </div>
+</div></pre></div><div class="margin-top-40 margin-bottom-40 15"><p onclick="remove_o_c(15)">Now we want to list some products to mysqli, first we have to create a file named
+
+insert_product_d.blade.php
+</p><pre class="brush:php">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    @if(!Auth::check())
+    <script type="text/javascript">
+    //window.location.href='/register';
+
+    </script>
+    @endif
+    <link rel="stylesheet" href="assets/css/formoid-solid-green.css" type="text/css">
+    <form class="formoid-solid-green" method="post" id="form_d">
+        {{ csrf_field() }}
+        <div class="title">
+            <h2>Information about your product
+            </h2>
+        </div>
+        <h4 style="color:red;text-align:center;" id="alert"></h4>
+        <div class="element-input">
+            <label class="title">
+                <span>*</span>
+            </label>
+            <div class="item-cont">
+                <input class="large" type="text" name="name_product" id="name_product" placeholder="product name">
+                <span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-number">
+            <label class="title">
+                <span>*</span>
+            </label>
+            <div class="item-cont">
+                <input class="small" type="text" id="price_product" name="price_product" placeholder="add price"><span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-textarea">
+            <label class="title"></label>
+            <div class="item-cont">
+                <textarea class="medium" id="about_product" name="about_product" placeholder="About the product"></textarea>
+                <span class="icon-place"></span>
+            </div>
+        </div>
+        <div class="element-rating">
+            <label class="title">Product Rating
+                <span>*</span>
+            </label>
+            <div class="rating">
+                <input type="radio" class="rating-input" id="rating-5" name="rating" value="5">
+                <label for="rating-5" class="rating-star"></label>
+                <input type="radio" class="rating-input" id="rating-4" name="rating" value="4">
+                <label for="rating-4" class="rating-star"></label>
+                <input type="radio" class="rating-input" id="rating-3" name="rating" value="3">
+                <label for="rating-3" class="rating-star"></label>
+                <input type="radio" class="rating-input" id="rating-2" name="rating" value="2">
+                <label for="rating-2" class="rating-star"></label>
+                <input type="radio" class="rating-input" id="rating-1" name="rating" value="1">
+                <label for="rating-1" class="rating-star"></label>
+            </div>
+        </div>
+        <div class="element-file">
+            <label class="title">
+                <span>*</span>
+            </label>
+            <div class="item-cont">
+                <label class="large">
+                    <div class="button">Choose</div>
+                    <input type="file" class="file_input" name="img_product" id="img_product">
+                    <div class="file_text">Choose a picture for your product</div>
+                    <span class="icon-place"></span>
+                </label>
+            </div>
+        </div>
+        <div class="submit">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#form_d').submit(function(e) {
+        e.preventDefault();
+
+        var f_d = new FormData(this);
+
+        var name_product = $("#name_product").val();
+        f_d.append('name_p', name_product);
+
+        var price_product = $("#price_product").val();
+        f_d.append('price_p', price_product);
+
+        var about_product = $("#about_product").val();
+        f_d.append('about_p', about_product);
+
+        var rating = $("input[name='rating']:checked").val();
+        f_d.append('rating', rating);
+
+        var img_product = $("#img_product")[0].files[0];
+        f_d.append('img_p', img_product);
+
+        $.ajax({
+            url: "{{ route('insert_product.data') }}",
+            method: "POST",
+            data: f_d,
+            dataType: 'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data) {
+
+                if (data.success_insert != "yes") {
+                    $("#alert").html(data.name_product + "<br>" +
+                        data.price_product + "<br>" +
+                        data.about_product + "<br>" +
+                        data.img_product);
+                } else {
+
+                    //window.location.href="/";
+                }
+
+            }
+        });
+    });
+});
+
+</script>
+
+
+</pre></div><div class="margin-top-40 margin-bottom-40 16"><p onclick="remove_o_c(16)">We create index.blade.php. File where you can see all uploaded products and other things
+
+index.blade.php
+</p><pre class="brush:php">@extends('style')
+@section('content')
+@include('navbar')
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">
+                    <h3><span class="orange-text">All</span> Products</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach($data as $row)
+            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{ route('show.product',$row['id']) }}"><img src="{{asset('images')}}/{{$row['img_product']}}"></a>
+                    </div>
+                    <h3>{{ $row['name_product'] }}</h3>
+                    @php $start=1; @endphp
+                    @while($start &lt;= 5) @if($row['rating'] &lt; $start) <span class="fa fa-star"></span>
+                        @else
+                        <span class="fa fa-star checked"></span>
+                        @endif
+                        @php $start++; @endphp
+                        @endwhile
+                        <br>
+                        ${{ $row['price_product'] }}
+                        <br>
+                        @if(Auth::id() != $row['user_id'])
+                        <div class="alert_e">
+                        </div>
+                        <a class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        @endif
+                        <input type="hidden" id="seller_user" value="{{ $row['user_id'] }}">
+                        <input type="hidden" id="id_product" value="{{  $row['id'] }}">
+                        <input type="hidden" id="price_pro_t" value="{{ $row['price_product'] }}">
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+@endsection
+</pre></div><div class="margin-top-40 margin-bottom-40 17"><p onclick="remove_o_c(17)">Now we want to display the selected product, to do this create a file
+
+show_product.blade
+
+</p><pre class="brush:php">@extends('style')
+@section('content')
+@include('navbar')
+<div class="single-product mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="single-product-img">
+                    <img src="{{ asset('images')}}/{{ $data_product->img_product }}">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="single-product-content">
+                    <h3>{{ $data_product-&gt;name_product }}</h3>
+                    @php $start=1; @endphp
+                    @while($start &lt;= 5) @if($data_product-&gt;rating &lt; $start) <span class="fa fa-star"></span>
+                            @else
+                            <span class="fa fa-star checked"></span>
+                            @endif
+                            @php $start++; @endphp
+                            @endwhile
+                            <p class="single-product-pricing">
+                                ${{ $data_product-&gt;price_product }}
+                            </p>
+                            <p>
+                                {{ $data_product-&gt;about_product }}
+                            </p>
+                            @if(Auth::id() != $data_product-&gt;user_id)
+                            <div class="single-product-form">
+                                <form method="post">
+                                    {{ csrf_field() }}
+                                    <input type="number" id="price_pro_t" placeholder="0">
+                                </form>
+                                <div class="alert_e">
+                                </div>
+                                <a class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            </div>
+                            @endif
+                            <input type="hidden" id="seller_user" value="{{ $data_product->user_id }}">
+                            <input type="hidden" id="id_product" value="{{ $data_product->id }}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+</pre></div><div class="margin-top-40 margin-bottom-40 18"><p onclick="remove_o_c(18)">If you want to see the products you put in the shopping cart
+
+carts.blade.php
+
+</p><pre class="brush:php">@extends('style')
+
+@section('content')
+
+@include('navbar')
+
+<div class="cart-section mt-150 mb-150">
+ <div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-12">
+     <div class="cart-table-wrap">
+       <div class="alert_tp">
+           
+         </div>
+           @foreach($d_cart as $row)
+              
+                {{ csrf_field() }}
+                
+           @endforeach
+         <table class="cart-table">
+         <thead class="cart-table-head">
+          <tr class="table-head-row">
+              <th class="product-remove"></th>
+        <th class="product-image">Product Image</th>
+        <th class="product-name">Name</th>
+        <th class="product-price">Price</th>
+        <th class="product-quantity">Quantity</th>
+          </tr>
+         </thead>
+         
+         <tbody><tr class="table-body-row">
+                <td class="product-remove">×</td>
+                <td class="product-image"><img src="{{ asset('images')}}/{{ $row->img_product }}"></td>
+                <td class="product-name">{{ $row-&gt;name_product }}</td>
+                <td class="pr8oduct-price">{{ $row-&gt;product_price }}</td>
+              <form method="post" id="f_uppro"></form><td class="product-quantity">
+                  <input type="number" id="n_pr_" placeholder="0" value="{{$row->product_price}}">
+                </td>
+                <td class="product-total">
+                  <input type="submit" value="Save" class="btn btn-primary btn-lg active">
+                </td>
+             
+              </tr>
+              <input type="hidden" id="id_cart_table" value="{{ $row->id }}"></tbody>
+       </table>
+     </div>
+    </div>
+  </div>
+ </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("#f_uppro").submit(function(e){
+        e.preventDefault();
+
+        var id_cart=$("#id_cart_table").val();
+        var ne_price=$("#n_pr_").val();
+
+        $.ajax({
+           url:"{{ route('up_price.product') }}",
+           method:"post",
+           data:{"_token":"{{ csrf_token() }}",id_cart:id_cart,ne_price:ne_price},
+           success:function(data)
+           {
+             $(".alert_tp").html(data);
+           }
+         });
+      });
+  });
+</script>
+@endsection</pre></div><div class="margin-top-40 margin-bottom-40 19"><p onclick="remove_o_c(19)">
+Sometimes we want to update our data
+
+ed_profile_us.blade.php
+</p><pre class="brush:php">@extends('style')
+@section('content')
+@include('navbar')
+<br>
+<br>
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" src="{{ asset('assets/profile.jpg') }}" width="90">
+                <span class="font-weight-bold">
+                    {{ Auth::user()-&gt;name }}
+                </span>
+                <span class="text-black-50">
+                    {{ Auth::user()-&gt;email }}
+                </span>
+                <span>
+                    {{ Auth::user()-&gt;address }}
+                </span>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-right">Edit Profile</h6>
+                </div>
+                @if(session()-&gt;has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session()-&gt;get('success') }}
+                </div>
+                @endif
+                <form method="post" action="{{ url('/update_d_us') }}">
+                    {{ csrf_field() }}
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="username" placeholder="User name" value="{{ Auth::user()->name }}">
+                            <span style="color:red;">
+                                @if($errors-&gt;has('username'))
+                                {{ $errors-&gt;first('username') }}
+                                @endif
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="email" placeholder="Email" value="{{ Auth::user()->email }}">
+                            <span style="color:red;">
+                                @if($errors-&gt;has('email'))
+                                {{ $errors-&gt;first('email') }}
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" name="password" placeholder="password" value="">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" value="" name="password_confirmation" placeholder="confirm password">
+                        </div>
+                    </div>
+                    <span style="color:red;">
+                        @if($errors-&gt;has('password'))
+                        {{ $errors-&gt;first('password') }}
+                        @endif
+                    </span>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="address" placeholder="your residential address" value="{{ Auth::user()->address }}">
+                            <span style="color:red;">
+                                @if($errors-&gt;has('address'))
+                                {{ $errors-&gt;first('address') }}
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-5 text-right">
+                        <input type="submit" value="Save Profile">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+</pre></div>
+
+<div class="margin-top-40 margin-bottom-40 19">
+ <p onclick="remove_o_c(19)">
+   Create Routes in web.php
+ </p>
+<pre class="brush:php">
+<&#63;php
+use Illuminate\Support\Facades\Route;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+Route::get('/register', function () {
+    return view('/register');
+});
+
+Route::get('/carts',[App\Http\Controllers\userController::class,'sh_cart']);
+
+Route::get('/',[App\Http\Controllers\userController::class,'index']);
+
+Route::get('/product_sh/{id}',[App\Http\Controllers\userController::class,'S_product'])->name('show.product');
+
+Route::get('/insert',function(){
+    return view('insert_product_d');
+});
+
+Route::get('/cart',function(){
+ return view('cart');
+});
+
+Route::get('/edit_profile',function(){
+   return view('ed_profile_us');
+});
+
+Route::post('/remove_p_f_the_cart',[App\Http\Controllers\userController::class,'r_product_f_cart']);
+
+Route::post('/up_pri_cart',[App\Http\Controllers\userController::class,'cart_price_up'])->name('up_price.product');
+
+Route::post('/update_d_us',[App\Http\Controllers\userController::class,'update_d']);
+
+Route::post('/Add_Cart',[App\Http\Controllers\userController::class,'add_cart'])->name('add.cart');
+
+Route::get('/Logout',[App\Http\Controllers\userController::class,'logout']);
+
+Route::post('/insert',[App\Http\Controllers\userController::class,'insert'])->name('insert.data');
+
+Route::post('/ch_l',[App\Http\Controllers\userController::class,'check_login'])->name('check.data');
+
+Route::post('/insert_d_product',[App\Http\Controllers\userController::class,'insert_pro'])->name('insert_product.data');
+&#63;>
+ </pre>
+</div>     
+         </div>
+                                    </div>
+                                    <div id="pro_f">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Start -->
+                    <div class="col-md-12 page-body margin-top-50 footer">
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+    SyntaxHighlighter.all();
+
+    $("#pro_f").load('../pro_f.html');
+    $(".footer").load('../footer.html');
+    $("#interface_ifrm_me").load('../interface_ifrm_me.html');
+    </script>
+</body>
+</html>
